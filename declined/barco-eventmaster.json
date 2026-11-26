@@ -1,0 +1,9 @@
+{
+  "id": "barco-eventmaster",
+  "repo": "https://github.com/bitfocus/companion-module-barco-eventmaster",
+  "commit": "8702409adc88ff4dad0cb69b67b6b342a3284c2b",
+  "why": "build",
+  "detail": "the bundled library barco-eventmaster 9.1.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

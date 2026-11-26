@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "axeltechnology-youplay",
+  "name": "AxelTech YouPlay",
+  "description": "Module made to work with YouPlay that controls the first 4 instances",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-axeltechnology-youplay",
+    "commit": "9ad20bdb97a10b91464fb54b72167c888ee8cac0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

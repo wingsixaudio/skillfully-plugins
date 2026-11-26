@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "brainstorm-suite",
+  "name": "Brainstorm Multimedia Brainstorm Suite",
+  "description": "Module to control Brainstorm Suite",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-brainstorm-suite",
+    "commit": "f1a6579dd27fe60216c807bd72152011c03f44f9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

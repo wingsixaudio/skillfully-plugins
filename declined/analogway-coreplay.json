@@ -1,0 +1,9 @@
+{
+  "id": "analogway-coreplay",
+  "repo": "https://github.com/bitfocus/companion-module-analogway-coreplay",
+  "commit": "816d77c3ac50464258d6281942165f3ce646e9df",
+  "why": "build",
+  "detail": "the bundled library buffer-equal 0.0.1 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "birddog-connect",
+  "repo": "https://github.com/bitfocus/companion-module-birddog-connect",
+  "commit": "85bc034cf6cde54e12f5549cc23e9d779fbbb2f2",
+  "why": "build",
+  "detail": "the bundled library ag-channel 5.0.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

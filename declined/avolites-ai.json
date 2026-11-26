@@ -1,0 +1,9 @@
+{
+  "id": "avolites-ai",
+  "repo": "https://github.com/bitfocus/companion-module-avolites-ai",
+  "commit": "07c6024fb13e8178d2d11f4f0d178a0e88ba06ee",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

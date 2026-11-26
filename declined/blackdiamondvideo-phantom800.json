@@ -1,0 +1,9 @@
+{
+  "id": "blackdiamondvideo-phantom800",
+  "repo": "https://github.com/bitfocus/companion-module-blackdiamondvideo-phantom800",
+  "commit": "5c7a51b8be2edfa24d2ed755249cec1e0a3b357d",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

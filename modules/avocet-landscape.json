@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avocet-landscape",
+  "name": "Avocet RT Ltd StreamDeck Interface",
+  "description": "Landscape Cues Panel",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avocet-landscape",
+    "commit": "c9ecad8a754fb29af64685755aba60639f712788"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "captionkit-api",
+  "name": "CaptionKit API",
+  "description": "Control captionkit.io transcription and translation via their API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-captionkit-api",
+    "commit": "44f051ae0880d9d13b28531aff1b500a4ac2fa10"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "allnet-msr",
+  "repo": "https://github.com/bitfocus/companion-module-allnet-msr",
+  "commit": "2f2ed62782bd979502393bd67f56bb1c7e8d6db7",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

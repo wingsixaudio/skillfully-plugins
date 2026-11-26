@@ -1,0 +1,9 @@
+{
+  "id": "avmatrix-shark",
+  "repo": "https://github.com/bitfocus/companion-module-avmatrix-shark",
+  "commit": "4b6cc4c913a5a7ee31a54fdf02f7b9f69e47fcb7",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "betr-support",
+  "name": "Betr Production Betr Support",
+  "description": "Betr support webhook",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-betr-support",
+    "commit": "6d1e7677d82895e1b657f118e9137e2ebccefec6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

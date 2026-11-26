@@ -1,0 +1,9 @@
+{
+  "id": "astrastudio-onairscreen",
+  "repo": "https://github.com/bitfocus/companion-module-astrastudio-onairscreen",
+  "commit": "ef13fe6b6c2d2d3463911b905a66cb1ccfc5aa45",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

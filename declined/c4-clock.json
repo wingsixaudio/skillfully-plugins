@@ -1,0 +1,9 @@
+{
+  "id": "c4-clock",
+  "repo": "https://github.com/bitfocus/companion-module-c4-clock",
+  "commit": "3780c1ccfd416e7c80f7e4617426c87047f8fc20",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

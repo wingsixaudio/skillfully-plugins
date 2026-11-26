@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bmd-cameras",
+  "name": "Blackmagic Design Blackmagic Cameras API",
+  "description": "Control and monitor Blackmagic cameras over REST and WebSocket APIs",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bmd-cameras",
+    "commit": "ccd2f9565197a76a0e031b01bc6c8a352b7b503a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

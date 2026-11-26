@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avolites-titan",
+  "name": "Avolites Titan",
+  "description": "Module for controlling Avolites Titan",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avolites-titan",
+    "commit": "7b4c984503a4a598a9f450e86eff237296846b2b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

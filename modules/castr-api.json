@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "castr-api",
+  "name": "castr.io API v2",
+  "description": "castr.io API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-castr-api",
+    "commit": "bf6232af054efdff33893587841aab80041e7adf"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

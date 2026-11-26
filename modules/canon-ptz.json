@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "canon-ptz",
+  "name": "Canon CR-N100, CR-N300",
+  "description": "Companion module for Canon PTZ Cameras using the XC Protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-canon-ptz",
+    "commit": "3351ec2df790ee1d8808132bff310baa7e199466"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

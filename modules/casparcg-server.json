@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "casparcg-server",
+  "name": "CasparCG Server",
+  "description": "CasparCG module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-casparcg-server",
+    "commit": "21b5dbcadf37536ec539c70a19b169f8bc506d75"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

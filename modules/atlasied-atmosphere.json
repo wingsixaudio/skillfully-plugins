@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "atlasied-atmosphere",
+  "name": "AtlasIED Atmosphere",
+  "description": "Controls AtlasIED Atmopshere devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-atlasied-atmosphere",
+    "commit": "082dbc1a850b4fbf3fe3298acc48b12603cfde69"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cablematters-matrix",
+  "name": "Cable Matters Matrix",
+  "description": "Cable Matters HDMI Matrix",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cablematters-matrix",
+    "commit": "33215f749e7f780e7cdb35318a6b478fd573a58b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "audinate-dantecontroller",
+  "repo": "https://github.com/bitfocus/companion-module-audinate-dantecontroller",
+  "commit": "97fe88b876acc45f55305772fe5584de9dcc3029",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

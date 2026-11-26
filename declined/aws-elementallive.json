@@ -1,0 +1,9 @@
+{
+  "id": "aws-elementallive",
+  "repo": "https://github.com/bitfocus/companion-module-aws-elementallive",
+  "commit": "15f3fbb071a3555b0a198dddf57f76af10df8896",
+  "why": "build",
+  "detail": "the bundled library @nodable/entities 3.1.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

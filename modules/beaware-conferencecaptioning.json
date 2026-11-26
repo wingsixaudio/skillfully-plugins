@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "beaware-conferencecaptioning",
+  "name": "BeAware ConferenceCaptioning",
+  "description": "Control ConferenceCaptioning's on-device transcription and translation AI service",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-beaware-conferencecaptioning",
+    "commit": "c00564a69b3ff2d4478f967931bad4ad0b03b2fa"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

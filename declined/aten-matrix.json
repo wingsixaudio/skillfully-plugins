@@ -1,0 +1,9 @@
+{
+  "id": "aten-matrix",
+  "repo": "https://github.com/bitfocus/companion-module-aten-matrix",
+  "commit": "d2c62ea8140b1f2eb55a8196cc27bdaa923bafa3",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

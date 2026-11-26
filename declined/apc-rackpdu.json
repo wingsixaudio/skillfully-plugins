@@ -1,0 +1,9 @@
+{
+  "id": "apc-rackpdu",
+  "repo": "https://github.com/bitfocus/companion-module-apc-rackpdu",
+  "commit": "e23bac3b7242d9c75a701348172113371ff4dad8",
+  "why": "build",
+  "detail": "the bundled library long-timeout 0.1.1 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bitfocusas-listener",
+  "name": "Bitfocus Listener",
+  "description": "Send key presses, control the mouse, execute shell commands, and more on a remote computer.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bitfocusas-listener",
+    "commit": "8c747befd607d127ea875468c28fe2db571c7c3f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

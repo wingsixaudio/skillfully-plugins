@@ -1,0 +1,9 @@
+{
+  "id": "canon-controller",
+  "repo": "https://github.com/bitfocus/companion-module-canon-controller",
+  "commit": "bcfee51a3215aff7b41f83c96bbeef543d21c840",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "analogway-awj",
+  "repo": "https://github.com/bitfocus/companion-module-analogway-awj",
+  "commit": "ce266b0ca2b8c6d5c483b6b7cda4411c3232234f",
+  "why": "build",
+  "detail": "listing what gets bundled failed: at maybeClose \\(node:internal/child\\_process:1101:16\\) at ChildProcess.\\_handle.onexit \\(node:internal/child\\_process:304:5\\) at Process.callbackTrampoline \\(node:internal/async\\_hooks:130:17\\) { \\_code: 1, \\_signal: null, \\_stdout: 'yarn run v1.22.22\\\\n' + 'info Vi",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

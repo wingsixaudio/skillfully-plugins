@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "audivero-unityintercom-client",
+  "name": "Audivero Unity Intercom Client",
+  "description": "Controls Audivero Unity Intercom Client through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-audivero-unityintercom-client",
+    "commit": "97202e8233c87d79bc6a11bf1647920d7bae2a94"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

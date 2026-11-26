@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "calrec-cscp",
+  "name": "Calrec CSCP",
+  "description": "Calrec CSCP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-calrec-cscp",
+    "commit": "255422083be39209a0f4455cd504640ff10afa4f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

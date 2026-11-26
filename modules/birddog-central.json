@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "birddog-central",
+  "name": "BirdDog Central",
+  "description": "This module controls BirdDog Central 2.0 software.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-birddog-central",
+    "commit": "ea338a97fb4664e942edb1cab7d93915f6250daa"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "biamp-qtx",
+  "name": "Biamp Qt X",
+  "description": "Control Biamp Qt X sound masking systems",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-biamp-qtx",
+    "commit": "4f8d123d4e4f8d1a95ad4655d8aad8d72b66c697"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

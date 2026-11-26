@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "axeltechnology-xplayout",
+  "name": "AxelTech XPlayout",
+  "description": "xplayout commands",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-axeltechnology-xplayout",
+    "commit": "155e115893ff6db36bd6b5e3289e0324cfd683bb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

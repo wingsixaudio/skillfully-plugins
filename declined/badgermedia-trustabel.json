@@ -1,0 +1,9 @@
+{
+  "id": "badgermedia-trustabel",
+  "repo": "https://github.com/bitfocus/companion-module-badgermedia-trustabel",
+  "commit": "6f146ba7ae372f6423942ef76cd33582a1cf121b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

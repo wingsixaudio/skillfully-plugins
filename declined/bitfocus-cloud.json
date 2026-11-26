@@ -1,0 +1,9 @@
+{
+  "id": "bitfocus-cloud",
+  "repo": "https://github.com/bitfocus/companion-module-bitfocus-cloud",
+  "commit": "00f37d9fe7d07fe3254d897fb0d1133df87d4fa9",
+  "why": "build",
+  "detail": "the bundled library ag-channel 5.0.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

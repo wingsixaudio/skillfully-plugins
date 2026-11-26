@@ -1,0 +1,9 @@
+{
+  "id": "autodirector-mirusuite",
+  "repo": "https://github.com/bitfocus/companion-module-autodirector-mirusuite",
+  "commit": "0a61715acbc71a2eaf5a66b97c1722f0eae11680",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

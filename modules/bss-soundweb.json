@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bss-soundweb",
+  "name": "BSS Soundweb London",
+  "description": "Module for controlling BSS Soundweb London devices using the London Direct Inject (DI) protocol.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bss-soundweb",
+    "commit": "098a084fc581b6ca585e7a79ba0c1fcc2b12dbff"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

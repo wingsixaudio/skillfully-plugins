@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "analogway-livecore",
+  "name": "Analog Way LiveCore series",
+  "description": "Analog Way Livecore series seamless switcher plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-analogway-livecore",
+    "commit": "82a50aac86077a83532f9b9d87ed96b7ea1da466"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

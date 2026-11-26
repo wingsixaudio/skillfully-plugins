@@ -1,0 +1,9 @@
+{
+  "id": "bitfocus-voice",
+  "repo": "https://github.com/bitfocus/companion-module-bitfocus-voice",
+  "commit": "",
+  "why": "release",
+  "detail": "its author has not released a version",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

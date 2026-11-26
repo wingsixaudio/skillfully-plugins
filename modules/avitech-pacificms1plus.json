@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avitech-pacificms1plus",
+  "name": "Avitech Pacific MS 1Plus",
+  "description": "Control module for the Avitech Pacific MS 1Plus Series",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avitech-pacificms1plus",
+    "commit": "9ec79fe8bf3e7b2f5fab99cee7de01d5ea66b11e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

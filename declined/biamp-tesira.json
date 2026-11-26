@@ -1,0 +1,9 @@
+{
+  "id": "biamp-tesira",
+  "repo": "https://github.com/bitfocus/companion-module-biamp-tesira",
+  "commit": "55f2bc2a0122a1775f0bb73bc908359bb9f48e57",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

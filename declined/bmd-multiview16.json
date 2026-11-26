@@ -1,0 +1,9 @@
+{
+  "id": "bmd-multiview16",
+  "repo": "https://github.com/bitfocus/companion-module-bmd-multiview16",
+  "commit": "7b40bc40202779e0ff83a7f36912815da0f2fe35",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

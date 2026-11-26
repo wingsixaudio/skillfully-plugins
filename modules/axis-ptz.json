@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "axis-ptz",
+  "name": "Axis Communications PTZ Camera",
+  "description": "Companion module for axis PTZ Cameras",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-axis-ptz",
+    "commit": "8da5748009f58c94231efe288f08295a32a21ed4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

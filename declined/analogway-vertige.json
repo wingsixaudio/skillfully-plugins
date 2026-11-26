@@ -1,0 +1,9 @@
+{
+  "id": "analogway-vertige",
+  "repo": "https://github.com/bitfocus/companion-module-analogway-vertige",
+  "commit": "b1441fb98f724727aa53a4e01f01484eb437b3a2",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

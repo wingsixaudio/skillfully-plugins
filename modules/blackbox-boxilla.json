@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "blackbox-boxilla",
+  "name": "Blackbox Boxilla",
+  "description": "Control of the boxilla software from Blackbox",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-blackbox-boxilla",
+    "commit": "8c1a1f36483595eb8736af0830b3d4f708e0d5de"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

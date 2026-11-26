@@ -1,0 +1,9 @@
+{
+  "id": "bmd-atem",
+  "repo": "https://github.com/bitfocus/companion-module-bmd-atem",
+  "commit": "481d4fa187794c7ba8ab045ee9e2ce904b456b1c",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ballscore-broadcast",
+  "name": "Ball Score Broadcast",
+  "description": "Ball Score remote for controling CG broadcast components",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ballscore-broadcast",
+    "commit": "c59ff19fd71b941d24280bad0f71b1090e93a630"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

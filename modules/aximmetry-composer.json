@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aximmetry-composer",
+  "name": "Aximmetry Composer",
+  "description": "Companion module for Aximmetry Composer",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aximmetry-composer",
+    "commit": "4ef458e85cd1f8c054b941294d13641db4de543b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

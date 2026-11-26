@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "analogway-midra",
+  "name": "Analog Way Midra, Eikos2",
+  "description": "Analog Way Midra series seamless switcher plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-analogway-midra",
+    "commit": "8f068214c395330a2e837f547c5313fdac2abc3f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

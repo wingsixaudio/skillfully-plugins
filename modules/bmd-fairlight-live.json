@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bmd-fairlight-live",
+  "name": "Blackmagic Design Fairlight Live",
+  "description": "Control Fairlight Live audio mixer via OSC",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bmd-fairlight-live",
+    "commit": "e4e47a54dfb50fdfb6f206ccda78e015a50a6677"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
