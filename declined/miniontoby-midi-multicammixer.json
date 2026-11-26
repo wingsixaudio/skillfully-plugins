@@ -1,0 +1,9 @@
+{
+  "id": "miniontoby-midi-multicammixer",
+  "repo": "https://github.com/bitfocus/companion-module-miniontoby-midi-multicammixer",
+  "commit": "e2303539a34c0ccd68a3f1e8e0eef9188a12150b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

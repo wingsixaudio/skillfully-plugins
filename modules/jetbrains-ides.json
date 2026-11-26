@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "jetbrains-ides",
+  "name": "JetBrains IDEs",
+  "description": "Adds integration with the Stream Deck plugin available in all JetBrains IDEs",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-jetbrains-ides",
+    "commit": "1f2a9cafdc3aa0d0f242f77d3c705aedaf3775b0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "noismada-octopusshowcontrol",
+  "name": "Octopus Listener",
+  "description": "Octopus Listener plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-noismada-octopusshowcontrol",
+    "commit": "10f46519a98574f191c265a401551737e4e7296d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "luminex-gigacore",
+  "repo": "https://github.com/bitfocus/companion-module-luminex-gigacore",
+  "commit": "6bcdd6efb710e7d9c89ab39d2dbd6070b723670a",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

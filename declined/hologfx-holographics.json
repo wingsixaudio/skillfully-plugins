@@ -1,0 +1,9 @@
+{
+  "id": "hologfx-holographics",
+  "repo": "https://github.com/bitfocus/companion-module-hologfx-holographics",
+  "commit": "cc1f509bb184a71cef4f371d1475f7b14020e16d",
+  "why": "build",
+  "detail": "the bundled library component-bind 1.0.0 is under \"no license\", which the store does not hand out",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

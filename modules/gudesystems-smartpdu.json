@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "gudesystems-smartpdu",
+  "name": "Gude Systems Smart PDU",
+  "description": "Companion module for Gude Systems Smart PDU devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-gudesystems-smartpdu",
+    "commit": "b4c2ae84c3590502d04f5a1a445f9d22a8127e39"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

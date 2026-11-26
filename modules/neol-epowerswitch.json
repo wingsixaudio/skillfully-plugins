@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "neol-epowerswitch",
+  "name": "NeoL ePowerSwitch 4",
+  "description": "HTTP control for NeoL ePowerSwitch 4 R3",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-neol-epowerswitch",
+    "commit": "cbf4b6a6ff462499045263d0045df69fc087c304"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kernels-power-sequencer",
+  "name": "KernelS PS108 II",
+  "description": "Control KernelS Power Sequencer",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kernels-powersequencer",
+    "commit": "8dc5c626db5f211be55a7059a2e3ac530038c0d4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

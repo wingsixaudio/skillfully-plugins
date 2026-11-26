@@ -1,0 +1,9 @@
+{
+  "id": "ntp-technology-dot",
+  "repo": "https://github.com/bitfocus/companion-module-ntp-technology-dot",
+  "commit": "507f2866b39cbff57d3f09c4abaa7ee2537c7295",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

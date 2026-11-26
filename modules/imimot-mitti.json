@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "imimot-mitti",
+  "name": "Imimot Mitti",
+  "description": "Companion plugin for Mitti, a modern, feature-packed but easy-to-use pro video playback solution for live events and exhibitions.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-imimot-mitti",
+    "commit": "c2fd27905182ec990f336e21bec7b587df5529f4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

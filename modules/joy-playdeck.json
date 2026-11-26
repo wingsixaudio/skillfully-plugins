@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "joy-playdeck",
+  "name": "JOY event & media Playdeck",
+  "description": "Playdeck (Video Playout Software)",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-joy-playdeck",
+    "commit": "3fb9bb1d9e9b4769355a7386587ea1af01c9edd2"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

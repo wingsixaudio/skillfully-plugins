@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "novastar-switcher",
+  "name": "NovaStar N10, N20",
+  "description": "Companion module for NovaStar Switcher Devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-novastar-switcher",
+    "commit": "115af6bf9cb872618eb194ffd1e15a698f8dbd20"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "idk-msd",
+  "name": "IDK MSD-V4, MSD-V6",
+  "description": "Module to control IDK MSD processors",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-idk-msd",
+    "commit": "51e8c8c78bf0397fad13b5173c0708daf3c0ea12"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

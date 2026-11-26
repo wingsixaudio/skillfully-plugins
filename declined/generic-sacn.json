@@ -1,0 +1,9 @@
+{
+  "id": "generic-sacn",
+  "repo": "https://github.com/bitfocus/companion-module-generic-sacn",
+  "commit": "8da35b2c19a79a7bb0978c8e5a86ec7084259a1c",
+  "why": "start",
+  "detail": "companion-generic-sacn was not ready in 30000 ms: it stopped with exit code 1: [debug] Initializing Failed to startup module: NotCapable: Requires sys access to \"networkInterfaces\", run again with the --allow-sys flag at Object.networkInterfaces (ext:deno_os/30_os.js:1:742) at Object.networkInterfac",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

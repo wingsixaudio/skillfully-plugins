@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kiloview-decoder",
+  "name": "Kiloview D350, D260",
+  "description": "Control Kiloview Dxx decoders (decoder-hi3536) and MG300V2 Media Gateway devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kiloview-decoder",
+    "commit": "16382d7b66ae860f0aea1d09432a8ccf76b70f4e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kkt-visioncontrol",
+  "name": "KKT Künzler Technologies Vision Control",
+  "description": "Controls the Vision Control app (KKT Künzler Technologies) through its local REST API: scenes, colors, dimmer, effects and sound trigger.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kkt-visioncontrol",
+    "commit": "8661047fea92f3a2ac6508b9d053b6bcea796ad6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

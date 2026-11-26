@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "innosonix-maxx",
+  "name": "Innosonix Maxx",
+  "description": "Module for controlling Innosonix Maxx Devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-innosonix-maxx",
+    "commit": "bf38a94b7c11f4481ea63cb83e306d8deef52de7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

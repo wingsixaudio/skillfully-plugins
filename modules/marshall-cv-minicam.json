@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "marshall-cv-minicam",
+  "name": "Marshall CV5XX minicam",
+  "description": "Control mashall CV5xx series minicam",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-marshall-cv-minicam",
+    "commit": "e60a29acc433023e208f28b20ac5c34907c78466"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

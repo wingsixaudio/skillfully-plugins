@@ -1,0 +1,9 @@
+{
+  "id": "govee-lights",
+  "repo": "https://github.com/bitfocus/companion-module-govee-lights",
+  "commit": "f62de7f78e98e5e0d6288942649b75a3c93a4af8",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

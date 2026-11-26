@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "leonreucher-vstopowerpoint",
+  "name": "Leon Reucher PowerPoint Remote VSTO WebSocket",
+  "description": "Module for controlling the Microsoft PowerPoint desktop application using a custom websocket plugin",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-leonreucher-vstopowerpoint",
+    "commit": "8784939d3b1c1204689cbde85810a36caee15fd9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

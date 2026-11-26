@@ -1,0 +1,9 @@
+{
+  "id": "middleman-breaktime",
+  "repo": "https://github.com/bitfocus/companion-module-middleman-breaktime",
+  "commit": "1189ab71b52f9ba2fb3a1846afcda80f1e06de6b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

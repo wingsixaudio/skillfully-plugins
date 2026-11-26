@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "lyntec-rpc-breaker",
+  "name": "LynTec LynTec RPC",
+  "description": "LynTec RPC plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-lyntec-rpc-breaker",
+    "commit": "a82c9e3c1a1198fc5c2689ca5161922c10e12e99"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

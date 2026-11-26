@@ -1,0 +1,9 @@
+{
+  "id": "neumannmueller-stageflow",
+  "repo": "https://github.com/bitfocus/companion-module-neumannmueller-stageflow",
+  "commit": "ddf4b469ada32284dc32352cc608b6bf7d5e4326",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

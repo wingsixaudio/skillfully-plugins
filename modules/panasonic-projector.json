@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "panasonic-projector",
+  "name": "Panasonic Projector",
+  "description": "Module implements the NTCONTROL protocol for panasonic projectors.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-panasonic-projector",
+    "commit": "33d0d3960641cca9024961717371cfc47edee67e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

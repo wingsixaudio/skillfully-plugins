@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "meyersound-galaxy",
+  "name": "Meyer Sound Galaxy",
+  "description": "Auto-discover and control Meyer Sound Galaxy devices (408, 816, 816-AES, Bluehorn) via TCP.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-meyersound-galaxy",
+    "commit": "bc6c12b53d2565c8b397889f1ed6acb6a59613e6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

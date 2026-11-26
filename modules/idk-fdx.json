@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "idk-fdx",
+  "name": "IDK FDX-S",
+  "description": "Module to control IDK FDX-S processors",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-idk-fdx",
+    "commit": "03115f8dad9fefab56ab42d07aedf400a3d403ae"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

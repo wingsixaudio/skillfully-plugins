@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kiloview-mediagateway",
+  "name": "Kiloview MG300V2, MG300V2-OEM",
+  "description": "Module to control Kiloview Media Gateway devices(MG300V2/RMG300V2) with full API integration",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kiloview-mediagateway",
+    "commit": "f51724f5bd7ce4d27cedc65acb2006ca2a059e87"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

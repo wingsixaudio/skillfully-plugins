@@ -1,0 +1,9 @@
+{
+  "id": "panasonic-camera-controller",
+  "repo": "https://github.com/bitfocus/companion-module-panasonic-camera-controller",
+  "commit": "b186699f25562e5cacd95cb61f2ee3781da0c663",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "osctimer-osctimer",
+  "repo": "https://github.com/bitfocus/companion-module-osctimer-osctimer",
+  "commit": "a5c0a3755c9a71760b28802a05155d451495868e",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

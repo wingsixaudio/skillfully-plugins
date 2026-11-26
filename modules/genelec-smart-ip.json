@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "genelec-smart-ip",
+  "name": "Genelec Smart IP",
+  "description": "Control Genelec Smart IP Installation Speakers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-genelec-smart-ip",
+    "commit": "f3da5e5abc36b769a4fd2ca439c32cab80ae6f98"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

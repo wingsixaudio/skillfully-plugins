@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pixelhue-switcher",
+  "name": "Pixelhue P10, P20",
+  "description": "Companion module for Pixelhue Switcher Devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pixelhue-switcher",
+    "commit": "47d21cf60c5115f6d28d06432228217cdefdca9f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

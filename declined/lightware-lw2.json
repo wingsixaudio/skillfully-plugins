@@ -1,0 +1,9 @@
+{
+  "id": "lightware-lw2",
+  "repo": "https://github.com/bitfocus/companion-module-lightware-lw2",
+  "commit": "718be6389dc9598e918e7ee7f4f34a04ce43329f",
+  "why": "build",
+  "detail": "compiling its TypeScript failed: npm error npx canceled due to missing packages and no YES option: [\"tsc@2.0.4\"] npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-11-26T22_17_44_808Z-debug-0.log",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

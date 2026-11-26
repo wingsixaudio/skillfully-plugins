@@ -1,0 +1,9 @@
+{
+  "id": "itsblue-scstw",
+  "repo": "https://github.com/bitfocus/companion-module-itsblue-scstw",
+  "commit": "77f89cab3ef0e4de0a1b7bab193dcfc7a5688fef",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

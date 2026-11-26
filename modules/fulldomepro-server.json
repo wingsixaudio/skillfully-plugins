@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "fulldomepro-server",
+  "name": "Fulldome.pro Projection Server",
+  "description": "Fulldome.pro Projection server plug-in for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-fulldomepro-server",
+    "commit": "e01516f9f15b4b1571a1d771f35dc9995b271d40"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

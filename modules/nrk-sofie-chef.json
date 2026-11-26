@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "nrk-sofie-chef",
+  "name": "NRK Sofie Chef",
+  "description": "Module for controlling NRK Sofie Chef devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-nrk-sofie-chef",
+    "commit": "1ebd1053c5161f9b3cf690f4f93acefd8f0f1e59"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

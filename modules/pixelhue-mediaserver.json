@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pixelhue-mediaserver",
+  "name": "Pixelhue MS3, MS3 Pro",
+  "description": "Companion module for the Pixelhue Media-Server Products",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pixelhue-mediaserver",
+    "commit": "e68f494de5fd0d473b705ecb3dff8efd61a94ec4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

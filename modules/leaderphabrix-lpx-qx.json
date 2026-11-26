@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "leaderphabrix-lpx-qx",
+  "name": "LeaderPhabrix LPX500, Qx",
+  "description": "Leaderphabrix LPX500 & Phabrix Qx/ QxL/ QxP preset loader",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-leaderphabrix-lpx-qx",
+    "commit": "322e2cbaed2fbaa0b1c548a834c22d6fa88a669f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

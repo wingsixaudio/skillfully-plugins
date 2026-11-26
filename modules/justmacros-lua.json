@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "justmacros-lua",
+  "name": "JustMacros LUA",
+  "description": "Module to control JustMacros via Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-justmacros-lua",
+    "commit": "be7a2a00118c14512a705ae83d609ea84a92af63"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

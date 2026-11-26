@@ -1,0 +1,9 @@
+{
+  "id": "fora-mfr",
+  "repo": "https://github.com/bitfocus/companion-module-fora-mfr",
+  "commit": "4129201a6816014bbf8b86c027708dcf0fc30772",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

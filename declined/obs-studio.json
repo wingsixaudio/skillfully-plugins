@@ -1,0 +1,9 @@
+{
+  "id": "obs-studio",
+  "repo": "https://github.com/bitfocus/companion-module-obs-studio",
+  "commit": "65760a249b8190e398a25faad37bdc2da9a03379",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

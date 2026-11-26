@@ -1,0 +1,9 @@
+{
+  "id": "pixelhue-liveproductionswitcher",
+  "repo": "https://github.com/bitfocus/companion-module-pixelhue-liveproductionswitcher",
+  "commit": "5bcd5c016fb702a1e7f16fd9e5fcf5b0b51361ed",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

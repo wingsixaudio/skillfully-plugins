@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "panasonic-tv-th",
+  "name": "Panasonic TH-84EF1U, TH-75EF1U",
+  "description": "Panasonic TV TH Series",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-panasonic-tv-th",
+    "commit": "546c34fda9c6a5f48834d1432580a7a7873c530d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

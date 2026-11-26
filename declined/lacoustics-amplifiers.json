@@ -1,0 +1,9 @@
+{
+  "id": "lacoustics-amplifiers",
+  "repo": "https://github.com/bitfocus/companion-module-lacoustics-amplifiers",
+  "commit": "3f2132242bcbb14574921b3c609184b301cdd57f",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

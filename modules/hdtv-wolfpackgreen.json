@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "hdtv-wolfpackgreen",
+  "name": "HDTV WolfPackGreen HDMI Matrix",
+  "description": "HDTV WolfPackGreen HDMI Matrix plugin for companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-hdtv-wolfpackgreen",
+    "commit": "d5f8e74be695020ff4dc8d5b0b961cefeba372df"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

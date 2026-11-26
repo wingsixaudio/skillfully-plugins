@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "highpass-countdown",
+  "name": "Highpass Countdown",
+  "description": "Web-based countdown for displaying timer and Companion variables",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-highpass-countdown",
+    "commit": "aef8d9a63a56d76aaa582c1934846825b337994c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

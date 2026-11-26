@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "glensound-gtmmobile",
+  "name": "GlenSound GTM Mobile",
+  "description": "Control and feedback for GlenSound GTM Mobile intercom microphone units over Dante/UDP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-glensound-gtmmobile",
+    "commit": "233869f95785bdcccf5928df1b459e8bbfe4ca91"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

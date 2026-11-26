@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pixap-pixtimerpro",
+  "name": "piXap piXtimer Pro",
+  "description": "piXtimer Pro plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pixap-pixtimerpro",
+    "commit": "5a269e55fa928b28cec068e2913d4d537bc5525a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

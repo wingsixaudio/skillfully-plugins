@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "neodarque-stagetimer2",
+  "name": "Neodarque StageTimer2",
+  "description": "Companion module for StageTimer2",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-neodarque-stagetimer2",
+    "commit": "a7ad8b2c306139b42ae3f4e87607797032c27420"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

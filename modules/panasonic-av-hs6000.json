@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "panasonic-av-hs6000",
+  "name": "panasonic AV-HS6000",
+  "description": "Panasonic AV-HS6000 mixer module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-panasonic-av-hs6000",
+    "commit": "8a2c007b43d2122e71c23248c25b3484bfd04d20"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

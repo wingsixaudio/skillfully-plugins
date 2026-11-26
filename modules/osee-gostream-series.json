@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "osee-gostream-series",
+  "name": "OSEE GoStream_Series",
+  "description": "Companion module for GoStream products",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-osee-gostream-series",
+    "commit": "899af19663878d5aaaadfc3163157c003072f327"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

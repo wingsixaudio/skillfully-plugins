@@ -1,0 +1,9 @@
+{
+  "id": "novastar-broadcastswitcher",
+  "repo": "https://github.com/bitfocus/companion-module-novastar-broadcastswitcher",
+  "commit": "5ce9dbb1208831d33fca3aa2e8c73f1392eb3943",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

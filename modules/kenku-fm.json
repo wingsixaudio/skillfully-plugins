@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kenku-fm",
+  "name": "KenkuFM API Controller",
+  "description": "Controll a KenkuFM Player",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kenku-fm",
+    "commit": "1b2013c78759ccbd4f51e2229160cbc598c19a1c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

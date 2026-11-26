@@ -1,0 +1,9 @@
+{
+  "id": "generic-bridge",
+  "repo": "https://github.com/bitfocus/companion-module-generic-bridge",
+  "commit": "8f649af0230e031229d31ed4cddc55e073d43b0d",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

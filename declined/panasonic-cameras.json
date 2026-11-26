@@ -1,0 +1,9 @@
+{
+  "id": "panasonic-cameras",
+  "repo": "https://github.com/bitfocus/companion-module-panasonic-cameras",
+  "commit": "dc2e3193aa11b68b1357ee9d7ec6c888a26362ee",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

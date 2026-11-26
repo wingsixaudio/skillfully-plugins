@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "leader-zen",
+  "name": "Leader LV5600, LV7600",
+  "description": "Leader ZEN series Preset recall module",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-leader-zen",
+    "commit": "30eb51003445407853d9bf534355467fd39cb2bf"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

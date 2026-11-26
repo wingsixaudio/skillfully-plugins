@@ -1,0 +1,9 @@
+{
+  "id": "luminex-luminode",
+  "repo": "https://github.com/bitfocus/companion-module-luminex-luminode",
+  "commit": "8595c95a7dceac74abbb02a0d176d268f2240251",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

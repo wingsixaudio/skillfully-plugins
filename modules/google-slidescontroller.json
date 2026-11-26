@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "google-slidescontroller",
+  "name": "Bitfocus Google Slides Controller",
+  "description": "Control Google Slides presentations with automatic presentation mode and multi-monitor support",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-google-slidescontroller",
+    "commit": "edcdf11b2bf4e0e60edebf0e8fd1419b00ad7eba"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

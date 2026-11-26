@@ -1,0 +1,9 @@
+{
+  "id": "iconnectivity-interfaces",
+  "repo": "https://github.com/bitfocus/companion-module-iconnectivity-interfaces",
+  "commit": "695a476c4b96b2761f08d77f8f97d135f231ba9b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

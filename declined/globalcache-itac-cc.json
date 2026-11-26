@@ -1,0 +1,9 @@
+{
+  "id": "globalcache-itac-cc",
+  "repo": "https://github.com/bitfocus/companion-module-globalcache-itac-cc",
+  "commit": "0bb72b2d33c511ec523c36194bf2529e7a27c9b5",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

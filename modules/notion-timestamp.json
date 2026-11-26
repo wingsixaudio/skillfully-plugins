@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "notion-timestamp",
+  "name": "Notion Timestamp",
+  "description": "Module to send timestamps to Notion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-notion-timestamp",
+    "commit": "32fbb44ac000563b9d77fe2986efc76bbb81f0a8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
