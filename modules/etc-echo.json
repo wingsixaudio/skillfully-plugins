@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "etc-echo",
+  "name": "ETC Echo Integration Interface",
+  "description": "Allows for control of ETC's Echo building lighting control system.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-etc-echo",
+    "commit": "95e84c4b8a53583c0966db85487f631879687c77"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

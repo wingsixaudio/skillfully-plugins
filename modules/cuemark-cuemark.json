@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cuemark-cuemark",
+  "name": "Cuemark Cuemark",
+  "description": "Call a show from Cuemark: take cues, step the script line by line, and read what is on deck.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cuemark-cuemark",
+    "commit": "520480f3b50d6ac26aff1916895323de9feb7895"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

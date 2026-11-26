@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "etl-rfmatrix",
+  "name": "ETL Systems ETL RF Matrix",
+  "description": "Control ETL RF Matrices over TCP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-etl-rfmatrix",
+    "commit": "d8293f2400fab677e7c9fe2a6a32638fc5ad471f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

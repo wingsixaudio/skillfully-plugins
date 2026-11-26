@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "eyevinn-intercom",
+  "name": "Eyevinn Open Intercom",
+  "description": "Eyevinn Open Intercom module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-eyevinn-intercom",
+    "commit": "258f82d06cacfef194aee2454e7456ebc15b271e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

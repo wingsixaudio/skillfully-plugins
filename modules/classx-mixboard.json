@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "classx-mixboard",
+  "name": "ClassX MixBoard",
+  "description": "Module to interact with ClassX MixBoard",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-classx-mixboard",
+    "commit": "09ae63bb5fdb2fd595e10ae93905e7aa0b29f8c8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "creativeland-capacitimer",
+  "name": "Creativeland Capacitimer",
+  "description": "Control and monitor Capacitimer speaker timer",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-creativeland-capacitimer",
+    "commit": "a750bf96d27ebbb4438a5174d3991a9b11bfc67a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

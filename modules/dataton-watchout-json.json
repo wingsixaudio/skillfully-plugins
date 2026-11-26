@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dataton-watchout-json",
+  "name": "Dataton Watchout 7",
+  "description": "Watchout module for Companion using json",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dataton-watchout-json",
+    "commit": "0d51d0be0210a52a90b90a3fb017532dd9d44933"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

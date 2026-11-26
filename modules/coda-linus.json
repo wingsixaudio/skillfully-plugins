@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "coda-linus",
+  "name": "CODA Audio LINUS6.4",
+  "description": "Control Coda amplifiers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-coda-linus",
+    "commit": "f108495a511ca06ee79c52d48fc9f5a1d0c21718"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

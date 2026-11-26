@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "christie-projector",
+  "name": "Christie Projector",
+  "description": "Module to conntrol various Christie projectors",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-christie-projector",
+    "commit": "e0a9e5897e0fb9a98b111c6ee708362878c99b52"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

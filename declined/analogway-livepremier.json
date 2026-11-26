@@ -1,9 +1,0 @@
-{
-  "id": "analogway-livepremier",
-  "repo": "https://github.com/bitfocus/companion-module-analogway-livepremier",
-  "commit": "7088b67632e65b5d73a06d00edea68a66a8dba5d",
-  "why": "build",
-  "detail": "the bundled library lru\\_map 0.3.3 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

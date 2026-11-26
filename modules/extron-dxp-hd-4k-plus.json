@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "extron-dxp-hd-4k-plus",
+  "name": "Extron DXP 44 HD 4K Plus, DXP 66 HD 4K Plus",
+  "description": "Control module for Extron DXP HD 4K Plus series HDMI matrix switchers (4x4, 6x6, 8x4, 8x8, 12x12, 16x16)",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-extron-dxp-hd-4k-plus",
+    "commit": "fee12b1689d48936cf714ee337ccd1106c5ec868"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

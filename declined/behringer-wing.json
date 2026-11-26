@@ -1,9 +1,0 @@
-{
-  "id": "behringer-wing",
-  "repo": "https://github.com/bitfocus/companion-module-behringer-wing",
-  "commit": "b83e828a4cec7923ecdc6b88d04b5d555f64d7bd",
-  "why": "build",
-  "detail": "the bundled library osc 2.4.5 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

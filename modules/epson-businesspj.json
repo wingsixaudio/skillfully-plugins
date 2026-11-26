@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "epson-businesspj",
+  "name": "Epson Business Projectors",
+  "description": "Controls Epson Business Projectors through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-epson-businesspj",
+    "commit": "c7575d164499c96e58d5a6a10bc7affcae956848"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

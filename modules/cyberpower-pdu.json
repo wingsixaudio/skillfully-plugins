@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cyberpower-pdu",
+  "name": "CyberPower PDU",
+  "description": "Companion module for CyberPower PDU",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cyberpower-pdu",
+    "commit": "ee65f5ec7a34e43da7f9825464cfe573a22f7d54"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

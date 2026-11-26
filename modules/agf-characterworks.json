@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "agf-characterworks",
+  "name": "AGF Characterworks",
+  "description": "For sending basic commands to a Characterworks",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-agf-characterworks",
+    "commit": "339a490af5a17afc6c3a5895f4a2c4b0ca64b262"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

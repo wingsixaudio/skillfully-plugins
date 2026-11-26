@@ -1,0 +1,9 @@
+{
+  "id": "easyprompter-remote",
+  "repo": "https://github.com/bitfocus/companion-module-easyprompter-remote",
+  "commit": "a51d741c418e10354b2b9db2f3febc50348b9512",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

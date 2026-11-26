@@ -1,0 +1,9 @@
+{
+  "id": "etcaudiovisuel-onlyview",
+  "repo": "https://github.com/bitfocus/companion-module-etcaudiovisuel-onlyview",
+  "commit": "a2b7f0d901bb1af004895135d39fcd9dd83d7240",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

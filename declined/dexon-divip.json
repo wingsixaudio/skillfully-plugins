@@ -1,0 +1,9 @@
+{
+  "id": "dexon-divip",
+  "repo": "https://github.com/bitfocus/companion-module-dexon-divip",
+  "commit": "e6d11ebdeac62bfd5d35e5b3184312ca8c900170",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

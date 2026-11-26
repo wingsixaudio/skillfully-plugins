@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dolby-cinemaprocessor",
+  "name": "Dolby Cinema Processor",
+  "description": "Controls Dolby Cinema Processor through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dolby-cinemaprocessor",
+    "commit": "165237262b0e545908ad471f042ae12ef4798c3c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

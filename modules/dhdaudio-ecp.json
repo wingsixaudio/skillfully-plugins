@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dhdaudio-ecp",
+  "name": "DHD Audio Series 52, RM4200D",
+  "description": "Control DHD Audio mixing consoles via ECP protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dhdaudio-ecp",
+    "commit": "8c698ffd254eb731bc910210e8beb7d1aafb9c94"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

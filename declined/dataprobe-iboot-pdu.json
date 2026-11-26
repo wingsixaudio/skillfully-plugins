@@ -1,0 +1,9 @@
+{
+  "id": "dataprobe-iboot-pdu",
+  "repo": "https://github.com/bitfocus/companion-module-dataprobe-iboot-pdu",
+  "commit": "3d40b7bf26c9568c84f7fffeb38c2f0ad7e67294",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

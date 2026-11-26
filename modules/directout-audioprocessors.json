@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "directout-audioprocessors",
+  "name": "DirectOut technologies PRODIGY.MC, PRODIGY.MP",
+  "description": "Control Prodigy and Maven series from DirectOut technologies",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-directout-audioprocessors",
+    "commit": "de6cbd3379c7aa54cf86b4c3351a8c1c1f9a1fa5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

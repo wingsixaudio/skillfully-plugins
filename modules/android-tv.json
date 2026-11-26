@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "android-tv",
+  "name": "Google androidtv",
+  "description": "Android TV plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-android-tv",
+    "commit": "f1898e3550441db81e7d3c629cf2222c3f1bef23"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

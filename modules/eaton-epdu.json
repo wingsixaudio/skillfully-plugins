@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "eaton-epdu",
+  "name": "Eaton ePDU",
+  "description": "Controls Eaton ePDU power devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-eaton-epdu",
+    "commit": "1d16bbb961640d6f00c218717ebe13eb91a9883d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

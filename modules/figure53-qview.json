@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "figure53-qview",
+  "name": "Figure 53 QView",
+  "description": "QView plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-figure53-qview",
+    "commit": "b30f790dc007e2c7a24e5b4a3f28de93cda78bad"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

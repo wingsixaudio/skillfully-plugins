@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cuemanager-cuesheetconnector",
+  "name": "Cue Manager Cue Sheet Connector",
+  "description": "Collaborative real-time rundowns, schedules, timeliens, and project management tools for live events.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cuemanager-cuesheetconnector",
+    "commit": "fd7f80f85e0d00a99c7bc85ee877374ea0703638"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "analogway-livepremier",
+  "name": "Analog Way Aquilon",
+  "description": "analogway-livepremier",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-analogway-livepremier",
+    "commit": "7088b67632e65b5d73a06d00edea68a66a8dba5d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

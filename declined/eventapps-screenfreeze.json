@@ -1,0 +1,9 @@
+{
+  "id": "eventapps-screenfreeze",
+  "repo": "https://github.com/bitfocus/companion-module-eventapps-screenfreeze",
+  "commit": "5e2a2b53bd4c315ec914ab99c9280fea3198af99",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

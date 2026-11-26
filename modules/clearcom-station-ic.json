@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "clearcom-station-ic",
+  "name": "Clear-Com Station-IC",
+  "description": "A module to control Clear-Com's Station-IC application",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-clearcom-station-ic",
+    "commit": "0176f34bd5b95da01bb24e99d827adb74e374d77"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

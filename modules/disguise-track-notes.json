@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "disguise-track-notes",
+  "name": "Disguise Track Notes",
+  "description": "Disguise Track Notes",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-disguise-track-notes",
+    "commit": "cd17fbad44f8f09dc6728cfa0c109a73757d0f07"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

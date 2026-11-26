@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dcc-ex-commandstation",
+  "name": "DCC-EX DCC-EX",
+  "description": "Companion Module for DCC-EX Command Station",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dcc-ex-commandstation",
+    "commit": "71ade95044b9f758c9098f6f27fd27be46b855c1"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
