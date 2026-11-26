@@ -41,7 +41,7 @@ jobs:
       ids: ${{ steps.find.outputs.ids }}
       count: ${{ steps.find.outputs.count }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - id: find
         env:
@@ -57,7 +57,7 @@ jobs:
           echo "ids=$ids" >> "$GITHUB_OUTPUT"
           echo "count=$(jq length <<<"$ids")" >> "$GITHUB_OUTPUT"
           echo "$(jq length <<<"$ids") modules to try. $(ls fill/declined | wc -l) left out without building." >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: fill
           path: fill
@@ -75,11 +75,11 @@ jobs:
       matrix:
         id: ${{ fromJson(needs.find.outputs.ids) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
         with:
           node: "true"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: fill
           path: fill
@@ -99,7 +99,7 @@ jobs:
           fi
           cat result.md | tee -a "$GITHUB_STEP_SUMMARY"
       - if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: finding-${{ matrix.id }}
           path: findings/${{ matrix.id }}.json
@@ -116,13 +116,13 @@ jobs:
       pull-requests: write
       actions: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: fill
           path: fill
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: finding-*
           path: findings

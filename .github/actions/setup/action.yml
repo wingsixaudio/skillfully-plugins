@@ -17,7 +17,7 @@ runs:
         # One exact commit of the real platform. Not a branch, and not anyone's fork.
         [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
         echo "ref=$ref" >> "$GITHUB_OUTPUT"
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         repository: wingsixaudio/skillfully
         ref: ${{ steps.platform.outputs.ref }}
@@ -26,7 +26,7 @@ runs:
       with:
         deno-version: v2.x
     - if: inputs.node == 'true'
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: 22
     # Many authors install with Yarn, each pinned to a version of it. This lets "yarn" be whichever version a

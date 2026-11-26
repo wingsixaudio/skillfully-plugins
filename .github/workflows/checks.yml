@@ -38,7 +38,7 @@ jobs:
       ids: ${{ steps.plan.outputs.ids }}
       count: ${{ steps.plan.outputs.count }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup
@@ -64,7 +64,7 @@ jobs:
           ids=$($CHECK "$BASE" --plan --out=findings)
           echo "ids=$ids" >> "$GITHUB_OUTPUT"
           echo "count=$(jq length <<<"$ids")" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: plan
           path: findings/plan.json
@@ -82,7 +82,7 @@ jobs:
       matrix:
         id: ${{ fromJson(needs.plan.outputs.ids) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
         with:
           node: "true"
@@ -93,7 +93,7 @@ jobs:
           ID: ${{ matrix.id }}
         run: $CHECK --all --id="$ID" --out=findings
       - if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: finding-${{ matrix.id }}
           path: findings/${{ matrix.id }}.json
@@ -111,13 +111,13 @@ jobs:
         run: |
           echo "The first step failed, so nothing was built. Its log says why."
           exit 1
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: plan
           path: findings
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: finding-*
           path: findings

@@ -41,7 +41,7 @@ jobs:
       need: ${{ steps.plan.outputs.need }}
       left: ${{ steps.plan.outputs.left }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - id: plan
         env:
@@ -60,7 +60,7 @@ jobs:
           echo "count=$(jq '.build | length' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "need=$need" >> "$GITHUB_OUTPUT"
           echo "left=$(jq -r .left <<<"$out")" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: plan
           path: plan/plan.json
@@ -78,7 +78,7 @@ jobs:
       matrix:
         id: ${{ fromJson(needs.plan.outputs.build) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
         with:
           node: "true"
@@ -88,7 +88,7 @@ jobs:
         run: |
           deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-env \
             tools/build.ts --platform=.platform --id="$ID" --out=built
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: module-${{ matrix.id }}
           path: built/${{ matrix.id }}.tgz
@@ -102,13 +102,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: plan
           path: plan
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: module-*
           path: built
@@ -119,12 +119,12 @@ jobs:
           deno run --config .platform/deno.json --allow-read --allow-write --allow-net --allow-env \
             tools/publish.ts --assemble --platform=.platform --repo="$GITHUB_REPOSITORY" --plan=plan --built=built --out=site \
             | tee -a "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: site
           path: site
           if-no-files-found: error
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: upload
           path: upload
@@ -142,7 +142,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: upload
           path: upload
@@ -187,9 +187,9 @@ jobs:
     timeout-minutes: 10
     environment: github-pages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: site
           path: site
@@ -199,7 +199,7 @@ jobs:
         run: |
           deno run --config .platform/deno.json --allow-read --allow-write=site --allow-env=STORE_SIGNING_KEY \
             tools/sign.ts --platform=.platform --site=site
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -218,7 +218,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   more:
     name: Start the next run, if packages are still waiting
@@ -245,7 +245,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: upload
           path: upload
