@@ -1,0 +1,9 @@
+{
+  "id": "avitech-sequoia4k60-sequoia4k60l",
+  "repo": "https://github.com/bitfocus/companion-module-avitech-sequoia4k60-sequoia4k60l",
+  "commit": "19b7b30f94be3e7d380a5cdbcafea8aa0097938d",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "camstreamer-camstreamer",
+  "name": "camstreamer camstreamer Camera",
+  "description": "Companion module for camstreamer camstreamer app for Axis Camera",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-camstreamer-camstreamer",
+    "commit": "ff8bac4efbd7dbed91735b858dad8ba9bb78dec9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

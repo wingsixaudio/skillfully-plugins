@@ -1,0 +1,9 @@
+{
+  "id": "alto-tmd16",
+  "repo": "https://github.com/bitfocus/companion-module-alto-tmd16",
+  "commit": "590ae150e23f9992599922ef0da2544957672dd4",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

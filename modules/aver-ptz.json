@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aver-ptz",
+  "name": "Aver PTZ",
+  "description": "Control Aver PTZ cameras with VISCA commands over IP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aver-ptz",
+    "commit": "bd83a4791ef3fd4020c469825f121383157bf845"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

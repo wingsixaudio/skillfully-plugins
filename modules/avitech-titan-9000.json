@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avitech-titan-9000",
+  "name": "Avitech Titan 9000",
+  "description": "Control module for Avitech Titan 9000 devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avitech-titan-9000",
+    "commit": "f3d9c66154dab1c1027aecfc3606766100ae5cdb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

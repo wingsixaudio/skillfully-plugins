@@ -1,0 +1,9 @@
+{
+  "id": "brightlink-bl-8x8-hdbt-hd20",
+  "repo": "https://github.com/bitfocus/companion-module-brightlink-bl-8x8-hdbt-hd20",
+  "commit": "eba98b9bfb6e46d413f13f57d307bec5de983132",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

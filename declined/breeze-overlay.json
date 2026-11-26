@@ -1,0 +1,9 @@
+{
+  "id": "breeze-overlay",
+  "repo": "https://github.com/bitfocus/companion-module-breeze-overlay",
+  "commit": "11013dffc4edc4bd060202893cca60ac2673162d",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

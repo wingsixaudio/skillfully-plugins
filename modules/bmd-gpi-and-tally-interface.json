@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bmd-gpi-and-tally-interface",
+  "name": "Blackmagic Design GPI and Tally Interface",
+  "description": "Easy access to set GPI interfaces' event",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bmd-gpi-and-tally-interface",
+    "commit": "693047a7382629fed9956c57cdd9b141d137d692"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

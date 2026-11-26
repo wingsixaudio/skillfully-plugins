@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bitfire-api",
+  "name": "BitFire API",
+  "description": "A module that allows you to send commands to BitFire cloud production tools via a Macro Engine",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bitfire-api",
+    "commit": "631f6b2c8fa09954e8802df79b63f5a8f27e96d1"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

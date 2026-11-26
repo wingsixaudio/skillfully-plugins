@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "allenheath-dlive-ilive",
+  "name": "Allen & Heath dLive, ilive",
+  "description": "Allen & Heath dLive & iLive module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-allenheath-dlive-ilive",
+    "commit": "7cadacb31902e93dbfd2de76f40094b0218269fa"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

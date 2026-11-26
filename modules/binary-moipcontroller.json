@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "binary-moipcontroller",
+  "name": "Binary B-900-MOIP-4K-CTRL",
+  "description": "I/O controls for the Binary B-900-MOIP-4K-CTRL",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-binary-moipcontroller",
+    "commit": "8ac399134a3786627f022f753535ae949fa821d9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

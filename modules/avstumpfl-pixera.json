@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avstumpfl-pixera",
+  "name": "AVStumpfl Pixera",
+  "description": "Module to control AVStumpfl Pixera",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avstumpfl-pixera",
+    "commit": "4bb987b0c6148b75653765bdeeea72ce3606c74a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

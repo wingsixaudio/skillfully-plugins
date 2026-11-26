@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bmd-webpresenter",
+  "name": "Blackmagic Design WebPresenter HD, WebPresenter 4K",
+  "description": "Live stream from any SDI video source direct to YouTube, Facebook, Twitter and more",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bmd-webpresenter",
+    "commit": "557474034cd289f00179e13910063f4d74426f09"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "axeltechnology-cgplus",
+  "name": "AxelTech CG Plus",
+  "description": "Axel CG_Plus",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-axeltechnology-cgplus",
+    "commit": "aafc803eea55bf03dda5318fe57fb189187f5d91"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

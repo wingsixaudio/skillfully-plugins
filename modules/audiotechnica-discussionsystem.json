@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "audiotechnica-discussionsystem",
+  "name": "Audio Technica AT-UC50, AT-UCIR",
+  "description": "Controls Audio Technical Discussion Systems",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-audiotechnica-discussionsystem",
+    "commit": "506203cf5e18f61074a1fec6673349354fdc13db"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

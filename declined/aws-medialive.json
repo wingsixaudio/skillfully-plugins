@@ -1,0 +1,9 @@
+{
+  "id": "aws-medialive",
+  "repo": "https://github.com/bitfocus/companion-module-aws-medialive",
+  "commit": "4a514e5fdf4397d3269e4a6bbeab529f62847e6c",
+  "why": "build",
+  "detail": "the bundled library @aws-sdk/core 3.623.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

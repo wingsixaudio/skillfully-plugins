@@ -1,0 +1,9 @@
+{
+  "id": "behringer-xair",
+  "repo": "https://github.com/bitfocus/companion-module-behringer-xair",
+  "commit": "b172eb0404607bea20c8e0afa0b3d5643222082f",
+  "why": "build",
+  "detail": "the bundled library osc 2.4.5 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

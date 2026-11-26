@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "boinx-mimolive",
+  "name": "Boinx mimoLive",
+  "description": "Module to control mimoLive",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-boinx-mimolive",
+    "commit": "8f2474e62a46fee2c22cb9baa3345eef80eaeab9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

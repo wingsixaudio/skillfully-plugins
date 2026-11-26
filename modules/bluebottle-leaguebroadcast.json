@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bluebottle-leaguebroadcast",
+  "name": "BlueBottleGG LeagueBroadcast",
+  "description": "Control LeagueBroadcast League of Legends broadcast overlays",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bluebottle-leaguebroadcast",
+    "commit": "2badf18a9a2019184c0d9a8bed04217bf2802a22"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "audiotechnica-esw",
+  "repo": "https://github.com/bitfocus/companion-module-audiotechnica-esw",
+  "commit": "e1731108501b0f51242c918b32026b08e88d815c",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

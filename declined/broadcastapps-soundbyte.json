@@ -1,0 +1,9 @@
+{
+  "id": "broadcastapps-soundbyte",
+  "repo": "https://github.com/bitfocus/companion-module-broadcastapps-soundbyte",
+  "commit": "bcc31645e65b7578cbcfe7c234debf1a0eca1c5f",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

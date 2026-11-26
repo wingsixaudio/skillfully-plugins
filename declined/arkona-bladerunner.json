@@ -1,0 +1,9 @@
+{
+  "id": "arkona-bladerunner",
+  "repo": "https://github.com/bitfocus/companion-module-arkona-bladerunner",
+  "commit": "7a683637cbb891f0d6e422b2a19b45673df809f9",
+  "why": "build",
+  "detail": "the bundled library vapi 2.6.47 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

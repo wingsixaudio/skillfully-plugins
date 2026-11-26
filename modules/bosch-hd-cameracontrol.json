@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bosch-hd-cameracontrol",
+  "name": "Bosch HD Camera Control",
+  "description": "Control Bosch HD Cameras and Video Switchers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bosch-hd-cameracontrol",
+    "commit": "05b16ed078b9810f174e12111607203a5a69b638"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

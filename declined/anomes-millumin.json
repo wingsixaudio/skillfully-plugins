@@ -1,0 +1,9 @@
+{
+  "id": "anomes-millumin",
+  "repo": "https://github.com/bitfocus/companion-module-anomes-millumin",
+  "commit": "237ba589689765eb0f461a24b58dafaff9bc71d8",
+  "why": "build",
+  "detail": "the bundled library osc 2.4.5 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

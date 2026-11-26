@@ -1,0 +1,9 @@
+{
+  "id": "brightsign-player",
+  "repo": "https://github.com/bitfocus/companion-module-brightsign-player",
+  "commit": "e63ba091bd9ed37ad5fb11b6e24b4280022eb1de",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

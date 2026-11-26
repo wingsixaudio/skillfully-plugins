@@ -1,0 +1,9 @@
+{
+  "id": "audiotechnica-digitalmixer",
+  "repo": "https://github.com/bitfocus/companion-module-audiotechnica-digitalmixer",
+  "commit": "93324c41bcbe3fc07680c03420d2bda604e3392a",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "analogway-picturall",
+  "name": "Analog Way Picturall Media Server",
+  "description": "Analog Way Picturall Media Server plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-analogway-picturall",
+    "commit": "3260807cc045a27b9a6d08e4923731b0c45dce5d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

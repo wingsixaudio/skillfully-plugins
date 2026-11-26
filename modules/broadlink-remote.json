@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "broadlink-remote",
+  "name": "BroadLink RM4 Pro",
+  "description": "Module for controlling broadlink remote",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-broadlink-remote",
+    "commit": "487dd0b15f62deb3bd898fe74e9b1fc96e723f8b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

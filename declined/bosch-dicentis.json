@@ -1,0 +1,9 @@
+{
+  "id": "bosch-dicentis",
+  "repo": "https://github.com/bitfocus/companion-module-bosch-dicentis",
+  "commit": "e4eb2e98a126340e26e9b79610c160858feb36bd",
+  "why": "build",
+  "detail": "listing what gets bundled failed: Building for: /tmp/store-6b714955cbdca90f/src Tools path: /tmp/store-6b714955cbdca90f/src/node\\_modules/@companion-module/tools Framework path: /tmp/store-6b714955cbdca90f/src/node\\_modules/@companion-module/base Error: @companion-module/base version 1.2.1 is not su",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "aws-ec2",
+  "repo": "https://github.com/bitfocus/companion-module-aws-ec2",
+  "commit": "6ca50a20bcce4e5e1bfe261486dcb573dd0cc267",
+  "why": "build",
+  "detail": "the bundled library @aws-sdk/core 3.731.0 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "binwiederhier-ntfy",
+  "name": "Philipp C. Heckel Ntfy",
+  "description": "Ntfy - Push Notifications Made Easy",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-binwiederhier-ntfy",
+    "commit": "ec5469ce9ab2b0b292a2e52885761ca5aaeb07e1"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

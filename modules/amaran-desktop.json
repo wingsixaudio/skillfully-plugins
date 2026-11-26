@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "amaran-desktop",
+  "name": "Aputure Amaran Lights",
+  "description": "Control Aputure Amaran lights via Amaran Desktop",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-amaran-desktop",
+    "commit": "05158551489d124967d4399dd8a890baf6acc138"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

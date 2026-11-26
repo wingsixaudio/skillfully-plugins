@@ -1,0 +1,9 @@
+{
+  "id": "barco-dcs",
+  "repo": "https://github.com/bitfocus/companion-module-barco-dcs",
+  "commit": "3e62994b44016bb2a55362013b32aae5a9432251",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

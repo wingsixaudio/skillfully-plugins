@@ -1,0 +1,9 @@
+{
+  "id": "base",
+  "repo": "https://github.com/bitfocus/companion-module-base",
+  "commit": "fc42f8d9acdfb4b79146533f2fed9fc3efee64fd",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

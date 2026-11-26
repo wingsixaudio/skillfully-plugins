@@ -1,0 +1,9 @@
+{
+  "id": "behringer-x32",
+  "repo": "https://github.com/bitfocus/companion-module-behringer-x32",
+  "commit": "90077f770f16c6a69cbef9a3e44383c5ca509c0e",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

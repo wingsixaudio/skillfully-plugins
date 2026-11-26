@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "bmd-teranex",
+  "name": "Blackmagic Design Teranex",
+  "description": "Controls Blackmagic Design Teranex through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-bmd-teranex",
+    "commit": "13de9499502ac9c66a19877798591301ea1b4669"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

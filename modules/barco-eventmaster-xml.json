@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "barco-eventmaster-xml",
+  "name": "Barco Event Master xml",
+  "description": "Barco EventMaster xml plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-barco-eventmaster-xml",
+    "commit": "ebb4579661b6919811e38ce2c5de5e423966665d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

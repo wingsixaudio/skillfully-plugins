@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "brainsalt-backstage",
+  "name": "Brainsalt Backstage",
+  "description": "Control Brainsalt Backstage media server via its show-control protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-brainsalt-backstage",
+    "commit": "1495bcf8cfdf66f3dbdd652516538b1cf0f5d4f8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
