@@ -73,6 +73,20 @@ On every pull request, with no secrets and a token that can only read:
 
 The checks run against one pinned version of the hub, named in `platform.json`.
 
+## Keeping up with authors
+
+Once a week the store asks each module's author's repository whether it has released something newer than the
+store lists. For each one that has, it opens a pull request that points the entry at the new release. It
+downloads none of the author's code to find out: it only asks for the names of their releases.
+
+That pull request is checked like any other. The new version is built from its source, started in the sandbox
+with no access, and reported on, and a person decides. A proposed version goes back to `tested: starts`,
+because nobody has used it with a device yet. Closing the pull request without merging means that version is
+not proposed again.
+
+When an update is merged and published, every hub that added that module shows that a newer version is there,
+and its superuser chooses when to take it.
+
 ## For authors
 
 Every listing names its license and links to its author's own source. Every package carries the license
