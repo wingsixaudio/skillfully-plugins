@@ -52,24 +52,34 @@ async function prove(entry: Entry): Promise<void> {
       }`,
     );
     facts.push(`Source: ${safe(entry.source.repo)} at ${code(entry.source.commit.slice(0, 12))}`);
-    facts.push(`Asks to reach: ${entry.network.map(code).join(", ") || "nothing"}`);
+    facts.push(
+      `The entry allows in advance: ${
+        entry.network.map(code).join(", ") || "nothing, so a team is asked about everything"
+      }`,
+    );
     facts.push(`Proven so far: ${code(entry.tested)}`);
 
-    // Start it with only the grants that need no settings. It has no device to find, and should not need one
-    // to say what it is.
+    // Start it the way a hub does for a device nobody has answered for yet: with no access to the network at
+    // all, and nothing to connect to. The runtime notes everything it reaches for.
     const installed = await platform.install.writeModule(pkg, `${work}/data`, {
       name: entry.name,
-      network: entry.network.filter((n) => !n.includes("{")),
+      network: [],
       mode: "listen",
     });
     const hub = await platform.hub.startHub({
       dbPath: ":memory:",
-      plugins: [{ dir: installed.dir, mode: "listen", settings: entry.settings ?? {} }],
+      plugins: [{
+        dir: installed.dir,
+        mode: "listen",
+        settings: entry.settings ?? {},
+        tuning: { auditPath: `${work}/audit.jsonl` },
+      }],
     });
     try {
       const host = hub.hosts.get(installed.id);
       await host.whenReady(30000);
       for (let i = 0; i < 50 && !host.settingsForm; i++) await new Promise((r) => setTimeout(r, 100));
+      await new Promise((r) => setTimeout(r, 3000)); // long enough for it to try what it tries on its own
       const keys = [...host.state.keys()] as string[];
       const actions = keys.filter((k) => /^generic\/action\/[^/]+\/title$/.test(k)).map((k) =>
         host.state.get(k)
@@ -97,15 +107,35 @@ async function prove(entry: Entry): Promise<void> {
           }`,
         );
       }
-      // A grant written as {name} is filled from a setting, so the module must have that setting.
+
+      // What it reached for by itself, before anyone gave it an address. A hub would ask its superuser about
+      // each of these unless the entry answers it in advance.
+      const asked = [...host.asks.values()] as { value: string; words: string; caution?: string }[];
+      const fixed = entry.network.filter((n) => !n.includes("{"));
+      if (!asked.length) facts.push("Given no access and no device, it reached for nothing");
+      for (const a of asked) {
+        const answered = platform.asks.covered(a.value, fixed);
+        facts.push(
+          `Given no access and no device, it tried to: ${safe(a.words, 200)} (${code(a.value)}). ${
+            answered
+              ? "The entry allows this in advance."
+              : "**The entry does not answer this, so every team will be asked.**"
+          }`,
+        );
+      }
+      for (const [kind, times] of [...host.attempts] as [string, number][]) {
+        facts.push(
+          `**It also tried to ${safe(platform.asks.attemptWords(kind), 80)}**, ${times} ${
+            times === 1 ? "time" : "times"
+          }. A hub never allows that`,
+        );
+      }
+
+      // An answer written as {name} is filled from a setting, so the module must have that setting.
       for (const n of entry.network) {
         for (const m of n.matchAll(/\{([A-Za-z][A-Za-z0-9]*)\}/g)) {
           if (!form.some((f) => f.id === m[1])) {
-            problems.push(
-              `its network grant uses ${code(`{${m[1]}}`)}, but the module has no setting called ${
-                code(m[1])
-              }`,
-            );
+            problems.push(`its entry allows ${code(n)}, but the module has no setting called ${code(m[1])}`);
           }
         }
       }
@@ -113,17 +143,6 @@ async function prove(entry: Entry): Promise<void> {
         if (!form.some((f) => f.id === name)) {
           problems.push(`it sets ${code(name)}, but the module has no setting called ${code(name)}`);
         }
-      }
-      // With the settings the entry starts it with, it should not reach for anything it was not granted.
-      const refused = hub.log.read({ type: "skillfully.plugin.event", limit: 200 })
-        .filter((e: { data: { name?: string } }) => e.data.name === "module.refused")
-        .map((e: { data: { detail?: { what?: string } } }) => String(e.data.detail?.what ?? ""));
-      for (const what of [...new Set(refused)] as string[]) {
-        problems.push(
-          `as it started, the hub refused it: ${
-            safe(what, 200)
-          }. Widen the grant and say why, or start it with a setting that stops it asking`,
-        );
       }
     } finally {
       await hub.stop();
@@ -138,7 +157,10 @@ async function prove(entry: Entry): Promise<void> {
   if (problems.length) {
     failed++;
     lines.push("", `**It cannot be accepted as it is:**`, ...problems.map((p) => `- ${p}`));
-  } else lines.push("", "It can be accepted. What it is allowed to reach is a reviewer's call.");
+  } else {lines.push(
+      "",
+      "It can be accepted. Whether what the entry allows in advance is right is a reviewer's call.",
+    );}
   lines.push("");
 }
 

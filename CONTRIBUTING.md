@@ -24,7 +24,7 @@ If a device has a Bitfocus Companion module, you do not need to write code.
   "network": ["{host}:9999", "listen"],
   "settings": { "scan": false },
   "tested": "pretend-device",
-  "notes": "Why it needs what it asks for, and anything a team should know."
+  "notes": "Why it is allowed what it is allowed, and anything a team should know."
 }
 ```
 
@@ -32,17 +32,21 @@ If a device has a Bitfocus Companion module, you do not need to write code.
 
 ### What to put under `network`
 
-This is the part a reviewer reads most closely. Ask for the least the module needs.
+A hub asks its superuser before a module reaches anything. Whatever you list here, a hub allows **without
+asking**, for every team. This is the part a reviewer reads most closely, so list only what is plainly fine
+for everyone and leave the rest for each team to decide.
 
-- `"{host}:9999"` means "the address in the module's `host` setting, on port 9999". The name in braces must be
-  one of the module's own settings.
-- `"listen"` lets it open ports on the hub's computer, for devices that answer or announce themselves.
-- `"lan"` lets it reach any device on the local network. Use it only when the module truly cannot work with
-  one address, and say why in `notes`.
+- `"{host}:9999"` means "the address in the module's `host` setting, on port 9999": the device the team typed
+  in. The name in braces must be one of the module's own settings. This is the usual entry.
+- `"listen"` lets it open ports on the hub's computer, for devices that answer or announce themselves. List it
+  only when the module cannot work without it, and say why in `notes`.
+- `"lan"` lets it reach any device on the local network. It is almost never right to allow that in advance.
 
-If the module tries something on its own that your grant does not allow, such as scanning the network, either
-start it with a setting that stops it (`settings`) or widen the grant and say why. The checks tell you what it
-tried.
+An empty list, `[]`, is a fine entry. The hub then asks about everything.
+
+The checks start the module with no access at all and tell you what it reached for on its own. If it reaches
+for something you would not want every team asked about, such as scanning the whole network, start it with a
+setting that stops it (`settings`).
 
 ### What to put under `tested`
 
@@ -73,6 +77,6 @@ deno run --config .platform/deno.json --allow-read --allow-write --allow-run --a
 ## What gets a pull request merged
 
 - The checks pass.
-- It asks for the least it needs, and `notes` explains anything wide.
+- It allows in advance only what is plainly fine for every team, and `notes` explains anything wide.
 - `tested` says no more than is true.
 - Its words are plain: what the device is, what the plugin does.
