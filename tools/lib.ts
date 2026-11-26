@@ -217,6 +217,16 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     "--silent",
   ]);
 
+  // A module written in TypeScript has to be compiled before it can be packaged. That is done here with
+  // the compiler the module itself asks for, pointed at the module's own settings, and not by running the
+  // module's build script: a script can do anything, and they differ in which tools they expect to find.
+  const settings = (await exists(`${src}/tsconfig.build.json`))
+    ? "tsconfig.build.json"
+    : (await exists(`${src}/tsconfig.json`))
+    ? "tsconfig.json"
+    : "";
+  if (settings) await step("compiling its TypeScript", "npx", ["--no-install", "tsc", "-p", settings]);
+
   // First a build that keeps the name of every file it pulls in, to learn what is really inside.
   await step("listing what gets bundled", "npx", ["--no-install", "companion-module-build", "--dev"]);
   const named = await Deno.readTextFile(`${src}/pkg/main.js`);

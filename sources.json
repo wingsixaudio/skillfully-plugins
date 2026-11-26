@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "kind": "companion-module",
+      "owner": "bitfocus",
+      "prefix": "companion-module-",
+      "leave_out": [
+        "companion-module-template-js",
+        "companion-module-template-ts"
+      ]
+    }
+  ]
+}

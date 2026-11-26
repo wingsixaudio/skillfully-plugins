@@ -111,6 +111,28 @@ not proposed again.
 When an update is merged and published, every hub that added that module shows that a newer version is there,
 and its superuser chooses when to take it.
 
+## Filling the store from a catalog
+
+`sources.json` names whole catalogs of modules, such as Bitfocus's. The **Fill the store** workflow, started
+by hand from the Actions tab, works through them a batch at a time:
+
+1. It reads a few files of each module's source at its newest release: its manifest, what it is built on, and
+   its license. It runs none of it. A module the hub cannot run, or that carries no license that lets copies
+   be passed on, is left out here.
+2. Each one that is left is built and started in the hub's sandbox, on a machine of its own.
+3. Those that pass go into one pull request. The ordinary checks prove each of them again, and a person
+   decides whether to merge.
+
+An entry made this way **allows nothing in advance**, so a hub asks its superuser about everything the module
+reaches for. That is what lets a module be listed without anyone having studied it. Being listed says a module
+builds, starts in the sandbox and may be passed on. It does not say anyone has used it with a device: it is
+marked `tested: starts` until someone does. Anyone who has used one can raise that, and add what it should be
+allowed in advance, with an ordinary pull request.
+
+Every module that was looked at and left out gets a file in `declined/` saying why, so it is not built again
+on the next run. It is looked at again when its author releases something newer, or when the reason was on
+this side and this side has changed.
+
 ## For authors
 
 Every listing names its license and links to its author's own source. Every package carries the license
