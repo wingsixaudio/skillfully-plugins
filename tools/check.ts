@@ -40,7 +40,9 @@ async function prove(entry: Entry): Promise<void> {
   const problems: string[] = [];
   const facts: string[] = [];
   try {
-    const pkg = await platform.install.readModulePackage(await Deno.readFile(await buildModule(entry, work)));
+    const built = await buildModule(entry, work);
+    problems.push(...built.problems.map((p) => safe(p, 300)));
+    const pkg = await platform.install.readModulePackage(await Deno.readFile(built.tgz));
     if (pkg.module.id !== entry.id) {
       problems.push(`the module calls itself ${code(pkg.module.id)}, so that must be the entry's id`);
     }
@@ -50,6 +52,21 @@ async function prove(entry: Entry): Promise<void> {
       `Module ${code(pkg.module.name)} version ${code(pkg.module.version)}, ${
         pkg.module.license ? `${code(pkg.module.license)} license` : "**no license named**"
       }`,
+    );
+    const added = built.bundled.filter((b) => b.notice === "added by the store");
+    const none = built.bundled.filter((b) => b.notice === "none is published");
+    facts.push(
+      `${built.bundled.length} libraries are bundled inside it. The package carries a license notice for each` +
+        (added.length
+          ? `. The module's own build left out ${added.length}, which the store added: ${
+            added.map((b) => code(b.name)).join(", ")
+          }`
+          : "") +
+        (none.length
+          ? `. ${none.map((b) => code(b.name)).join(", ")} ${
+            none.length === 1 ? "declares" : "declare"
+          } a license and ${none.length === 1 ? "publishes" : "publish"} no text to pass on`
+          : ""),
     );
     facts.push(`Source: ${safe(entry.source.repo)} at ${code(entry.source.commit.slice(0, 12))}`);
     facts.push(

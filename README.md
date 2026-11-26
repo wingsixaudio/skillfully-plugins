@@ -41,19 +41,23 @@ On every pull request, with no secrets and a token that can only read:
 
 1. Every entry is held to the rules in `schema/`.
 2. Each new or changed module is built from its pinned source. Install scripts are never run.
-3. The package is read the way a hub reads it. It must name a license that allows copies to be passed on (MIT,
+3. The build works out every library that is really bundled inside the module. Each must be under a license
+   that allows copies to be passed on, and the package must carry each one's notice. Where the module's own
+   build left a notice out, the store adds it.
+4. The package is read the way a hub reads it. It must name a license that allows copies to be passed on (MIT,
    Apache-2.0, BSD or ISC) and carry its license text inside.
-4. It is started inside the hub's sandbox with no access to the network and nothing to connect to. Everything
+5. It is started inside the hub's sandbox with no access to the network and nothing to connect to. Everything
    it reaches for by itself is noted.
-5. What it is, what it offers, what it reached for, and which of that the entry allows in advance are written
+6. What it is, what it offers, what it reached for, and which of that the entry allows in advance are written
    out in plain words on the pull request.
 
 The checks run against one pinned version of the hub, named in `platform.json`.
 
 ## For authors
 
-Every listing names its license and links to its author's own source. Being listed here does not mean the
-maker of a device, or Bitfocus, endorses this project.
+Every listing names its license and links to its author's own source. Every package carries the license
+notices of the module and of the libraries bundled inside it. Being listed here does not mean the maker of a
+device, or Bitfocus, endorses this project.
 
 If you wrote a module and would rather it were not listed, open an issue and it will be removed.
 

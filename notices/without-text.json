@@ -1,0 +1,8 @@
+[
+  {
+    "name": "@companion-module/base",
+    "license": "MIT",
+    "source": "https://github.com/bitfocus/companion-module-base",
+    "checked": "Version 1.14.1, commit 3cd7a4adaf2075263d611d642685e003572a84a0. Its package.json declares MIT. Neither the repository nor the published package carries a license text or a copyright notice, so there is none to pass on."
+  }
+]

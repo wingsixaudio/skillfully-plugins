@@ -14,6 +14,11 @@ if (!found || found.problems.length) {
 const work = await Deno.makeTempDir({ prefix: "store-" });
 const out = arg("out", "built");
 await Deno.mkdir(out, { recursive: true });
-await Deno.copyFile(await buildModule(found.entry, work), `${out}/${id}.tgz`);
+const built = await buildModule(found.entry, work);
+if (built.problems.length) {
+  console.error(`${id} may not be handed out:\n- ${built.problems.join("\n- ")}`);
+  Deno.exit(1);
+}
+await Deno.copyFile(built.tgz, `${out}/${id}.tgz`);
 await Deno.remove(work, { recursive: true }).catch(() => {});
 console.log(`built ${out}/${id}.tgz`);

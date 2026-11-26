@@ -102,15 +102,50 @@ export async function run(cmd: string, args: string[], cwd: string): Promise<{ o
   return { ok: r.success, out: text.trim().slice(-1500) };
 }
 
+/** Licenses a bundled library may carry. Each allows copies to be passed on if its notice goes with them. */
+const BUNDLED_OK = [...LICENSES, "0BSD", "Unlicense", "CC0-1.0", "BlueOak-1.0.0"];
+
+/** Is this license expression one the store may hand out? "A OR B" needs one of them, "A AND B" both. */
+export function licenseAllowed(expression: string): boolean {
+  const text = expression.replace(/[()]/g, " ").trim();
+  if (!text) return false;
+  return text.split(/\s+OR\s+/i).some((alt) =>
+    alt.split(/\s+AND\s+/i).every((l) => BUNDLED_OK.includes(l.trim()))
+  );
+}
+
+export interface Bundled {
+  name: string;
+  version: string;
+  license: string;
+  /** Where its notice in the package comes from. */
+  notice: "the module's build" | "added by the store" | "none is published";
+}
+
+export interface Built {
+  /** The finished package. */
+  tgz: string;
+  /** Every library that is really inside the module's program. */
+  bundled: Bundled[];
+  /** Why the store may not hand this package out. Empty when it may. */
+  problems: string[];
+}
+
+const exists = async (path: string) => !!(await Deno.stat(path).catch(() => null));
+
 /**
  * Build a module's package from its source at the pinned commit. This runs the module's own build, which is
  * someone else's code: it happens on a machine that holds no secrets, and install scripts are never run.
+ *
+ * The package must carry the license notice of everything bundled inside it. The module's build lists only
+ * some of that, so the store builds once more in a mode that names every file it pulls in, finds what the list
+ * missed, and adds those notices to the package.
  */
-export async function buildModule(entry: Entry, work: string): Promise<string> {
+export async function buildModule(entry: Entry, work: string): Promise<Built> {
   const src = `${work}/src`;
   await Deno.mkdir(src, { recursive: true });
-  const step = async (what: string, cmd: string, args: string[]) => {
-    const r = await run(cmd, args, src);
+  const step = async (what: string, cmd: string, args: string[], cwd = src) => {
+    const r = await run(cmd, args, cwd);
     if (!r.ok) throw new Error(`${what} failed: ${r.out.slice(-600)}`);
     return r.out;
   };
@@ -136,7 +171,100 @@ export async function buildModule(entry: Entry, work: string): Promise<string> {
     "--no-fund",
     "--silent",
   ]);
+
+  // First a build that keeps the name of every file it pulls in, to learn what is really inside.
+  await step("listing what gets bundled", "npx", ["--no-install", "companion-module-build", "--dev"]);
+  const named = await Deno.readTextFile(`${src}/pkg/main.js`);
+  const dirs = new Set<string>();
+  for (const m of named.matchAll(/node_modules\/[A-Za-z0-9_@.\/-]+/g)) {
+    const at = /^(.*node_modules\/(?:@[^/]+\/)?[^/]+)\//.exec(m[0] + "/");
+    if (at) dirs.add(at[1]);
+  }
+  for await (const f of Deno.readDir(src)) {
+    if (f.isFile && f.name.endsWith(".tgz")) await Deno.remove(`${src}/${f.name}`);
+  }
+
+  // Then the build that is handed out.
   await step("building the package", "npx", ["--no-install", "companion-module-build"]);
-  for await (const f of Deno.readDir(src)) if (f.isFile && f.name.endsWith(".tgz")) return `${src}/${f.name}`;
-  throw new Error("the build made no package");
+  let tgz = "";
+  for await (const f of Deno.readDir(src)) if (f.isFile && f.name.endsWith(".tgz")) tgz = `${src}/${f.name}`;
+  if (!tgz) throw new Error("the build made no package");
+
+  // What the module's own build already credits.
+  const out = `${work}/out`;
+  await Deno.mkdir(out, { recursive: true });
+  await step("opening the package", "tar", ["-xzf", tgz, "-C", out], work);
+  let top = "pkg";
+  for await (const f of Deno.readDir(out)) if (f.isDirectory) top = f.name;
+  const theirs = await Deno.readTextFile(`${out}/${top}/LICENSE`).catch(() => "");
+  const credited = new Set<string>();
+  for (const line of theirs.matchAll(/^Packages: (.+)$/gm)) {
+    for (const part of line[1].split(", ")) credited.add(part.split(" ")[0]);
+  }
+  const withoutText = JSON.parse(await Deno.readTextFile(`${ROOT}/notices/without-text.json`)) as {
+    name: string;
+    license: string;
+    source: string;
+    checked: string;
+  }[];
+
+  const bundled: Bundled[] = [];
+  const problems: string[] = [];
+  const additions: string[] = [];
+  for (const dir of [...dirs].sort()) {
+    if (!(await exists(`${src}/${dir}/package.json`))) continue;
+    const pj = JSON.parse(await Deno.readTextFile(`${src}/${dir}/package.json`));
+    const name = String(pj.name ?? dir), version = String(pj.version ?? "");
+    const license = typeof pj.license === "string"
+      ? pj.license
+      : Array.isArray(pj.licenses)
+      ? pj.licenses.map((l: { type?: string }) => l.type).join(" OR ")
+      : "";
+    if (bundled.some((b) => b.name === name && b.version === version)) continue;
+    if (!licenseAllowed(license)) {
+      problems.push(
+        `the bundled library ${name} ${version} is under "${
+          license.slice(0, 40) || "no license"
+        }", which the store does not hand out`,
+      );
+    }
+    if (credited.has(`${name}@${version}`)) {
+      bundled.push({ name, version, license, notice: "the module's build" });
+      continue;
+    }
+    const texts: string[] = [];
+    for await (const f of Deno.readDir(`${src}/${dir}`)) {
+      if (f.isFile && /^(licen[cs]e|copying|notice)/i.test(f.name)) {
+        texts.push((await Deno.readTextFile(`${src}/${dir}/${f.name}`)).trim());
+      }
+    }
+    const known = withoutText.find((k) => k.name === name);
+    if (texts.length) {
+      additions.push(`${name}@${version} — ${license}\n${"-".repeat(80)}\n${texts.join("\n\n")}\n`);
+      bundled.push({ name, version, license, notice: "added by the store" });
+    } else if (known && known.license === license) {
+      additions.push(
+        `${name}@${version} — ${license}\n${
+          "-".repeat(80)
+        }\nThis library declares the ${license} license and publishes no license text or copyright notice.\nSource: ${known.source}\n`,
+      );
+      bundled.push({ name, version, license, notice: "none is published" });
+    } else {
+      problems.push(
+        `the bundled library ${name} ${version} carries no license text, and nobody has recorded checking that under notices/`,
+      );
+    }
+  }
+
+  if (additions.length) {
+    await Deno.writeTextFile(
+      `${out}/${top}/LICENSES-ALSO-BUNDLED.txt`,
+      "The LICENSE file beside this one was written by the module's own build. These libraries are also inside\n" +
+        "main.js and are not listed there. Their notices were added by the Skillfully plugin store when it built\n" +
+        `this package from ${entry.source.repo} at ${entry.source.commit}.\n\n` + additions.join("\n"),
+    );
+    await Deno.remove(tgz);
+    await step("closing the package", "tar", ["-czf", tgz, "-C", out, top], work);
+  }
+  return { tgz, bundled, problems };
 }
