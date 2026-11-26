@@ -14,6 +14,13 @@
   "settings": {
     "scan": false
   },
+  "advise": [
+    {
+      "about": "everyone",
+      "say": "no",
+      "why": "This is the module scanning for plugs. Type the plug's address into its settings instead, and it reaches only that plug."
+    }
+  ],
   "tested": "pretend-device",
   "notes": "It opens a port to listen for plugs even when it is given one address, so that is allowed in advance along with the plug's own address. Scanning the network for plugs is turned off: type the plug's address instead. A team that turns scanning on will be asked before it sends to the whole network. Proven against a stand-in that speaks the Kasa protocol, not yet a real plug."
 }

@@ -21,13 +21,46 @@ export interface Entry {
   description: string;
   source: { repo: string; commit: string };
   network: string[];
+  advise?: Advice[];
   settings?: Record<string, string | number | boolean>;
   tested: "starts" | "pretend-device" | "real-device";
   notes?: string;
 }
 
+/** What reviewers say about one kind of request. See schema/module.schema.json. */
+export interface Advice {
+  about: string;
+  say: "yes" | "no";
+  why: string;
+}
+
 // deno-lint-ignore no-explicit-any
 export type Platform = any;
+
+/** What the store says about everything it lists, from advice.json. Throws when that file breaks the rules. */
+export async function generalAdvice(platform: Platform): Promise<Advice[]> {
+  const schema = JSON.parse(await Deno.readTextFile(`${ROOT}/schema/module.schema.json`));
+  const valid = platform.ajv.compile({
+    type: "object",
+    additionalProperties: false,
+    required: ["advise"],
+    properties: { advise: { type: "array", maxItems: 16, items: schema.$defs.advice } },
+  });
+  const raw = JSON.parse(await Deno.readTextFile(`${ROOT}/advice.json`));
+  if (!valid(raw)) {
+    throw new Error(`advice.json does not follow the rules: ${platform.explain(valid.errors)}`);
+  }
+  return raw.advise;
+}
+
+/** The public keys the store's list is signed with, from keys.json. Empty until the store has a key. */
+export async function storeKeys(): Promise<string[]> {
+  const raw = JSON.parse(await Deno.readTextFile(`${ROOT}/keys.json`));
+  if (!Array.isArray(raw?.keys) || !raw.keys.every((k: unknown) => typeof k === "string" && k.length < 100)) {
+    throw new Error("keys.json must be a list of public keys");
+  }
+  return raw.keys;
+}
 
 /** What the platform offers to outside tools, from a checkout of it. */
 export async function loadPlatform(dir: string): Promise<Platform> {

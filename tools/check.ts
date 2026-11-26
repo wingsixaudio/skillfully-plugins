@@ -5,7 +5,18 @@
 // way a hub would read it, and started inside the hub's sandbox with nothing to connect to. What it says about
 // itself is written out in plain words for whoever reviews the pull request.
 
-import { arg, buildModule, type Entry, licenseProblem, loadPlatform, readEntries, ROOT, run } from "./lib.ts";
+import {
+  arg,
+  buildModule,
+  type Entry,
+  generalAdvice,
+  licenseProblem,
+  loadPlatform,
+  readEntries,
+  ROOT,
+  run,
+  storeKeys,
+} from "./lib.ts";
 
 const platform = await loadPlatform(arg("platform", ".platform"));
 const safe = platform.safe as (text: unknown, max?: number) => string;
@@ -14,6 +25,18 @@ const lines: string[] = ["## Store checks", ""];
 let failed = 0;
 
 const entries = await readEntries(platform);
+// The store's own files are held to their rules before any entry is looked at.
+const general = await generalAdvice(platform);
+await storeKeys();
+const kinds: Record<string, string> = {
+  device: "reaching one device on the local network",
+  everyone: "sending to every device on the network at once",
+  "this-computer": "reaching other programs on the hub's own computer",
+  ports: "opening ports on the hub's computer",
+  name: "reaching a device by its name",
+  internet: "reaching the internet",
+};
+const about = (a: { about: string }) => kinds[a.about] ?? `reaching ${code(a.about)}`;
 for (const e of entries.filter((e) => e.problems.length)) {
   failed++;
   lines.push(`**${code(e.file)} cannot be accepted:** ${e.problems.map((p) => safe(p, 400)).join("; ")}`, "");
@@ -25,7 +48,7 @@ if (!Deno.args.includes("--all")) {
   const diff = await run("git", ["diff", "--name-only", `${arg("base")}...HEAD`], ROOT);
   const changed = diff.out.split("\n").map((l) => l.trim()).filter(Boolean);
   // A change to the tools, the rules or the platform version could change the answer for every entry.
-  const everything = changed.some((f) => /^(tools|schema|\.github)\/|^platform\.json$/.test(f));
+  const everything = changed.some((f) => /^(tools|schema|\.github)\/|^(platform|advice|keys)\.json$/.test(f));
   if (!everything) build = build.filter((e) => changed.includes(e.file));
 }
 const sound = entries.length - failed;
@@ -74,6 +97,15 @@ async function prove(entry: Entry): Promise<void> {
         entry.network.map(code).join(", ") || "nothing, so a team is asked about everything"
       }`,
     );
+    for (const a of entry.advise ?? []) {
+      facts.push(
+        a.say === "yes"
+          ? `**The entry tells teams to expect ${about(a)}**, so that box starts ticked: "${
+            safe(a.why, 240)
+          }"`
+          : `The entry advises teams against ${about(a)}: "${safe(a.why, 240)}"`,
+      );
+    }
     facts.push(`Proven so far: ${code(entry.tested)}`);
 
     // Start it the way a hub does for a device nobody has answered for yet: with no access to the network at
@@ -120,6 +152,15 @@ async function prove(entry: Entry): Promise<void> {
       // What it reached for by itself, before anyone gave it an address. A hub would ask its superuser about
       // each of these unless the entry answers it in advance.
       const asked = [...host.asks.values()] as { value: string; words: string; caution?: string }[];
+      // What a team will be shown beside a question the entry leaves to them.
+      const told = (ask: unknown) => {
+        const advice = platform.advised(ask, entry.advise ?? [], general);
+        return !advice
+          ? ""
+          : ` They will be told the store ${advice.say === "yes" ? "expects it" : "advises against it"}: "${
+            safe(advice.why, 240)
+          }"`;
+      };
       const fixed = entry.network.filter((n) => !n.includes("{"));
       if (!asked.length) facts.push("Given no access and no device, it reached for nothing");
       for (const a of asked) {
@@ -129,7 +170,7 @@ async function prove(entry: Entry): Promise<void> {
             answered
               ? "The entry allows this in advance."
               : "**The entry does not answer this, so every team will be asked.**"
-          }`,
+          }${answered ? "" : told(a)}`,
         );
       }
       for (const [kind, times] of [...host.attempts] as [string, number][]) {
@@ -168,7 +209,7 @@ async function prove(entry: Entry): Promise<void> {
     lines.push("", `**It cannot be accepted as it is:**`, ...problems.map((p) => `- ${p}`));
   } else {lines.push(
       "",
-      "It can be accepted. Whether what the entry allows in advance is right is a reviewer's call.",
+      "It can be accepted. Whether what the entry allows in advance, and what it advises, is right is a reviewer's call.",
     );}
   lines.push("");
 }

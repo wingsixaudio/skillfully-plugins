@@ -35,6 +35,26 @@ An entry saves every team from answering the same ordinary questions. Someone ha
 reaches for and written down what is fine to allow for everyone: usually "the address the team types in, on
 this port". Anything not written down, the hub still asks about.
 
+An entry can also give **advice** for the questions it leaves to a team: "we expect this" or "we advise
+against this", with the reason. The hub shows it beside the question. `advice.json` holds the same kind of
+advice for everything in the store, such as advising against anything that reaches the internet. Advice
+allows nothing. The team's superuser still decides.
+
+### The list is signed
+
+The publishing step signs the list of what the store offers, and a hub checks that signature before it reads
+any of it. Each package's checksum is in the list, so a signed list vouches for every package it names. The
+public half of the key is in `keys.json`, and in every hub. The private half is a secret that only the signing
+job on `main` can use; that job starts from a clean copy of this repository and never has a module's code or
+package on it.
+
+A hub that cannot check the signature still lets a team add from the list, and then allows nothing in
+advance and passes on no recommendation to allow anything.
+
+`tools/new_key.ts` makes a key. Its own first lines say how, and where each half goes. To replace a key, put
+both private halves in the secret (one per line) and both public halves in `keys.json` until every hub has the
+new one.
+
 ## What the checks do
 
 On every pull request, with no secrets and a token that can only read:

@@ -3,7 +3,7 @@
 // Nothing from a package is run here. Each is read the way a hub would read it, and listed with its checksum
 // so a hub can tell that what it downloaded is what was built.
 
-import { arg, licenseProblem, loadPlatform, readEntries, ROOT } from "./lib.ts";
+import { arg, generalAdvice, licenseProblem, loadPlatform, readEntries, ROOT } from "./lib.ts";
 
 const platform = await loadPlatform(arg("platform", ".platform"));
 const built = arg("built", "built"), out = arg("out", "site");
@@ -28,6 +28,7 @@ for (const { entry, problems } of await readEntries(platform)) {
     license: pkg.about.license,
     source: entry.source,
     network: entry.network,
+    advise: entry.advise ?? [],
     settings: entry.settings ?? {},
     tested: entry.tested,
     notes: entry.notes ?? "",
@@ -40,6 +41,8 @@ const index = {
   generated: new Date().toISOString(),
   platform: JSON.parse(await Deno.readTextFile(`${ROOT}/platform.json`)),
   modules,
+  // What the store's reviewers say about anything a device asks for, whatever it is.
+  advise: await generalAdvice(platform),
   plugins: [],
 };
 await Deno.writeTextFile(`${out}/index.json`, JSON.stringify(index, null, 2) + "\n");

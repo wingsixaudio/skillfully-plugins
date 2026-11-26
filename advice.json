@@ -1,0 +1,14 @@
+{
+  "advise": [
+    {
+      "about": "internet",
+      "say": "no",
+      "why": "The modules here control equipment on your own network. Allow this only if the entry's notes say why it leaves your network."
+    },
+    {
+      "about": "this-computer",
+      "say": "no",
+      "why": "This reaches another program on the hub's own computer. Allow it only for something you run there yourself."
+    }
+  ]
+}
