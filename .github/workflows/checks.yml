@@ -45,7 +45,7 @@ jobs:
       - name: Formatting
         run: deno fmt --check
       - name: The store's own tools do what they say
-        run: deno test tools/
+        run: deno test --allow-read tools/
       - name: Plugins written for Skillfully are ones the hub would accept
         run: |
           if compgen -G "plugins/*/plugin.json" > /dev/null; then

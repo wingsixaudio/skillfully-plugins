@@ -1,9 +1,0 @@
-{
-  "id": "adder-ccs-pro",
-  "repo": "https://github.com/bitfocus/companion-module-adder-ccs-pro",
-  "commit": "270258596113a61ef9e592d1b3240c1a53f0e95d",
-  "why": "build",
-  "detail": "the bundled library pause-stream 0.0.11 is under \"no license\", which the store does not hand out",
-  "checked": "2026-11-26",
-  "ground": "6c87d2585f84fa9c"
-}
