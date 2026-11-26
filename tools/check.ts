@@ -8,7 +8,7 @@
 import { arg, buildModule, type Entry, licenseProblem, loadPlatform, readEntries, ROOT, run } from "./lib.ts";
 
 const platform = await loadPlatform(arg("platform", ".platform"));
-const safe = platform.report.safe as (text: unknown, max?: number) => string;
+const safe = platform.safe as (text: unknown, max?: number) => string;
 const code = (text: unknown) => "`" + String(text ?? "").replace(/[`\r\n|]/g, "").slice(0, 120) + "`";
 const lines: string[] = ["## Store checks", ""];
 let failed = 0;
@@ -42,15 +42,15 @@ async function prove(entry: Entry): Promise<void> {
   try {
     const built = await buildModule(entry, work);
     problems.push(...built.problems.map((p) => safe(p, 300)));
-    const pkg = await platform.install.readModulePackage(await Deno.readFile(built.tgz));
-    if (pkg.module.id !== entry.id) {
-      problems.push(`the module calls itself ${code(pkg.module.id)}, so that must be the entry's id`);
+    const pkg = await platform.readPackage(await Deno.readFile(built.tgz));
+    if (pkg.about.id !== entry.id) {
+      problems.push(`the module calls itself ${code(pkg.about.id)}, so that must be the entry's id`);
     }
     const license = licenseProblem(pkg);
     if (license) problems.push(license);
     facts.push(
-      `Module ${code(pkg.module.name)} version ${code(pkg.module.version)}, ${
-        pkg.module.license ? `${code(pkg.module.license)} license` : "**no license named**"
+      `Module ${code(pkg.about.name)} version ${code(pkg.about.version)}, ${
+        pkg.about.license ? `${code(pkg.about.license)} license` : "**no license named**"
       }`,
     );
     const added = built.bundled.filter((b) => b.notice === "added by the store");
@@ -78,19 +78,11 @@ async function prove(entry: Entry): Promise<void> {
 
     // Start it the way a hub does for a device nobody has answered for yet: with no access to the network at
     // all, and nothing to connect to. The runtime notes everything it reaches for.
-    const installed = await platform.install.writeModule(pkg, `${work}/data`, {
-      name: entry.name,
-      network: [],
-      mode: "listen",
-    });
-    const hub = await platform.hub.startHub({
+    const installed = await platform.writePackage(pkg, `${work}/data`, { name: entry.name });
+    const hub = await platform.startHub({
       dbPath: ":memory:",
-      plugins: [{
-        dir: installed.dir,
-        mode: "listen",
-        settings: entry.settings ?? {},
-        tuning: { auditPath: `${work}/audit.jsonl` },
-      }],
+      dataDir: `${work}/data`,
+      plugins: [{ dir: installed.dir, mode: "listen", granted: [], settings: entry.settings ?? {} }],
     });
     try {
       const host = hub.hosts.get(installed.id);
@@ -131,7 +123,7 @@ async function prove(entry: Entry): Promise<void> {
       const fixed = entry.network.filter((n) => !n.includes("{"));
       if (!asked.length) facts.push("Given no access and no device, it reached for nothing");
       for (const a of asked) {
-        const answered = platform.asks.covered(a.value, fixed);
+        const answered = platform.covered(a.value, fixed);
         facts.push(
           `Given no access and no device, it tried to: ${safe(a.words, 200)} (${code(a.value)}). ${
             answered
@@ -142,7 +134,7 @@ async function prove(entry: Entry): Promise<void> {
       }
       for (const [kind, times] of [...host.attempts] as [string, number][]) {
         facts.push(
-          `**It also tried to ${safe(platform.asks.attemptWords(kind), 80)}**, ${times} ${
+          `**It also tried to ${safe(platform.attemptWords(kind), 80)}**, ${times} ${
             times === 1 ? "time" : "times"
           }. A hub never allows that`,
         );

@@ -13,19 +13,19 @@ const modules = [];
 for (const { entry, problems } of await readEntries(platform)) {
   if (problems.length) throw new Error(`${entry.id}: ${problems.join("; ")}`);
   const bytes = await Deno.readFile(`${built}/${entry.id}.tgz`);
-  const pkg = await platform.install.readModulePackage(bytes);
-  if (pkg.module.id !== entry.id) throw new Error(`${entry.id}: the package is for ${pkg.module.id}`);
+  const pkg = await platform.readPackage(bytes);
+  if (pkg.about.id !== entry.id) throw new Error(`${entry.id}: the package is for ${pkg.about.id}`);
   // Checked again here, at the last step before anything is handed out.
   const license = licenseProblem(pkg);
   if (license) throw new Error(`${entry.id}: ${license}`);
-  const path = `packages/${entry.id}-${pkg.module.version}.tgz`;
+  const path = `packages/${entry.id}-${pkg.about.version}.tgz`;
   await Deno.writeFile(`${out}/${path}`, bytes);
   modules.push({
     id: entry.id,
     name: entry.name,
     description: entry.description,
-    version: pkg.module.version,
-    license: pkg.module.license,
+    version: pkg.about.version,
+    license: pkg.about.license,
     source: entry.source,
     network: entry.network,
     settings: entry.settings ?? {},
