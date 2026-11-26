@@ -208,17 +208,23 @@ Deno.test("a build that asks Yarn to run a tool gets that tool, from the module'
   await Deno.mkdir(bin, { recursive: true });
   await Deno.writeTextFile(`${bin}/webpack`, '#!/bin/sh\necho "webpack ran with $*"\n');
   await Deno.chmod(`${bin}/webpack`, 0o755);
-  const env = { PATH: `${await yarnStandIn(work)}:${Deno.env.get("PATH") ?? ""}` };
+  const standIn = `${await yarnStandIn(work)}/yarn`;
+  const env = { PATH: `${work}/yarn-stand-in:${Deno.env.get("PATH") ?? ""}` };
   // Asked from inside the tools folder, the way the module build tool asks, in both spellings it has used.
   const tools = `${work}/src/node_modules/@companion-module/tools`;
-  const modern = await run("yarn", ["run", "-B", "webpack", "-c", "x.cjs", "--env", "dev"], tools, env);
+  const modern = await run(
+    "node",
+    [standIn, "run", "-B", "webpack", "-c", "x.cjs", "--env", "dev"],
+    tools,
+    env,
+  );
   eq([modern.ok, modern.out.trim()], [true, "webpack ran with -c x.cjs --env dev"], "the newer spelling");
-  const older = await run("yarn", ["webpack", "-c", "x.cjs"], tools, env);
+  const older = await run("node", [standIn, "webpack", "-c", "x.cjs"], tools, env);
   eq([older.ok, older.out.trim()], [true, "webpack ran with -c x.cjs"], "the older spelling");
   // A tool that fails still fails.
   await Deno.writeTextFile(`${bin}/broken`, "#!/bin/sh\nexit 3\n");
   await Deno.chmod(`${bin}/broken`, 0o755);
-  eq((await run("yarn", ["run", "broken"], tools, env)).ok, false, "a failure is passed on");
+  eq((await run("node", [standIn, "run", "broken"], tools, env)).ok, false, "a failure is passed on");
   await Deno.remove(work, { recursive: true });
 });
 
