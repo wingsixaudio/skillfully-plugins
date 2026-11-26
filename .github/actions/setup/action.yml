@@ -29,3 +29,8 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: 22
+    # Many authors install with Yarn, each pinned to a version of it. This lets "yarn" be whichever version a
+    # module's own package.json names, so a module is installed the way its author installs it.
+    - if: inputs.node == 'true'
+      shell: bash
+      run: corepack enable

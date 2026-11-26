@@ -90,7 +90,14 @@ jobs:
           ID: ${{ matrix.id }}
         run: |
           cp "fill/entries/$ID.json" "modules/$ID.json"
-          $CHECK --all --id="$ID" --out=findings
+          # A module that does not pass is left out and its reason written down. That is an ordinary outcome
+          # here, not a failed run, so it does not turn this job red. The summary says which it was.
+          if $CHECK --all --id="$ID" --out=findings > result.md; then
+            echo "**Passed.** It goes in the pull request." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "**Left out.** The reason is below, and goes in \`declined/\`." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          cat result.md | tee -a "$GITHUB_STEP_SUMMARY"
       - if: always()
         uses: actions/upload-artifact@v4
         with:
