@@ -26,7 +26,7 @@ export interface Entry {
 }
 
 // deno-lint-ignore no-explicit-any
-export type Platform = { contract: any; install: any; hub: any; report: any };
+export type Platform = { contract: any; install: any; hub: any; report: any; asks: any };
 
 /** The platform's own code, from a checkout of it. */
 export async function loadPlatform(dir: string): Promise<Platform> {
@@ -36,6 +36,7 @@ export async function loadPlatform(dir: string): Promise<Platform> {
     install: await import(`${base}core/install.ts`),
     hub: await import(`${base}core/hub.ts`),
     report: await import(`${base}tools/plugin_report.ts`),
+    asks: await import(`${base}core/asks.ts`),
   };
 }
 

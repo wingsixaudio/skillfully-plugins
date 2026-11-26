@@ -7,8 +7,13 @@
     "repo": "https://github.com/bitfocus/companion-module-tplink-kasasmartplug",
     "commit": "dff17d5921f6fc21cd3035e15ec2d84455a3af68"
   },
-  "network": ["{host}:9999", "listen"],
-  "settings": { "scan": false },
+  "network": [
+    "{host}:9999",
+    "listen"
+  ],
+  "settings": {
+    "scan": false
+  },
   "tested": "pretend-device",
-  "notes": "It opens a port to listen for plugs even when it is given one address, so it needs listen. Scanning the network for plugs is turned off, because that would need the whole local network: type the plug's address instead. Proven against a stand-in that speaks the Kasa protocol, not yet a real plug."
+  "notes": "It opens a port to listen for plugs even when it is given one address, so that is allowed in advance along with the plug's own address. Scanning the network for plugs is turned off: type the plug's address instead. A team that turns scanning on will be asked before it sends to the whole network. Proven against a stand-in that speaks the Kasa protocol, not yet a real plug."
 }
