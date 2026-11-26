@@ -1,0 +1,9 @@
+{
+  "id": "clearcom-freespeakii",
+  "repo": "https://github.com/bitfocus/companion-module-clearcom-freespeakii",
+  "commit": "8b822aa42269fafa7f5486bc20c6c85d781497d5",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

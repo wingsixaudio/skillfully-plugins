@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "evision-hd102",
+  "name": "Evision HD102",
+  "description": "Module voor Evision HD102",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-evision-hd102",
+    "commit": "a7c4c3d37760f81928b534d36444949b925af427"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dtvideolabs-playbackproplus",
+  "name": "DT Videolabs PlaybackPro Plus",
+  "description": "PlaybackPro Plus plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dtvideolabs-playbackproplus",
+    "commit": "dccd30ff495f4ba3bcd7695a2a4dae4661467314"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

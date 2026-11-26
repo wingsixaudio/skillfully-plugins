@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "evertz-vipx",
+  "name": "Evertz Vipx",
+  "description": "This module allows control of Evertz VIPX devices. Specifically dealing with Evertz Snapshots in the Multiviewer tab",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-evertz-vipx",
+    "commit": "8debf9e250109260e618141eba987017fc05c852"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

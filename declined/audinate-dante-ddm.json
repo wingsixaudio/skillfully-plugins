@@ -1,9 +1,0 @@
-{
-  "id": "audinate-dante-ddm",
-  "repo": "https://github.com/bitfocus/companion-module-audinate-dante-ddm",
-  "commit": "1100044c9ebca2d4b6148ad5e89fc6b57c50a2fd",
-  "why": "build",
-  "detail": "the bundled library @wry/context 0.7.4 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

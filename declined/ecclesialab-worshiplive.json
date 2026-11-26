@@ -1,0 +1,9 @@
+{
+  "id": "ecclesialab-worshiplive",
+  "repo": "https://github.com/bitfocus/companion-module-ecclesialab-worshiplive",
+  "commit": "79093a498b59c2466b91cebfb6a5f2bf18c13168",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

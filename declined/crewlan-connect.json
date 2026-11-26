@@ -1,0 +1,9 @@
+{
+  "id": "crewlan-connect",
+  "repo": "https://github.com/bitfocus/companion-module-crewlan-connect",
+  "commit": "9c5884c6c371291255316a3ac36ae79593a2ddc7",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

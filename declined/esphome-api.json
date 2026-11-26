@@ -1,0 +1,9 @@
+{
+  "id": "esphome-api",
+  "repo": "https://github.com/bitfocus/companion-module-esphome-api",
+  "commit": "dbaacd0f8b6342dbe52f43376c5e261d72e88f07",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

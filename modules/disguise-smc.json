@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "disguise-smc",
+  "name": "Disguise Disguise - SMC",
+  "description": "Disguise System Management Controller",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-disguise-smc",
+    "commit": "cbc042319d25f29bb21782ae171466481ffd0d02"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

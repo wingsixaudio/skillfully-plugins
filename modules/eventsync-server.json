@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "eventsync-server",
+  "name": "EventSync EventSync Server",
+  "description": "Control EventSync from Bitfocus Companion. Trigger cues, manage modules, and monitor show status from Stream Deck.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-eventsync-server",
+    "commit": "15171c7746702ed71d5df62b89d57cac0802dc11"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

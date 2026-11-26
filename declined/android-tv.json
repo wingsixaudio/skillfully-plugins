@@ -1,9 +1,0 @@
-{
-  "id": "android-tv",
-  "repo": "https://github.com/bitfocus/companion-module-android-tv",
-  "commit": "f1898e3550441db81e7d3c629cf2222c3f1bef23",
-  "why": "build",
-  "detail": "the bundled library macfromip 1.1.1 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

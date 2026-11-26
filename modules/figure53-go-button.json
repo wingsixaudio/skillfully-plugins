@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "figure53-go-button",
+  "name": "Figure 53 GoButton with feedback",
+  "description": "Go Button plugin for Companion with feedback",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-figure53-go-button",
+    "commit": "82243aba2c4cd364c19ce6c8f4859cc59c06e328"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

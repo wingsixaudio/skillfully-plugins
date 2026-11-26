@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "chilibytes-pdfosc",
+  "name": "ChiliBytes PDFOSC",
+  "description": "PDFOSC is a PDF viewer that allows Open Sound Control (OSC) control of PDF documents.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-chilibytes-pdfosc",
+    "commit": "3f121edc8a5932ff80095e2315eb51f4bf63162f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

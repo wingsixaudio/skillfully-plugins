@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "easyrecord-cgcontrol",
+  "name": "Easyrecord Easyrecord CG control",
+  "description": "CG control for easyrecord, www.easyrecord.se",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-easyrecord-cgcontrol",
+    "commit": "560bbfb2c4fdc4211baf5b88fe6b672d5fea32e8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

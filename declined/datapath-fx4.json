@@ -1,0 +1,9 @@
+{
+  "id": "datapath-fx4",
+  "repo": "https://github.com/bitfocus/companion-module-datapath-fx4",
+  "commit": "994893a3dffb5674809ac056540889e85332ceea",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

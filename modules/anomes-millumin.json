@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "anomes-millumin",
+  "name": "Anomes Millumin 2, Millumin 3",
+  "description": "Millumin plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-anomes-millumin",
+    "commit": "237ba589689765eb0f461a24b58dafaff9bc71d8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

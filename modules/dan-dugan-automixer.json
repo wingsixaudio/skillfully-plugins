@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dan-dugan-automixer",
+  "name": "Dan Dugan Sound Design Model M, Model N",
+  "description": "Dan Dugan Automixer Model M & N plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dan-dugan-automixer",
+    "commit": "a4951447957685968b447870bb9678cd3d3247bf"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

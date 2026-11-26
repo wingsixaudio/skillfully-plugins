@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "djsoft-radioboss",
+  "name": "DJ Soft Radio BOSS",
+  "description": "Remote control of DJ Soft's Radio BOSS software. Extended edition by MJS — animated toggle feedbacks, Smart Conn/Disc confirm, boolean feedbacks with PNG/colour support.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-djsoft-radioboss",
+    "commit": "6be6b617953e663aac00e99bc7b060d79f0fc6b6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

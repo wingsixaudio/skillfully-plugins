@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "equipson-lightshark",
+  "name": "LightShark LS1, LS-Core",
+  "description": "Module for controlling the LightShark LS1 (or LS-Core) using OSC commands",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-equipson-lightshark",
+    "commit": "2b18af2015b2d86bdc77928147af95d4d6fb5dc5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dataton-watchout",
+  "name": "Dataton Watchout",
+  "description": "Dataton Watchout Production and Display Cluster plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dataton-watchout",
+    "commit": "eb6d43fa9fbd5b1fb50892657d7d38ac7736491b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

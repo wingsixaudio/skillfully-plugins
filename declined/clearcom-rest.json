@@ -1,0 +1,9 @@
+{
+  "id": "clearcom-rest",
+  "repo": "https://github.com/bitfocus/companion-module-clearcom-rest",
+  "commit": "9f0c83f08094c8a02318083a9f4c6697960b76cd",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

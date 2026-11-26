@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "arkona-bladerunner",
+  "name": "Arkona Technologies BLADE//runner AT1130",
+  "description": "Monitor and control Arkona Technologies BLADE//runner frames.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-arkona-bladerunner",
+    "commit": "7a683637cbb891f0d6e422b2a19b45673df809f9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

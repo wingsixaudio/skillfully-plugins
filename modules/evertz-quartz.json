@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "evertz-quartz",
+  "name": "Evertz Quartz Protocol Routers, MAGNUM",
+  "description": "Module to control Evertz routers using Quartz protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-evertz-quartz",
+    "commit": "2a703c69a4afa0f1b95b526f19825eccef0df6f5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

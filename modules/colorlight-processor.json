@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "colorlight-processor",
+  "name": "Colorlight U-Series, Z-Series",
+  "description": "colorlight-processor",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-colorlight-processor",
+    "commit": "3be1e1a80f511971f3a6f7a69f48b38bf277b36d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

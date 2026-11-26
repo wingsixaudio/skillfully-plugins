@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "avproedge-mxnet",
+  "name": "AVPro Edge MXnet 1G Control Box",
+  "description": "Control MXnet 1G Control Box over a Telnet connection",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-avproedge-mxnet",
+    "commit": "b4ad0314733910a1f0d5a2ebd3a9bd5b7a6055f2"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

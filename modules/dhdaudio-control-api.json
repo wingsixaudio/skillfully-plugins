@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dhdaudio-control-api",
+  "name": "DHD Control API",
+  "description": "Connect to modern DHD Series 52 IP Core devices (XC3/XD3/XS3 or RM1)",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dhdaudio-control-api",
+    "commit": "82f8c42afbe44bc5c2ecba3c5ffb65772a856607"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

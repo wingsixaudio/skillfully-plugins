@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cuevacontrol-relo-io8",
+  "name": "Cueva Control RELO-IO8",
+  "description": "Control and monitor the Cueva Control RELO IO8, an Ethernet I/O module with 8 relays and 8 digital inputs",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cuevacontrol-relo-io8",
+    "commit": "14766d5cd7f0161ed622b5e0de190fb541f4c421"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

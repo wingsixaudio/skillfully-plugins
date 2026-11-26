@@ -1,9 +1,0 @@
-{
-  "id": "agf-characterworks",
-  "repo": "https://github.com/bitfocus/companion-module-agf-characterworks",
-  "commit": "339a490af5a17afc6c3a5895f4a2c4b0ca64b262",
-  "why": "build",
-  "detail": "the bundled library lru\\_map 0.3.3 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

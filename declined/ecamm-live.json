@@ -1,0 +1,9 @@
+{
+  "id": "ecamm-live",
+  "repo": "https://github.com/bitfocus/companion-module-ecamm-live",
+  "commit": "4f8d7e09e0940e576d6b637723065ee34df1f84a",
+  "why": "start",
+  "detail": "companion-ecamm-live was not ready in 30000 ms: it stopped with exit code 1: [debug] Initializing Failed to startup module: NotCapable: Requires sys access to \"hostname\", run again with the --allow-sys flag at Object.hostname (ext:deno_os/30_os.js:1:600) at hostname (ext:deno_node/os.ts:1:1726) at $",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

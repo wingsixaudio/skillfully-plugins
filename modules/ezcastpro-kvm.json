@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ezcastpro-kvm",
+  "name": "EZCastPro KVM, POE IP KVM",
+  "description": "Control EZCastPro / EZCast Pro POE IP KVM receivers over the CMS JSON-RPC API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ezcastpro-kvm",
+    "commit": "6dbcedc00f946e41978f8e259f2074f89e2b49c5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

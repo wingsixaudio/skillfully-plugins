@@ -1,0 +1,9 @@
+{
+  "id": "churchapps-freeshow",
+  "repo": "https://github.com/bitfocus/companion-module-churchapps-freeshow",
+  "commit": "8cb80c56d04f87cf1d85cfd922f13d081ce8993b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

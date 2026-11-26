@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "elgato-keylight",
+  "name": "Elgato Key Light, Ring Light",
+  "description": "Controls Elgato Key Light, Ring Light through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-elgato-keylight",
+    "commit": "6fc7d7d1aea87e20e00eea11e2b59aa4059b3a73"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

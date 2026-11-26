@@ -1,0 +1,9 @@
+{
+  "id": "dexon-dimax",
+  "repo": "https://github.com/bitfocus/companion-module-dexon-dimax",
+  "commit": "53564abfcdbc464fc55a8e48996b4a48c0d7836b",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

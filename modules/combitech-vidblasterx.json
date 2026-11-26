@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "combitech-vidblasterx",
+  "name": "CombiTech VidBlasterX",
+  "description": "Control VidBlasterX via the TCP Server module",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-combitech-vidblasterx",
+    "commit": "1cbc852f8ceb771088c4486502b6a60d2622913e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

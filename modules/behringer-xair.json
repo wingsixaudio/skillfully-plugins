@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "behringer-xair",
+  "name": "Behringer/Midas XR/MR, XAir",
+  "description": "Module to control Midas MR and Behringer XR series mixers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-behringer-xair",
+    "commit": "b172eb0404607bea20c8e0afa0b3d5643222082f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

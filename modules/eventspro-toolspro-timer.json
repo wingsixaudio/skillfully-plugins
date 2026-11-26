@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "eventspro-toolspro-timer",
+  "name": "EventsPRO Timer PRO",
+  "description": "Timer PRO with local-network and OSC control, speaker output visibility and chroma presets",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-eventspro-toolspro-timer",
+    "commit": "0e26fdc44278a729e16526c8593afb2847453ac5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

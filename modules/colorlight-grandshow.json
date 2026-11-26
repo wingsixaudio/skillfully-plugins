@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "colorlight-grandshow",
+  "name": "Colorlight GrandShow",
+  "description": "GrandShow External Contorl",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-colorlight-grandshow",
+    "commit": "39d7a400bebaec1c13ea8ffa6d336357b84ff6a1"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

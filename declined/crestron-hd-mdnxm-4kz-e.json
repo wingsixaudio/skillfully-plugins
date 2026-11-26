@@ -1,0 +1,9 @@
+{
+  "id": "crestron-hd-mdnxm-4kz-e",
+  "repo": "https://github.com/bitfocus/companion-module-crestron-hd-mdnxm-4kz-e",
+  "commit": "dfdcf0f670b6d2d5a7ecc41c9811b1795c1695fe",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

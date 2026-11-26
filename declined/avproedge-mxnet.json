@@ -1,9 +1,0 @@
-{
-  "id": "avproedge-mxnet",
-  "repo": "https://github.com/bitfocus/companion-module-avproedge-mxnet",
-  "commit": "b4ad0314733910a1f0d5a2ebd3a9bd5b7a6055f2",
-  "why": "build",
-  "detail": "the bundled library @streamparser/json 0.0.22 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "14a76fc162b6210c"
-}

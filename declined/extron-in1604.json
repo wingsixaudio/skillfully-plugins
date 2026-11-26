@@ -1,0 +1,9 @@
+{
+  "id": "extron-in1604",
+  "repo": "https://github.com/bitfocus/companion-module-extron-in1604",
+  "commit": "21fa1f3af6ec4e01c46a848de63c205059feb09c",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

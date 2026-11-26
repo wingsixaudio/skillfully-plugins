@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dmxcontrolprojects-dmxcontrol3",
+  "name": "DMXControl Projects e.V. DMXControl 3",
+  "description": "This module allows you to connect with DMXControl 3.3 and control macros and executors.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dmxcontrolprojects-dmxcontrol3",
+    "commit": "4e8062ee11ad128fb20958ad079c8f0c529a3ca0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

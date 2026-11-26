@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ereca-stageracer",
+  "name": "Ereca Stage Racer II",
+  "description": "Ereca StageRacer module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ereca-stageracer",
+    "commit": "bd0702b71ca873254e0c3362768a826692ea3b00"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

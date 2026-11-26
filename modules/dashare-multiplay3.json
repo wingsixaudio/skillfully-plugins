@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dashare-multiplay3",
+  "name": "da-Share MultiPlay 3",
+  "description": "OSC for DaShare Multiplay 3 software",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dashare-multiplay3",
+    "commit": "f6bb970bdc21032cc571311f738e6657f2ab213d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

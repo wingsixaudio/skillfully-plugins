@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aws-elementallive",
+  "name": "AWS Elemental Live",
+  "description": "Control AWS Elemental Live encoders.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aws-elementallive",
+    "commit": "15f3fbb071a3555b0a198dddf57f76af10df8896"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
