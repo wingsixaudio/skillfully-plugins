@@ -1,0 +1,9 @@
+{
+  "id": "7thsensedesign-delta",
+  "repo": "https://github.com/bitfocus/companion-module-7thsensedesign-delta",
+  "commit": "0346d0ae1448775b0593e59407ae90cabfefacea",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

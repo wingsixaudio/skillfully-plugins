@@ -1,0 +1,9 @@
+{
+  "id": "advatek-pixlite-mk3",
+  "repo": "https://github.com/bitfocus/companion-module-advatek-pixlite-mk3",
+  "commit": "70a67a5adde45a262fd42d20e4011f40ba544453",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

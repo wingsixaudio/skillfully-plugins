@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "posistagenet-protocol",
+  "name": "PosiStageNet PosiStageNet Protocol",
+  "description": "Connect to PosiStageNet tracking systems and access tracker data",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-PosiStageNet-protocol",
+    "commit": "23f138fb04774f46c316bf440bce1cda8094cd2e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

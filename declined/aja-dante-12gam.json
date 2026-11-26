@@ -1,0 +1,9 @@
+{
+  "id": "aja-dante-12gam",
+  "repo": "https://github.com/bitfocus/companion-module-aja-dante-12gam",
+  "commit": "a26783b1bbd3c21ca2a4c0035feea2a704f92b0f",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

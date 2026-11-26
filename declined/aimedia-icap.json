@@ -1,0 +1,9 @@
+{
+  "id": "aimedia-icap",
+  "repo": "https://github.com/bitfocus/companion-module-aimedia-icap",
+  "commit": "7eebe4138584ee0218b6d566e8420ce3ce4a8527",
+  "why": "build",
+  "detail": "the bundled library agent-base 6.0.2 carries no license text, and nobody has recorded checking that under notices/",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "adder-infinity100xseries",
+  "repo": "https://github.com/bitfocus/companion-module-adder-infinity100xseries",
+  "commit": "6e9e2b88bc19047d20c7f7023ebc1ab056fe9ce9",
+  "why": "build",
+  "detail": "installing what the module needs failed:",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "1stpass-1stpass",
+  "name": "1stPass 1stPass",
+  "description": "Log markers and titles to timecode, switch cameras with tally, and control camera bodies",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-1stpass-1stpass",
+    "commit": "b0fd288af83460101220e93bd729268a89383f84"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

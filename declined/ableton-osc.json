@@ -1,0 +1,9 @@
+{
+  "id": "ableton-osc",
+  "repo": "https://github.com/bitfocus/companion-module-ableton-osc",
+  "commit": "f64fa68f3d08549c59138d998550eb15234f10f4",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}
