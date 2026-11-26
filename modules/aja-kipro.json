@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aja-kipro",
+  "name": "AJA Ki Pro, Ki Pro Ultra",
+  "description": "Module to control the AJA KiPro",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aja-kipro",
+    "commit": "03794b548e920b10c1a26576b23bb49998a5574f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-adlerluiz-ytmdesktop",
   "commit": "2715c2a48ecfaf3395fec38d38bcf864fa037bc3",
   "why": "build",
-  "detail": "installing what the module needs failed:",
+  "detail": "the bundled library exif-parser 0.1.12 is under \"no license\", which the store does not hand out",
   "checked": "2026-11-26",
-  "ground": "6c87d2585f84fa9c"
+  "ground": "14a76fc162b6210c"
 }

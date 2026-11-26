@@ -5,5 +5,5 @@
   "why": "build",
   "detail": "listing what gets bundled failed: at maybeClose \\(node:internal/child\\_process:1101:16\\) at ChildProcess.\\_handle.onexit \\(node:internal/child\\_process:304:5\\) at Process.callbackTrampoline \\(node:internal/async\\_hooks:130:17\\) { \\_code: 1, \\_signal: null, \\_stdout: 'yarn run v1.22.22\\\\n' + 'info Vi",
   "checked": "2026-11-26",
-  "ground": "6c87d2585f84fa9c"
+  "ground": "14a76fc162b6210c"
 }

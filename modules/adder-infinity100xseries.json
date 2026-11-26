@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "adder-infinity100xseries",
+  "name": "Adder Infinity 1000R Series, Infinity 2020R Series",
+  "description": "adder-infinity100xseries",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-adder-infinity100xseries",
+    "commit": "6e9e2b88bc19047d20c7f7023ebc1ab056fe9ce9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

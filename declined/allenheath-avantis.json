@@ -1,0 +1,9 @@
+{
+  "id": "allenheath-avantis",
+  "repo": "https://github.com/bitfocus/companion-module-allenheath-avantis",
+  "commit": "29762e7e637a0ef3136e8be596babe88b638fbad",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}

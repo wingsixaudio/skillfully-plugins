@@ -1,0 +1,9 @@
+{
+  "id": "allenheath-ahm",
+  "repo": "https://github.com/bitfocus/companion-module-allenheath-ahm",
+  "commit": "d9f3bf2935493ee0c0029ecb19173521ee310472",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "14a76fc162b6210c"
+}
