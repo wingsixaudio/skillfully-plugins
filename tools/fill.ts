@@ -30,8 +30,8 @@ interface Declined {
   detail: string;
   checked: string;
   /**
-   * What this side was when it was left out: the hub the store checks against, the store's way of building,
-   * and the libraries it has recorded as publishing no license text. When any of those change, a module
+   * What this side was when it was left out: the hub the store checks against, how the store builds a
+   * module, and the libraries it has recorded as publishing no license text. When any of those change, a module
    * left out for a reason on this side is looked at again.
    */
   ground: string;
@@ -44,7 +44,9 @@ const slug = (repo: string) =>
   repo.toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 51);
 const ground = createHash("sha256").update(
   JSON.parse(await Deno.readTextFile(`${ROOT}/platform.json`)).ref + `|${RECIPE}|` +
-    await Deno.readTextFile(`${ROOT}/notices/without-text.json`),
+    await Deno.readTextFile(`${ROOT}/notices/without-text.json`) +
+    // How a module is built. A fix there is a reason to try again what would not build before.
+    await Deno.readTextFile(`${ROOT}/tools/lib.ts`),
 ).digest("hex").slice(0, 16);
 
 async function git(args: string[], cwd?: string): Promise<{ ok: boolean; out: string }> {

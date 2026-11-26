@@ -141,8 +141,20 @@ export function licenseProblem(pkg: any): string | null {
   return null;
 }
 
-export async function run(cmd: string, args: string[], cwd: string): Promise<{ ok: boolean; out: string }> {
-  const r = await new Deno.Command(cmd, { args, cwd, stdout: "piped", stderr: "piped" }).output();
+export async function run(
+  cmd: string,
+  args: string[],
+  cwd: string,
+  env: Record<string, string> = {},
+): Promise<{ ok: boolean; out: string }> {
+  // A tool that is not on this computer is a failed step like any other, with a reason.
+  const r = await new Deno.Command(cmd, { args, cwd, env, stdout: "piped", stderr: "piped" }).output().catch(
+    (err) => ({
+      success: false,
+      stdout: new Uint8Array(),
+      stderr: new TextEncoder().encode(String((err as Error).message)),
+    }),
+  );
   const text = new TextDecoder().decode(r.stdout) + new TextDecoder().decode(r.stderr);
   return { ok: r.success, out: text.trim().slice(-1500) };
 }
@@ -157,6 +169,50 @@ export function licenseAllowed(expression: string): boolean {
   return text.split(/\s+OR\s+/i).some((alt) =>
     alt.split(/\s+AND\s+/i).every((l) => BUNDLED_OK.includes(l.trim()))
   );
+}
+
+/** The license a library's package.json declares, in any of the ways that has been written over the years. */
+// deno-lint-ignore no-explicit-any
+export function declaredLicense(pj: any): string {
+  const one = (l: unknown): string =>
+    typeof l === "string"
+      ? l
+      : l && typeof l === "object"
+      ? String((l as { type?: unknown }).type ?? "")
+      : "";
+  if (typeof pj?.license === "string") return pj.license;
+  // More than one means any of them may be chosen.
+  if (Array.isArray(pj?.license)) return pj.license.map(one).filter(Boolean).join(" OR ");
+  if (pj?.license && typeof pj.license === "object") return one(pj.license);
+  if (Array.isArray(pj?.licenses)) return pj.licenses.map(one).filter(Boolean).join(" OR ");
+  return "";
+}
+
+/**
+ * The license text a README carries, if it carries one: what stands under a heading called License, when that
+ * holds a copyright line or the words of a grant. A heading that only names a license is not its text.
+ */
+export function noticeInReadme(readme: string): string {
+  const lines = readme.replaceAll("\r", "").split("\n");
+  const underlined = (i: number) => /^(=+|-+)\s*$/.test(lines[i + 1] ?? "") && lines[i].trim() !== "";
+  for (let i = 0; i < lines.length; i++) {
+    const hashes = /^(#{1,6})\s*licen[cs]e\b/i.exec(lines[i]);
+    const under = /^licen[cs]e\s*$/i.test(lines[i].trim()) && underlined(i);
+    if (!hashes && !under) continue;
+    const level = hashes ? hashes[1].length : lines[i + 1].startsWith("=") ? 1 : 2;
+    const body: string[] = [];
+    for (let j = i + (under ? 2 : 1); j < lines.length; j++) {
+      const next = /^(#{1,6})\s/.exec(lines[j]);
+      if ((next && next[1].length <= level) || underlined(j)) break;
+      body.push(lines[j]);
+    }
+    const text = body.join("\n").trim();
+    if (
+      /permission is hereby granted|redistribution and use|permission to use, copy, modify|apache license|copyright|©|\(c\)/i
+        .test(text)
+    ) return text.slice(0, 20000);
+  }
+  return "";
 }
 
 export interface Bundled {
@@ -174,6 +230,8 @@ export interface Built {
   bundled: Bundled[];
   /** Why the store may not hand this package out. Empty when it may. */
   problems: string[];
+  /** How what it needs was installed: with which tool, and whether from its author's lockfile. */
+  installed: string;
 }
 
 const exists = async (path: string) => !!(await Deno.stat(path).catch(() => null));
@@ -209,13 +267,54 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
   if (got !== entry.source.commit) {
     throw new Error(`the source is at ${got}, not the pinned ${entry.source.commit}`);
   }
-  await step("installing what the module needs", "npm", [
-    "install",
-    "--ignore-scripts",
-    "--no-audit",
-    "--no-fund",
-    "--silent",
-  ]);
+  // Installed the way its author installs it: with their tool, from their lockfile, so what is built is what
+  // they tested. Install scripts are never run, whichever tool it is. If their way does not work here, plain
+  // npm is tried, which was the only way before.
+  const theirPackage = JSON.parse(await Deno.readTextFile(`${src}/package.json`));
+  const quiet = {
+    COREPACK_ENABLE_DOWNLOAD_PROMPT: "0",
+    YARN_ENABLE_SCRIPTS: "false",
+    YARN_NODE_LINKER: "node-modules",
+    YARN_ENABLE_TELEMETRY: "0",
+  };
+  const tried: string[] = [];
+  let installedHow = "";
+  const install = async (how: string, cmd: string, args: string[]) => {
+    const r = await run(cmd, args, src, quiet);
+    if (!r.ok) tried.push(`${how}: ${r.out.replace(/\s+/g, " ").slice(-240)}`);
+    else installedHow = how;
+    return r.ok;
+  };
+  let installed = false;
+  if (await exists(`${src}/yarn.lock`)) {
+    const modern = /^yarn@([2-9]|[1-9][0-9])\./.test(String(theirPackage.packageManager ?? "")) ||
+      await exists(`${src}/.yarnrc.yml`);
+    installed = await install(
+      "with Yarn, from its lockfile",
+      "yarn",
+      modern
+        ? ["install", "--immutable", "--mode=skip-build"]
+        : ["install", "--frozen-lockfile", "--ignore-scripts", "--non-interactive"],
+    );
+  }
+  if (!installed && await exists(`${src}/package-lock.json`)) {
+    installed = await install("with npm, from its lockfile", "npm", [
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+    ]);
+  }
+  if (!installed) {
+    installed = await install("with npm", "npm", [
+      "install",
+      "--ignore-scripts",
+      "--legacy-peer-deps",
+      "--no-audit",
+      "--no-fund",
+    ]);
+  }
+  if (!installed) throw new Error(`installing what the module needs failed. ${tried.join(" | ")}`);
 
   // A module written in TypeScript has to be compiled before it can be packaged. That is done here with
   // the compiler the module itself asks for, pointed at the module's own settings, and not by running the
@@ -270,11 +369,7 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     if (!(await exists(`${src}/${dir}/package.json`))) continue;
     const pj = JSON.parse(await Deno.readTextFile(`${src}/${dir}/package.json`));
     const name = String(pj.name ?? dir), version = String(pj.version ?? "");
-    const license = typeof pj.license === "string"
-      ? pj.license
-      : Array.isArray(pj.licenses)
-      ? pj.licenses.map((l: { type?: string }) => l.type).join(" OR ")
-      : "";
+    const license = declaredLicense(pj);
     if (bundled.some((b) => b.name === name && b.version === version)) continue;
     if (!licenseAllowed(license)) {
       problems.push(
@@ -291,6 +386,15 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     for await (const f of Deno.readDir(`${src}/${dir}`)) {
       if (f.isFile && /^(licen[cs]e|copying|notice)/i.test(f.name)) {
         texts.push((await Deno.readTextFile(`${src}/${dir}/${f.name}`)).trim());
+      }
+    }
+    // Some libraries publish their license inside their README and nowhere else. That is still its text.
+    if (!texts.length) {
+      for await (const f of Deno.readDir(`${src}/${dir}`)) {
+        if (f.isFile && /^readme(\.[a-z]+)?$/i.test(f.name)) {
+          const inside = noticeInReadme(await Deno.readTextFile(`${src}/${dir}/${f.name}`));
+          if (inside) texts.push(inside);
+        }
       }
     }
     const known = withoutText.find((k) => k.name === name);
@@ -311,6 +415,20 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     }
   }
 
+  // An older build tool leaves the module's own license out of the package. The license asks for it to go
+  // with every copy, so it is put in from the module's source.
+  let ownLicense = false;
+  const inPackage: string[] = [];
+  for await (const f of Deno.readDir(`${out}/${top}`)) inPackage.push(f.name);
+  if (!inPackage.some((n) => /^licen[cs]e(\.[a-z]+)?$/i.test(n))) {
+    for await (const f of Deno.readDir(src)) {
+      if (!ownLicense && f.isFile && /^licen[cs]e(\.[a-z]+)?$/i.test(f.name)) {
+        await Deno.copyFile(`${src}/${f.name}`, `${out}/${top}/LICENSE`);
+        ownLicense = true;
+      }
+    }
+  }
+
   if (additions.length) {
     await Deno.writeTextFile(
       `${out}/${top}/LICENSES-ALSO-BUNDLED.txt`,
@@ -318,8 +436,10 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
         "main.js and are not listed there. Their notices were added by the Skillfully plugin store when it built\n" +
         `this package from ${entry.source.repo} at ${entry.source.commit}.\n\n` + additions.join("\n"),
     );
+  }
+  if (additions.length || ownLicense) {
     await Deno.remove(tgz);
     await step("closing the package", "tar", ["-czf", tgz, "-C", out, top], work);
   }
-  return { tgz, bundled, problems };
+  return { tgz, bundled, problems, installed: installedHow };
 }

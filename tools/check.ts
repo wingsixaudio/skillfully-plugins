@@ -89,6 +89,7 @@ async function prove(entry: Entry): Promise<Finding> {
           : ""),
     );
     facts.push(`Source: ${safe(entry.source.repo)} at ${code(entry.source.commit.slice(0, 12))}`);
+    facts.push(`What it needs was installed ${built.installed}. Install scripts were not run`);
     facts.push(
       `The entry allows in advance: ${
         entry.network.map(code).join(", ") || "nothing, so a team is asked about everything"
