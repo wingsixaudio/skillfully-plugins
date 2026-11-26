@@ -73,6 +73,30 @@ On every pull request, with no secrets and a token that can only read:
 
 The checks run against one pinned version of the hub, named in `platform.json`.
 
+Each entry is checked on a machine of its own, so one entry or two hundred take about the same time, and no
+module's build ever shares a machine with another's. A change to the tools or the rules builds a spread of the
+existing entries again, to show nothing broke.
+
+## How publishing scales
+
+A package is its author's source at one commit, built one way. Once that has been built it is never built
+again.
+
+- **Packages are kept as release files in this repository**, one release per module, one file per version. A
+  file is written once and never changed.
+- **The store's site holds only the signed list** that points at them, with each package's checksum.
+- **A publish builds only what is new.** It reads the list published before, checks the store signed it, and
+  keeps every package that still matches its entry. Changing an entry's words, advice or answers publishes
+  without building anything.
+- **Any number of entries can be merged at once.** A hundred are built per run, each on its own machine, and
+  the run starts the next one until none are waiting. A module is listed once its package exists.
+- **One failed build does not hold up the rest.** That module is left out, the others are published, and the
+  run ends red so it is noticed.
+
+`RECIPE` in `tools/lib.ts` says which way of building made a package. Raising it builds everything again and
+offers the result to hubs as a repackaging. It is for when the tools change in a way hubs should receive, such
+as a notice that was being left out.
+
 ## Keeping up with authors
 
 Once a week the store asks each module's author's repository whether it has released something newer than the

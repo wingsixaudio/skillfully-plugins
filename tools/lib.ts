@@ -12,6 +12,23 @@ export const arg = (name: string, fallback?: string): string => {
   throw new Error(`missing --${name}`);
 };
 
+/**
+ * Which way of building packages this is. With the source commit it says exactly which package something is,
+ * so the same commit is never built twice and a hub never mistakes a second build for a newer version.
+ * Raise it only when the tools change in a way that should reach hubs: every entry is then built again.
+ */
+export const RECIPE = 1;
+
+/**
+ * Where the package for one entry is kept. Each module has a release of its own in this repository, and each
+ * version of it is a file there that is written once and never changed. The list on the store's site only
+ * points at them, so publishing costs the same however many packages there are.
+ */
+export function packageHome(repo: string, id: string, commit: string) {
+  const release = `pkg-${id}`, file = `${commit.slice(0, 12)}-r${RECIPE}.tgz`;
+  return { release, file, url: `https://github.com/${repo}/releases/download/${release}/${file}` };
+}
+
 export const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 
 export interface Entry {

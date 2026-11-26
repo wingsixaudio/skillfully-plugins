@@ -1,8 +1,14 @@
-# Every pull request is checked on a machine the author does not control.
+# Every pull request is checked on machines the author does not control.
 #
 # This workflow builds and runs code from the pull request and from the source an entry points at. That is
 # why it holds no secrets, its token can only read, and it must never be changed to run on
 # pull_request_target, which would hand a stranger's code the repository's own permissions.
+#
+# It is three steps, so that one entry or two hundred are checked in about the same time, and so that no
+# module's build ever shares a machine with another's:
+#   plan     the rules every entry is held to, and which entries have to be built
+#   entry    one machine per entry: build it from its pinned source and start it in the hub's sandbox
+#   checks   put together what each machine found. This is the one check a merge waits for.
 name: Checks
 
 on:
@@ -20,45 +26,26 @@ concurrency:
   group: checks-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  CHECK: deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-net=127.0.0.1 --allow-env tools/check.ts --platform=.platform
+
 jobs:
-  checks:
-    name: checks
+  plan:
+    name: The rules, and what to build
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
+    outputs:
+      ids: ${{ steps.plan.outputs.ids }}
+      count: ${{ steps.plan.outputs.count }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Which version of the hub to check against
-        id: platform
-        run: |
-          ref=$(jq -r .ref platform.json)
-          # One exact commit of the real platform. Not a branch, and not anyone's fork.
-          [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
-          echo "ref=$ref" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v4
-        with:
-          repository: wingsixaudio/skillfully
-          ref: ${{ steps.platform.outputs.ref }}
-          path: .platform
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
+      - uses: ./.github/actions/setup
       - name: Formatting
         run: deno fmt --check
       - name: The store's own tools do what they say
         run: deno test tools/
-      - name: Fetch what the hub needs before it starts
-        run: deno cache --config .platform/deno.json .platform/core/main.ts
-      - name: Every entry follows the rules, and each changed module builds and runs sandboxed
-        env:
-          BASE: ${{ github.event_name == 'pull_request' && format('--base=origin/{0}', github.base_ref) || '--all' }}
-        run: |
-          deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-net=127.0.0.1 --allow-env \
-            tools/check.ts --platform=.platform "$BASE" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Plugins written for Skillfully are ones the hub would accept
         run: |
           if compgen -G "plugins/*/plugin.json" > /dev/null; then
@@ -67,3 +54,73 @@ jobs:
           else
             echo "No plugins yet."
           fi
+      - name: Hold every entry to the rules, and list the ones to build
+        id: plan
+        env:
+          # What changed: against the branch a pull request is for, against what main was before a merge, or
+          # against main for a branch the weekly check proposed. Never every entry: that would not scale.
+          BASE: ${{ github.event_name == 'pull_request' && format('--base=origin/{0}', github.base_ref) || github.event_name == 'push' && '--base=HEAD~1' || '--base=origin/main' }}
+        run: |
+          ids=$($CHECK "$BASE" --plan --out=findings)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+          echo "count=$(jq length <<<"$ids")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plan
+          path: findings/plan.json
+          if-no-files-found: error
+
+  entry:
+    name: ${{ matrix.id }}
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        id: ${{ fromJson(needs.plan.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node: "true"
+      - name: Fetch what the hub needs before it starts
+        run: deno cache --config .platform/deno.json .platform/core/main.ts
+      - name: Build it from its pinned source and start it in the sandbox
+        env:
+          ID: ${{ matrix.id }}
+        run: $CHECK --all --id="$ID" --out=findings
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finding-${{ matrix.id }}
+          path: findings/${{ matrix.id }}.json
+          if-no-files-found: ignore
+
+  checks:
+    name: checks
+    needs: [plan, entry]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: The rules have to hold before anything is built
+        if: needs.plan.result != 'success'
+        run: |
+          echo "The first step failed, so nothing was built. Its log says why."
+          exit 1
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
+        with:
+          name: plan
+          path: findings
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: finding-*
+          path: findings
+          merge-multiple: true
+      - name: What each machine found
+        run: $CHECK --report --out=findings | tee -a "$GITHUB_STEP_SUMMARY"

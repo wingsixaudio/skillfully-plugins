@@ -1,14 +1,27 @@
-# After a pull request is merged, build what the store lists and put it where hubs can fetch it.
+# After a pull request is merged, build what is new and publish the list hubs read.
 #
-# Building a module runs that module's own build, which is someone else's code. So each module is built on
-# its own machine with a token that can only read, and the only thing that leaves that machine is the one
-# package it made. The machine that publishes runs none of it.
+# A package is its source at one commit, built one way. Once built it is kept as a file of a release in this
+# repository and never built again, so a publish costs what changed, not what the store holds:
+#   plan      read the list published before, check the store signed it, and keep every package that still
+#             matches its entry. Whatever is new is built, a hundred at a time.
+#   build     one machine per module, with a token that can only read. Building runs that module's own build,
+#             which is someone else's code, and the only thing that leaves the machine is the package it made.
+#   assemble  read each new package the way a hub would, and write the list. Runs none of them.
+#   keep      put the new packages where they are kept. The only job that can write to the repository, and it
+#             handles files by name and nothing else.
+#   sign      sign the list. The only job that is given the key.
+#   publish   put the signed list on the store's site.
+# If more than a hundred packages are new, the run starts the next one when it is done, until none are left.
 name: Publish
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      before:
+        description: Set by a run that starts the next one. How many packages were still to build before it.
+        required: false
 
 permissions:
   contents: read
@@ -18,44 +31,57 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  list:
-    name: List what to build
+  plan:
+    name: Keep what is built, list what is new
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
-      ids: ${{ steps.ids.outputs.ids }}
-      ref: ${{ steps.platform.outputs.ref }}
+      build: ${{ steps.plan.outputs.build }}
+      count: ${{ steps.plan.outputs.count }}
+      need: ${{ steps.plan.outputs.need }}
+      left: ${{ steps.plan.outputs.left }}
     steps:
       - uses: actions/checkout@v4
-      - id: ids
-        run: echo "ids=$(jq -c -n '[inputs.id]' modules/*.json)" >> "$GITHUB_OUTPUT"
-      - id: platform
+      - uses: ./.github/actions/setup
+      - id: plan
+        env:
+          BEFORE: ${{ inputs.before }}
         run: |
-          ref=$(jq -r .ref platform.json)
-          [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
-          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+          site="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/index.json"
+          out=$(deno run --config .platform/deno.json --allow-read --allow-write --allow-net --allow-env \
+            tools/publish.ts --plan --platform=.platform --repo="$GITHUB_REPOSITORY" --site="$site" --out=plan)
+          need=$(jq -r .need <<<"$out")
+          # A run started by the one before it has to find less left to do, or they would go round for ever.
+          if [[ "$BEFORE" =~ ^[0-9]+$ ]] && [ "$need" -ge "$BEFORE" ]; then
+            echo "::error::The run before this one built nothing that could be kept ($need still to build). Stopping here. Its log says which packages could not be made."
+            exit 1
+          fi
+          echo "build=$(jq -c .build <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "count=$(jq '.build | length' <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "need=$need" >> "$GITHUB_OUTPUT"
+          echo "left=$(jq -r .left <<<"$out")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plan
+          path: plan/plan.json
+          if-no-files-found: error
 
   build:
     name: Build ${{ matrix.id }}
-    needs: list
+    needs: plan
+    if: needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
       fail-fast: false
+      max-parallel: 20
       matrix:
-        id: ${{ fromJson(needs.list.outputs.ids) }}
+        id: ${{ fromJson(needs.plan.outputs.build) }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          repository: wingsixaudio/skillfully
-          ref: ${{ needs.list.outputs.ref }}
-          path: .platform
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
+          node: "true"
       - name: Build the package from its pinned source
         env:
           ID: ${{ matrix.id }}
@@ -69,34 +95,83 @@ jobs:
           if-no-files-found: error
 
   assemble:
-    name: List the packages with their checksums
-    needs: [list, build]
+    name: Read each new package as a hub would, and write the list
+    needs: [plan, build]
+    # A module whose build failed is left out of the list. It does not stop the others being published.
+    if: ${{ !cancelled() && needs.plan.result == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
         with:
-          repository: wingsixaudio/skillfully
-          ref: ${{ needs.list.outputs.ref }}
-          path: .platform
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+          name: plan
+          path: plan
       - uses: actions/download-artifact@v4
         with:
           pattern: module-*
           path: built
           merge-multiple: true
-      - name: Read each package the way a hub would, and write the list
+      - name: Write the list
         run: |
-          deno run --config .platform/deno.json --allow-read --allow-write --allow-env \
-            tools/index.ts --platform=.platform --built=built --out=site
+          mkdir -p built
+          deno run --config .platform/deno.json --allow-read --allow-write --allow-net --allow-env \
+            tools/publish.ts --assemble --platform=.platform --repo="$GITHUB_REPOSITORY" --plan=plan --built=built --out=site \
+            | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with:
           name: site
           path: site
           if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: upload
+          path: upload
+          if-no-files-found: error
+
+  keep:
+    # The only job that can write to the repository. It has no module's code on it and reads none of the
+    # packages: it puts files, by name, where they are kept. A name that is not exactly a package's name
+    # stops it.
+    name: Keep the new packages
+    needs: assemble
+    if: ${{ !cancelled() && needs.assemble.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: upload
+          path: upload
+      - name: Put each new package in its module's release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          count=$(jq length upload/upload.json)
+          for i in $(seq 0 $((count - 1))); do
+            id=$(jq -r ".[$i].id" upload/upload.json)
+            release=$(jq -r ".[$i].release" upload/upload.json)
+            file=$(jq -r ".[$i].file" upload/upload.json)
+            if ! [[ "$id" =~ ^[a-z0-9][a-z0-9-]{1,50}$ && "$release" == "pkg-$id" && "$file" =~ ^[0-9a-f]{12}-r[0-9]{1,6}\.tgz$ ]]; then
+              echo "::error::Something to keep was not named like a package. Nothing more is kept."
+              exit 1
+            fi
+            path="upload/$release/$file"
+            [ -f "$path" ] || { echo "::error::$path is missing."; exit 1; }
+            if ! gh release view "$release" >/dev/null 2>&1; then
+              gh release create "$release" --latest=false --title "$id" \
+                --notes "Every version of \`$id\` the store has built, each from its author's source at one commit. Hubs fetch these and check them against the store's signed list. What it is and where its source lives: \`modules/$id.json\`."
+            fi
+            # What is kept is never replaced. If it is already there, an earlier run kept it.
+            gh release upload "$release" "$path" ||
+              gh release view "$release" --json assets --jq '.assets[].name' | grep -qx "$file"
+            sleep 1
+          done
+          echo "Kept $count new packages." >> "$GITHUB_STEP_SUMMARY"
 
   sign:
     # The only job that is ever given the signing key. It starts from a clean copy of this repository,
@@ -106,20 +181,14 @@ jobs:
     # The key is a secret of the github-pages environment, which only runs from main can use. A run from
     # any other branch gets no key.
     name: Sign the list
-    needs: [list, assemble]
+    needs: assemble
+    if: ${{ !cancelled() && needs.assemble.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: github-pages
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: wingsixaudio/skillfully
-          ref: ${{ needs.list.outputs.ref }}
-          path: .platform
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+      - uses: ./.github/actions/setup
       - uses: actions/download-artifact@v4
         with:
           name: site
@@ -136,7 +205,9 @@ jobs:
 
   deploy:
     name: Publish
-    needs: sign
+    # The list goes out only once every package it points at is where it says it is.
+    needs: [sign, keep]
+    if: ${{ !cancelled() && needs.sign.result == 'success' && needs.keep.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -148,3 +219,39 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  more:
+    name: Start the next run, if packages are still waiting
+    needs: [plan, deploy]
+    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.plan.outputs.left != '0' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NEED: ${{ needs.plan.outputs.need }}
+          LEFT: ${{ needs.plan.outputs.left }}
+        run: |
+          echo "$LEFT packages are still waiting. Starting the next run." >> "$GITHUB_STEP_SUMMARY"
+          gh workflow run publish.yml --ref main -f before="$NEED"
+
+  unmade:
+    name: Say which packages could not be made
+    needs: [assemble, deploy]
+    if: ${{ !cancelled() && needs.assemble.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: upload
+          path: upload
+      - run: |
+          if [ "$(jq length upload/failed.json)" != "0" ]; then
+            jq -r '.[] | "::error::" + .' upload/failed.json
+            echo "These were left out of the list. Everything else was published." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi

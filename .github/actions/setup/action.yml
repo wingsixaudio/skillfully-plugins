@@ -1,0 +1,31 @@
+# What every job that runs the store's tools needs: the hub's own code at the one commit platform.json
+# pins, and the runtime. Node only where a module is going to be built.
+name: Set up the store's tools
+description: Check out the pinned platform beside the store and install the runtime.
+inputs:
+  node:
+    description: Also install Node, for jobs that build a module.
+    default: "false"
+runs:
+  using: composite
+  steps:
+    - name: Which version of the hub to use
+      id: platform
+      shell: bash
+      run: |
+        ref=$(jq -r .ref platform.json)
+        # One exact commit of the real platform. Not a branch, and not anyone's fork.
+        [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
+        echo "ref=$ref" >> "$GITHUB_OUTPUT"
+    - uses: actions/checkout@v4
+      with:
+        repository: wingsixaudio/skillfully
+        ref: ${{ steps.platform.outputs.ref }}
+        path: .platform
+    - uses: denoland/setup-deno@v2
+      with:
+        deno-version: v2.x
+    - if: inputs.node == 'true'
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22

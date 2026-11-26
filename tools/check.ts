@@ -1,6 +1,12 @@
 // The checks every pull request gets.
 //   deno run --config .platform/deno.json ... tools/check.ts --platform=.platform [--base=origin/main | --all]
 //
+// By hand, that does everything on one machine. In the checks it is three steps, so that any number of
+// entries can be proven at once and no module's build shares a machine with another's:
+//   --plan       what can be said without building, and which entries to build (printed as a JSON list)
+//   --id=<id>    build and start one entry, and write down what was found
+//   --report     put the findings together, and fail if any entry did
+//
 // Every entry is held to the rules. Each new or changed module is then built from its pinned source, read the
 // way a hub would read it, and started inside the hub's sandbox with nothing to connect to. What it says about
 // itself is written out in plain words for whoever reviews the pull request.
@@ -21,8 +27,6 @@ import {
 const platform = await loadPlatform(arg("platform", ".platform"));
 const safe = platform.safe as (text: unknown, max?: number) => string;
 const code = (text: unknown) => "`" + String(text ?? "").replace(/[`\r\n|]/g, "").slice(0, 120) + "`";
-const lines: string[] = ["## Store checks", ""];
-let failed = 0;
 
 const entries = await readEntries(platform);
 // The store's own files are held to their rules before any entry is looked at.
@@ -37,28 +41,21 @@ const kinds: Record<string, string> = {
   internet: "reaching the internet",
 };
 const about = (a: { about: string }) => kinds[a.about] ?? `reaching ${code(a.about)}`;
-for (const e of entries.filter((e) => e.problems.length)) {
-  failed++;
-  lines.push(`**${code(e.file)} cannot be accepted:** ${e.problems.map((p) => safe(p, 400)).join("; ")}`, "");
+/** What was found out about one entry. Written by the machine that checked it, read by the one that reports. */
+interface Finding {
+  id: string;
+  name: string;
+  notes: string;
+  facts: string[];
+  problems: string[];
 }
 
-// Which modules to build: all of them, or only what this pull request touches.
-let build = entries.filter((e) => !e.problems.length);
-if (!Deno.args.includes("--all")) {
-  const diff = await run("git", ["diff", "--name-only", `${arg("base")}...HEAD`], ROOT);
-  const changed = diff.out.split("\n").map((l) => l.trim()).filter(Boolean);
-  // A change to the tools, the rules or the platform version could change the answer for every entry.
-  const everything = changed.some((f) => /^(tools|schema|\.github)\/|^(platform|advice|keys)\.json$/.test(f));
-  if (!everything) build = build.filter((e) => changed.includes(e.file));
-}
-const sound = entries.length - failed;
-lines.push(
-  `${sound} of ${entries.length} ${entries.length === 1 ? "entry follows" : "entries follow"} the rules. ` +
-    `${build.length} built and started.`,
-  "",
-);
+/** How many entries one pull request's checks will build. Each is built on a machine of its own. */
+const AT_ONCE = 250;
+/** When the tools or the rules change, this many entries are built again to show nothing broke. */
+const SAMPLE = 12;
 
-async function prove(entry: Entry): Promise<void> {
+async function prove(entry: Entry): Promise<Finding> {
   const work = await Deno.makeTempDir({ prefix: "store-" });
   const problems: string[] = [];
   const facts: string[] = [];
@@ -202,19 +199,171 @@ async function prove(entry: Entry): Promise<void> {
   } finally {
     await Deno.remove(work, { recursive: true }).catch(() => {});
   }
-  lines.push(`### ${safe(entry.name, 80)} (${code(entry.id)})`, "", ...facts.map((f) => `- ${f}`));
-  if (entry.notes) lines.push(`- The submitter's notes: ${safe(entry.notes, 600)}`);
-  if (problems.length) {
-    failed++;
-    lines.push("", `**It cannot be accepted as it is:**`, ...problems.map((p) => `- ${p}`));
-  } else {lines.push(
-      "",
-      "It can be accepted. Whether what the entry allows in advance, and what it advises, is right is a reviewer's call.",
-    );}
-  lines.push("");
+  return { id: entry.id, name: entry.name, notes: entry.notes ?? "", facts, problems };
 }
 
-for (const e of build) await prove(e.entry);
+/**
+ * A line of a finding, made safe to put in the report. A finding comes from a machine that built someone
+ * else's code, so it is text, not markdown: it cannot start a heading, a link or a new line. Only the two
+ * marks the checks themselves use, bold and code, are let through.
+ */
+const line = (text: string, max: number) => safe(text, max).replaceAll("\\*\\*", "**").replaceAll("\\`", "`");
 
-console.log(lines.join("\n"));
-Deno.exit(failed ? 1 : 0);
+/** What a finding says, as part of the report. */
+function written(f: Finding): string[] {
+  const lines = [`### ${safe(f.name, 80)} (${code(f.id)})`, "", ...f.facts.map((x) => `- ${line(x, 1200)}`)];
+  if (f.notes) lines.push(`- The submitter's notes: ${safe(f.notes, 600)}`);
+  if (f.problems.length) {
+    lines.push("", `**It cannot be accepted as it is:**`, ...f.problems.map((p) => `- ${line(p, 800)}`));
+  } else {
+    lines.push(
+      "",
+      "It can be accepted. Whether what the entry allows in advance, and what it advises, is right is a reviewer's call.",
+    );
+  }
+  return [...lines, ""];
+}
+
+/** Which entries this change has to prove again, and why those. */
+async function planned(): Promise<{ ids: string[]; why: string }> {
+  const sound = entries.filter((e) => !e.problems.length);
+  if (Deno.args.includes("--all")) return { ids: sound.map((e) => e.entry.id), why: "every entry" };
+  const diff = await run("git", ["diff", "--name-only", `${arg("base")}...HEAD`], ROOT);
+  const changed = diff.out.split("\n").map((l) => l.trim()).filter(Boolean);
+  const mine = sound.filter((e) => changed.includes(e.file)).map((e) => e.entry.id);
+  // A change to the tools, the rules or the platform version could change the answer for any entry. Building
+  // every entry again would not scale, so a spread of them is built, along with whatever this change touches.
+  const everything = changed.some((f) => /^(tools|schema|\.github)\/|^(platform|advice|keys)\.json$/.test(f));
+  if (!everything) return { ids: mine, why: "the entries this change touches" };
+  const rest = sound.map((e) => e.entry.id).filter((id) => !mine.includes(id));
+  const step = Math.max(1, Math.floor(rest.length / SAMPLE));
+  const spread = rest.filter((_, i) => i % step === 0).slice(0, SAMPLE);
+  return {
+    ids: [...mine, ...spread],
+    why: rest.length > spread.length
+      ? `the entries this change touches, and ${spread.length} of the other ${rest.length} as a sample, because it changes how entries are checked`
+      : "every entry, because this changes how entries are checked",
+  };
+}
+
+const unsound = entries.filter((e) => e.problems.length);
+const out = arg("out", "findings");
+
+if (Deno.args.includes("--plan")) {
+  // What can be said without building anything, and the list of entries to build. Printed as JSON.
+  const plan = await planned();
+  const tooMany = plan.ids.length > AT_ONCE
+    ? `This change touches ${plan.ids.length} entries. The checks build ${AT_ONCE} at a time, each on a machine of its own, so it has to be split.`
+    : "";
+  await Deno.mkdir(out, { recursive: true });
+  await Deno.writeTextFile(
+    `${out}/plan.json`,
+    JSON.stringify({
+      total: entries.length,
+      why: plan.why,
+      ids: tooMany ? [] : plan.ids,
+      refused: [
+        ...unsound.map((e) => ({ file: e.file, problems: e.problems })),
+        ...(tooMany ? [{ file: "this change", problems: [tooMany] }] : []),
+      ],
+    }),
+  );
+  console.log(JSON.stringify(tooMany ? [] : plan.ids));
+} else if (Deno.args.some((a) => a.startsWith("--id="))) {
+  // One entry, on a machine of its own. What is found out is written down for the report, pass or fail.
+  const id = arg("id");
+  const found = entries.find((e) => e.entry.id === id && !e.problems.length);
+  const finding: Finding = found ? await prove(found.entry) : {
+    id,
+    name: id,
+    notes: "",
+    facts: [],
+    problems: ["there is no entry by that name that follows the rules"],
+  };
+  await Deno.mkdir(out, { recursive: true });
+  await Deno.writeTextFile(`${out}/${id.replace(/[^a-z0-9-]/g, "")}.json`, JSON.stringify(finding));
+  console.log(written(finding).join("\n"));
+  Deno.exit(finding.problems.length ? 1 : 0);
+} else if (Deno.args.includes("--report")) {
+  // Put together what each machine found. An entry that was meant to be built and left no finding failed.
+  const plan = JSON.parse(await Deno.readTextFile(`${out}/plan.json`));
+  const lines: string[] = ["## Store checks", ""];
+  let failed = 0;
+  for (const r of plan.refused as { file: string; problems: string[] }[]) {
+    failed++;
+    lines.push(
+      `**${code(r.file)} cannot be accepted:** ${r.problems.map((p) => safe(p, 400)).join("; ")}`,
+      "",
+    );
+  }
+  const findings: Finding[] = [];
+  for (const id of plan.ids as string[]) {
+    let f: Finding;
+    try {
+      const raw = JSON.parse(await Deno.readTextFile(`${out}/${id}.json`));
+      // A finding comes from a machine that built someone else's code. It is read as data and held to its shape.
+      const list = (
+        v: unknown,
+      ) => (Array.isArray(v) ? v.slice(0, 60).map((x) => String(x).slice(0, 2000)) : []);
+      f = {
+        id,
+        name: String(raw.name ?? id),
+        notes: String(raw.notes ?? ""),
+        facts: list(raw.facts),
+        problems: list(raw.problems),
+      };
+    } catch {
+      f = {
+        id,
+        name: id,
+        notes: "",
+        facts: [],
+        problems: ["the machine that was building it stopped before it finished"],
+      };
+    }
+    findings.push(f);
+    if (f.problems.length) failed++;
+  }
+  const sound = plan.total - plan.refused.filter((r: { file: string }) => r.file !== "this change").length;
+  lines.push(
+    `${sound} of ${plan.total} ${plan.total === 1 ? "entry follows" : "entries follow"} the rules. ` +
+      `${findings.length} built and started: ${plan.why}.`,
+    "",
+  );
+  // What failed first, so it is not lost under what passed.
+  for (
+    const f of [
+      ...findings.filter((f) => f.problems.length),
+      ...findings.filter((f) => !f.problems.length),
+    ]
+  ) {
+    lines.push(...written(f));
+  }
+  console.log(lines.join("\n").slice(0, 900_000));
+  Deno.exit(failed ? 1 : 0);
+} else {
+  // Everything on this one machine: plan, build each in turn, report. For running the checks by hand.
+  const plan = await planned();
+  const lines: string[] = ["## Store checks", ""];
+  let failed = unsound.length;
+  for (const e of unsound) {
+    lines.push(
+      `**${code(e.file)} cannot be accepted:** ${e.problems.map((p) => safe(p, 400)).join("; ")}`,
+      "",
+    );
+  }
+  lines.push(
+    `${entries.length - unsound.length} of ${entries.length} ${
+      entries.length === 1 ? "entry follows" : "entries follow"
+    } the rules. ` +
+      `${plan.ids.length} built and started: ${plan.why}.`,
+    "",
+  );
+  for (const id of plan.ids) {
+    const f = await prove(entries.find((e) => e.entry.id === id)!.entry);
+    if (f.problems.length) failed++;
+    lines.push(...written(f));
+  }
+  console.log(lines.join("\n"));
+  Deno.exit(failed ? 1 : 0);
+}
