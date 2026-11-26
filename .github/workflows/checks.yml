@@ -1,0 +1,64 @@
+# Every pull request is checked on a machine the author does not control.
+#
+# This workflow builds and runs code from the pull request and from the source an entry points at. That is
+# why it holds no secrets, its token can only read, and it must never be changed to run on
+# pull_request_target, which would hand a stranger's code the repository's own permissions.
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Which version of the hub to check against
+        id: platform
+        run: |
+          ref=$(jq -r .ref platform.json)
+          # One exact commit of the real platform. Not a branch, and not anyone's fork.
+          [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: wingsixaudio/skillfully
+          ref: ${{ steps.platform.outputs.ref }}
+          path: .platform
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Formatting
+        run: deno fmt --check
+      - name: Fetch what the hub needs before it starts
+        run: deno cache --config .platform/deno.json .platform/core/main.ts
+      - name: Every entry follows the rules, and each changed module builds and runs sandboxed
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && format('--base=origin/{0}', github.base_ref) || '--all' }}
+        run: |
+          deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-net=127.0.0.1 --allow-env \
+            tools/check.ts --platform=.platform "$BASE" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Plugins written for Skillfully are ones the hub would accept
+        run: |
+          if compgen -G "plugins/*/plugin.json" > /dev/null; then
+            deno run --config .platform/deno.json --allow-read --allow-env=HOME,DENO_DIR --allow-run \
+              .platform/core/check_plugin.ts --all plugins
+          else
+            echo "No plugins yet."
+          fi
