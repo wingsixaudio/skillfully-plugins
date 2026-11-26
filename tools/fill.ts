@@ -346,6 +346,19 @@ if (Deno.args.includes("--find")) {
     ) continue;
     await save(`${ROOT}/declined`, d.id, d);
   }
+  // Whose move it is. A module built for something the hub does not run yet waits on the hub. One with no
+  // release, no manifest, or a library nobody may pass on waits on its author. A build or a start that
+  // failed for any other reason could be either, and says so.
+  type Side = "ours" | "theirs" | "look";
+  const side = (r: { why: Why; detail: string }): Side =>
+    r.why === "api"
+      ? "ours"
+      : r.why === "release" || r.why === "entry" || r.why === "license"
+      ? "theirs"
+      : /which the store does not hand out|is not supported\. Required version/i.test(r.detail)
+      ? "theirs"
+      : "look";
+
   // What a person reads on the pull request.
   const said: Record<Why, string> = {
     api: "Built for a kind of module the hub does not run yet",
@@ -372,6 +385,12 @@ if (Deno.args.includes("--find")) {
       const these = reasons.filter((r) => r.why === why);
       if (these.length) lines.push(`- ${said[why]}: ${these.length}`);
     }
+    // The same ones again, by whose move it is, because the reasons above do not say.
+    const by = (s: Side) => reasons.filter((r) => side(r) === s).length;
+    lines.push("", "**Whose move it is:**", "");
+    if (by("ours")) lines.push(`- This hub or this store has to change: ${by("ours")}`);
+    if (by("theirs")) lines.push(`- Its author has to change something: ${by("theirs")}`);
+    if (by("look")) lines.push(`- Someone has to read the note to tell: ${by("look")}`);
     lines.push(
       "",
       "Each has a file in `declined/` saying exactly why. It is looked at again when its author releases something newer, or when the reason is something that has since changed on this side.",

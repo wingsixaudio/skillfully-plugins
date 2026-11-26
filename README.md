@@ -133,6 +133,16 @@ Every module that was looked at and left out gets a file in `declined/` saying w
 on the next run. It is looked at again when its author releases something newer, or when the reason was on
 this side and this side has changed.
 
+## How a hub's catalog files an entry
+
+The published list says, for each module, who makes the device, which products it covers, the words its author
+filed it under, and up to two kinds such as Audio or Video. All of it comes from the module's own manifest,
+read out of its package the way a hub reads it. A hub's catalog uses these to browse by maker and by kind.
+
+`kinds.json` says which of an author's words mean which kind. It is the one thing here a person maintains by
+hand. A module whose words match nothing has no kind, and is still found by its maker and by typing. Changing
+`kinds.json` re-files everything at the next publish, with nothing rebuilt.
+
 ## For authors
 
 Every listing names its license and links to its author's own source. Every package carries the license
