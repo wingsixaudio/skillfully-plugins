@@ -92,13 +92,51 @@ jobs:
         run: |
           deno run --config .platform/deno.json --allow-read --allow-write --allow-env \
             tools/index.ts --platform=.platform --built=built --out=site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site
+          if-no-files-found: error
+
+  sign:
+    # The only job that is ever given the signing key. It starts from a clean copy of this repository,
+    # takes in nothing but the finished list, and runs this repository's own tool and the platform's own
+    # code. No module's code or package is ever on this machine.
+    #
+    # The key is a secret of the github-pages environment, which only runs from main can use. A run from
+    # any other branch gets no key.
+    name: Sign the list
+    needs: [list, assemble]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wingsixaudio/skillfully
+          ref: ${{ needs.list.outputs.ref }}
+          path: .platform
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+      - name: Sign the list, and check the signature the way a hub will
+        env:
+          STORE_SIGNING_KEY: ${{ secrets.STORE_SIGNING_KEY }}
+        run: |
+          deno run --config .platform/deno.json --allow-read --allow-write=site --allow-env=STORE_SIGNING_KEY \
+            tools/sign.ts --platform=.platform --site=site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
     name: Publish
-    needs: assemble
+    needs: sign
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

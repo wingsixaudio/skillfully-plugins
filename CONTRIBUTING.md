@@ -48,6 +48,21 @@ The checks start the module with no access at all and tell you what it reached f
 for something you would not want every team asked about, such as scanning the whole network, start it with a
 setting that stops it (`settings`).
 
+### What to put under `advise`
+
+Leave it out unless a team is likely to be asked something that needs explaining. Each piece of advice is
+about a kind of place (`device`, `everyone`, `this-computer`, `ports`, `name`, `internet`) or one exact
+address, and says `yes` (expected) or `no` (advised against), with a reason a superuser can weigh:
+
+```json
+"advise": [
+  { "about": "everyone", "say": "no", "why": "This is the module scanning for plugs. Type the plug's address into its settings instead." }
+]
+```
+
+`no` is the useful one: it tells a team why a question appeared and what to do instead. `yes` starts the
+team's box ticked, so reviewers hold it to the same standard as `network`. Advice allows nothing either way.
+
 ### What to put under `tested`
 
 Say only what is true.
@@ -78,5 +93,6 @@ deno run --config .platform/deno.json --allow-read --allow-write --allow-run --a
 
 - The checks pass.
 - It allows in advance only what is plainly fine for every team, and `notes` explains anything wide.
+- Any advice is true, plain, and says what to do instead when it advises against something.
 - `tested` says no more than is true.
 - Its words are plain: what the device is, what the plugin does.

@@ -88,6 +88,46 @@
       "description": "Why it needs what it asks for, and anything a team should know.",
       "type": "string",
       "maxLength": 600
+    },
+    "advise": {
+      "description": "What a superuser should be told when the module asks for something this entry does not allow in advance. Use it to explain a request a team may see, or to warn about one. Leave it out when there is nothing to say.",
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "$ref": "#/$defs/advice"
+      }
+    }
+  },
+  "$defs": {
+    "advice": {
+      "description": "What reviewers say about one kind of request a hub may put to its superuser. It is advice: the superuser still decides, and nothing is allowed by it.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "about",
+        "say",
+        "why"
+      ],
+      "properties": {
+        "about": {
+          "description": "A kind of place (device: one device on the local network; everyone: every device on the network at once; this-computer: other programs on the hub's own computer; ports: opening ports on the hub's computer; name: a device reached by its name; internet), or one exact address and port.",
+          "type": "string",
+          "pattern": "^(device|everyone|this-computer|ports|name|internet|[A-Za-z0-9.-]+:[0-9]{1,5})$"
+        },
+        "say": {
+          "description": "yes: this is expected, and the box starts ticked. no: reviewers advise against it, and the box starts unticked.",
+          "enum": [
+            "yes",
+            "no"
+          ]
+        },
+        "why": {
+          "description": "The reason, in a sentence or two a superuser can weigh.",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 240
+        }
+      }
     }
   }
 }

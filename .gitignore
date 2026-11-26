@@ -1,3 +1,5 @@
 .platform
 built/
 site/
+# The private half of the store's key, between making it and putting it in the environment secret.
+store-signing-key.txt
