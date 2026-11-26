@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aja-fs",
+  "name": "AJA FS2, FS4",
+  "description": "Controls AJA FS2, FS4 through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aja-fs",
+    "commit": "f2a39a910c6e1aecca98c67d377d3c5f0657fc11"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

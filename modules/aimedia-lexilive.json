@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "aimedia-lexilive",
+  "name": "AI Media Lexi Live",
+  "description": "Companion module for Lexi Live Captioning Service",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-aimedia-lexilive",
+    "commit": "e39422c2ce08656b2cc76625e2538cf706e1a5a4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
