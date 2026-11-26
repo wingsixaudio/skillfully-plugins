@@ -9,6 +9,9 @@ on:
   pull_request:
   push:
     branches: [main]
+  # The weekly check for newer releases starts this on the branches it proposes. A pull request opened by
+  # a workflow does not start checks by itself.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -46,6 +49,8 @@ jobs:
           node-version: 22
       - name: Formatting
         run: deno fmt --check
+      - name: The store's own tools do what they say
+        run: deno test tools/
       - name: Fetch what the hub needs before it starts
         run: deno cache --config .platform/deno.json .platform/core/main.ts
       - name: Every entry follows the rules, and each changed module builds and runs sandboxed

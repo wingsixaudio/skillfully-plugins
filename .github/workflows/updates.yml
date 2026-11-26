@@ -1,0 +1,116 @@
+# Once a week, ask each module's author's repository whether it has released something newer than the store
+# lists. For each one that has, open a pull request that points the entry at the new release.
+#
+# This only proposes. Looking downloads none of an author's code: it asks their repository for the names of
+# its releases. The new version is built, started in the sandbox and reported on by the ordinary checks,
+# with their read-only token, and a person decides whether to merge.
+#
+# The job that looks can only read. The job that opens pull requests can write, and so it runs nothing but
+# this repository's own tool on a few values that are checked to be exactly an id, a version and a commit.
+name: Propose updates
+
+on:
+  schedule:
+    - cron: "17 9 * * 1" # Mondays, mid-morning UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: propose-updates
+  cancel-in-progress: false
+
+jobs:
+  look:
+    name: Ask each author's repository for its releases
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      found: ${{ steps.look.outputs.found }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - id: look
+        name: Compare what each author has released with what the store lists
+        run: |
+          # What the store last built says which version an entry is, when it is not pinned at a release.
+          index=""
+          if curl -fsSL --max-time 20 -o published.json "https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/index.json"; then
+            index="--index=published.json"
+          fi
+          found=$(deno run --allow-read --allow-run=git tools/updates.ts --look $index)
+          echo "found=$found" >> "$GITHUB_OUTPUT"
+          echo "$found" | jq -r 'if length == 0 then "Nothing newer than what the store lists." else .[] | "\(.name): \(.from) -> \(.version)" end' >> "$GITHUB_STEP_SUMMARY"
+
+  propose:
+    name: Open a pull request for each newer release
+    needs: look
+    if: needs.look.outputs.found != '[]' && needs.look.outputs.found != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Propose each one that has not been proposed before
+        env:
+          # Handed over as data, never written into the script.
+          FOUND: ${{ needs.look.outputs.found }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          count=$(jq length <<<"$FOUND")
+          for i in $(seq 0 $((count - 1))); do
+            id=$(jq -r ".[$i].id" <<<"$FOUND")
+            version=$(jq -r ".[$i].version" <<<"$FOUND")
+            commit=$(jq -r ".[$i].commit" <<<"$FOUND")
+            pinned=$(jq -r ".[$i].pinned" <<<"$FOUND")
+            repo=$(jq -r ".[$i].repo" <<<"$FOUND")
+            from=$(jq -r ".[$i].from" <<<"$FOUND")
+            name=$(jq -r ".[$i].name" <<<"$FOUND")
+            # Checked again here, on the machine that can write.
+            if ! [[ "$id" =~ ^[a-z0-9][a-z0-9-]{1,50}$ && "$version" =~ ^[0-9]{1,5}\.[0-9]{1,5}\.[0-9]{1,5}$ &&
+                    "$commit" =~ ^[0-9a-f]{40}$ && "$pinned" =~ ^[0-9a-f]{40}$ &&
+                    "$repo" =~ ^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ &&
+                    "$from" =~ ^([0-9.]{5,20}|a\ commit\ that\ is\ not\ a\ release)$ &&
+                    "$name" =~ ^[A-Za-z0-9_\ .()+-]{1,80}$ ]]; then
+              echo "Left out something that was not an id, a version and a commit."
+              continue
+            fi
+            branch="update/$id-$version"
+            # Proposed before, whatever became of it: merged, still open, or closed because the answer was no.
+            if [ "$(gh pr list --state all --head "$branch" --json number --jq length)" != "0" ]; then
+              echo "$name $version was already proposed."
+              continue
+            fi
+            git checkout -q -B "$branch" "$GITHUB_SHA"
+            deno run --allow-read --allow-write=modules tools/updates.ts --apply --id="$id" --commit="$commit"
+            git commit -q -am "Propose $name $version"
+            git push -q --force origin "$branch"
+            {
+              echo "The author of **$name** has released version **$version**. The store lists $from."
+              echo
+              echo "This points the entry at the new release and changes nothing else, except that \`tested\` goes back to \`starts\`: nobody has used the new version with a device yet."
+              echo
+              echo "- What the author changed: $repo/compare/$pinned...$commit"
+              echo "- The checks build it from that source, start it in the sandbox with no access, and report what it reached for. Read that report before merging, and check that what the entry allows in advance and advises is still right."
+              echo
+              echo "Opened by the store's weekly check for newer releases. Nobody has looked at it yet. Closing it without merging means this version is not proposed again."
+            } > "$RUNNER_TEMP/body.md"
+            if ! gh pr create --base main --head "$branch" --title "$name $version" --body-file "$RUNNER_TEMP/body.md"; then
+              echo "::error::The pull request could not be opened. In this repository's Settings, under Actions, General, allow GitHub Actions to create pull requests. The branch $branch is pushed and can be proposed by hand."
+              exit 1
+            fi
+            # A pull request opened by a workflow does not start checks by itself, so they are started here.
+            gh workflow run checks.yml --ref "$branch"
+            echo "Proposed $name $version." >> "$GITHUB_STEP_SUMMARY"
+          done
