@@ -1,0 +1,107 @@
+{
+  "about": "Which of a module's own keywords file it under which kind in a hub's catalog. A kind is a few plain words. A word matches a keyword that is that word, or has it as a whole word. An entry gets at most two kinds, in the order written here.",
+  "kinds": {
+    "Audio": [
+      "audio",
+      "mixer",
+      "mixing",
+      "console",
+      "sound",
+      "dsp",
+      "amplifier",
+      "amp",
+      "microphone",
+      "mic",
+      "speaker",
+      "intercom",
+      "daw",
+      "playback"
+    ],
+    "Video": [
+      "video",
+      "switcher",
+      "vision mixer",
+      "router",
+      "matrix",
+      "multiviewer",
+      "converter",
+      "recorder",
+      "playout",
+      "media server",
+      "kvm",
+      "scaler"
+    ],
+    "Cameras": [
+      "camera",
+      "cameras",
+      "ptz",
+      "visca",
+      "robotic"
+    ],
+    "Lighting": [
+      "lighting",
+      "lights",
+      "light",
+      "dmx",
+      "artnet",
+      "art-net",
+      "sacn",
+      "dimmer"
+    ],
+    "Presentation": [
+      "presentation",
+      "slides",
+      "lyrics",
+      "prompter",
+      "teleprompter",
+      "timer",
+      "clock",
+      "countdown",
+      "cue"
+    ],
+    "Streaming": [
+      "streaming",
+      "stream",
+      "encoder",
+      "decoder",
+      "broadcast",
+      "captions",
+      "captioning",
+      "recording"
+    ],
+    "Screens and projectors": [
+      "projector",
+      "projectors",
+      "display",
+      "displays",
+      "monitor",
+      "tv",
+      "led wall",
+      "videowall",
+      "video wall",
+      "screen"
+    ],
+    "Power": [
+      "power",
+      "pdu",
+      "outlet",
+      "plug",
+      "relay",
+      "ups"
+    ],
+    "Software": [
+      "software",
+      "app",
+      "api",
+      "http",
+      "osc",
+      "midi",
+      "tcp",
+      "udp",
+      "protocol",
+      "generic",
+      "utility",
+      "cloud"
+    ]
+  }
+}

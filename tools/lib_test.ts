@@ -1,5 +1,18 @@
 // Reading what a library says about its own license. Run with: deno test tools/
-import { declaredLicense, licenseAllowed, noticeFor, noticeInReadme } from "./lib.ts";
+import {
+  declaredLicense,
+  dropToolShortcuts,
+  gist,
+  kindsFor,
+  kindsTable,
+  licenseAllowed,
+  licenseFromText,
+  licenseInFiles,
+  noticeFor,
+  noticeInReadme,
+  run,
+  yarnStandIn,
+} from "./lib.ts";
 
 const eq = (got: unknown, want: unknown, what: string) => {
   if (JSON.stringify(got) !== JSON.stringify(want)) {
@@ -109,4 +122,128 @@ Deno.test("the standard text of every license the store hands out is in the repo
     const text = await Deno.readTextFile(new URL(`../notices/standard/${id}.txt`, import.meta.url));
     eq(text.trim().length > 300, true, `${id} has its text`);
   }
+});
+
+Deno.test("a library's license is read from its own license file when package.json does not say", async () => {
+  const mit =
+    `(The MIT License)\n\nCopyright (c) 2014 Someone\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction...\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED`;
+  eq(licenseFromText(mit), "MIT", "the words every copy of it has");
+  eq(
+    licenseFromText(
+      'Permission is hereby granted, free of charge, to any person or organization\nobtaining a copy of the software and accompanying documentation covered by\nthis license (the "Software") to use, reproduce',
+    ),
+    "BSL-1.0",
+    "the Boost license, which some files give without its name",
+  );
+  eq(
+    licenseFromText(
+      "Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that",
+    ),
+    "ISC",
+    "ISC",
+  );
+  eq(
+    licenseFromText(
+      "Redistribution and use in source and binary forms, with or without modification, are permitted provided that... Neither the name of the copyright holder",
+    ),
+    "BSD-3-Clause",
+    "three clauses",
+  );
+  // Saying a license's name is not being under it, and something unknown is not guessed at.
+  eq(licenseFromText("This is sort of like MIT, ask me first."), "", "a name is not a grant");
+  eq(licenseFromText("All rights reserved."), "", "not a license to pass on");
+
+  const dir = await Deno.makeTempDir();
+  eq(await licenseInFiles(dir), "", "a library with no such file has none");
+  await Deno.writeTextFile(`${dir}/LICENSE.md`, mit);
+  eq(await licenseInFiles(dir), "MIT", "found beside its code");
+  eq(licenseAllowed(await licenseInFiles(dir)), true, "and it is one the store hands out");
+  await Deno.remove(dir, { recursive: true });
+});
+
+Deno.test("the reason written down for a failed build is the part that says what failed", () => {
+  const out =
+    `yarn run v1.22.22\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n    at maybeClose (node:internal/child_process:1101:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {\n  _stderr: 'error Command "webpack" not found.\\n',\n}\n\nNode.js v22.23.5\n`;
+  const said = gist(out);
+  eq(said.includes('Command "webpack" not found'), true, "the line that says what went wrong");
+  eq(/maybeClose|Node\.js v22/.test(said), false, "and not the stack under it");
+  eq(gist("\u001b[31mERR!\u001b[0m code E404").includes("\u001b"), false, "colours are not words");
+  eq(gist("one\ntwo\nthree"), "one two three", "with nothing that names an error, what was printed last");
+  eq(gist("x ".repeat(2000)).length <= 600, true, "never more than a note can hold");
+});
+
+Deno.test("shortcuts to tools are left out of a package, and nothing else is touched", async () => {
+  const dir = await Deno.makeTempDir();
+  await Deno.mkdir(`${dir}/node_modules/.bin`, { recursive: true });
+  await Deno.mkdir(`${dir}/node_modules/dep/node_modules/.bin`, { recursive: true });
+  await Deno.writeTextFile(`${dir}/node_modules/dep/index.js`, "");
+  await Deno.writeTextFile(`${dir}/main.js`, "");
+  await Deno.symlink("../dep/index.js", `${dir}/node_modules/.bin/dep`);
+  await Deno.mkdir(`${dir}/.bin`);
+  eq(await dropToolShortcuts(dir), true, "there were some");
+  const left: string[] = [];
+  const walk = async (at: string) => {
+    for await (const f of Deno.readDir(at)) {
+      left.push(`${at.slice(dir.length)}/${f.name}`);
+      if (f.isDirectory) await walk(`${at}/${f.name}`);
+    }
+  };
+  await walk(dir);
+  eq(left.sort(), [
+    "/.bin",
+    "/main.js",
+    "/node_modules",
+    "/node_modules/dep",
+    "/node_modules/dep/index.js",
+    "/node_modules/dep/node_modules",
+  ], "only the shortcut folders inside node_modules went");
+  eq(await dropToolShortcuts(dir), false, "and there are none the second time");
+  await Deno.remove(dir, { recursive: true });
+});
+
+Deno.test("a build that asks Yarn to run a tool gets that tool, from the module's own folder", async () => {
+  const work = await Deno.makeTempDir();
+  const bin = `${work}/src/node_modules/.bin`;
+  await Deno.mkdir(`${work}/src/node_modules/@companion-module/tools`, { recursive: true });
+  await Deno.mkdir(bin, { recursive: true });
+  await Deno.writeTextFile(`${bin}/webpack`, '#!/bin/sh\necho "webpack ran with $*"\n');
+  await Deno.chmod(`${bin}/webpack`, 0o755);
+  const standIn = `${await yarnStandIn(work)}/yarn`;
+  const env = { PATH: `${work}/yarn-stand-in:${Deno.env.get("PATH") ?? ""}` };
+  // Asked from inside the tools folder, the way the module build tool asks, in both spellings it has used.
+  const tools = `${work}/src/node_modules/@companion-module/tools`;
+  const modern = await run(
+    "node",
+    [standIn, "run", "-B", "webpack", "-c", "x.cjs", "--env", "dev"],
+    tools,
+    env,
+  );
+  eq([modern.ok, modern.out.trim()], [true, "webpack ran with -c x.cjs --env dev"], "the newer spelling");
+  const older = await run("node", [standIn, "webpack", "-c", "x.cjs"], tools, env);
+  eq([older.ok, older.out.trim()], [true, "webpack ran with -c x.cjs"], "the older spelling");
+  // A tool that fails still fails.
+  await Deno.writeTextFile(`${bin}/broken`, "#!/bin/sh\nexit 3\n");
+  await Deno.chmod(`${bin}/broken`, 0o755);
+  eq((await run("node", [standIn, "run", "broken"], tools, env)).ok, false, "a failure is passed on");
+  await Deno.remove(work, { recursive: true });
+});
+
+Deno.test("an entry is filed under kinds by the words its own author filed it under", async () => {
+  const table = await kindsTable();
+  eq(Object.keys(table).length >= 8, true, "kinds.json lists the kinds");
+  eq(kindsFor(["Audio", "Mixer"], "", table), ["Audio"], "by its keywords, whatever their capitals");
+  eq(
+    kindsFor(["PTZ Camera", "video"], "", table),
+    ["Video", "Cameras"],
+    "a word inside a keyword counts, and two kinds at most",
+  );
+  eq(kindsFor(["dmx"], "", table), ["Lighting"], "by a word that only means one thing");
+  eq(kindsFor(["audiophile-grade"], "", table), [], "part of a longer word is not the word");
+  eq(
+    kindsFor([], "Behringer WING digital mixer", table),
+    ["Audio"],
+    "with no keywords, by what it says it makes",
+  );
+  eq(kindsFor(["cheese"], "a mixer", table), [], "its own keywords decide, even when they file it nowhere");
+  eq(kindsFor([], "", table), [], "nothing to go on is not a kind");
 });

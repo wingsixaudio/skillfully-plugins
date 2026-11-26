@@ -14,6 +14,8 @@ import {
   arg,
   type Entry,
   generalAdvice,
+  kindsFor,
+  kindsTable,
   licenseProblem,
   loadPlatform,
   packageHome,
@@ -31,6 +33,10 @@ interface Kept {
   version: string;
   license: string;
   makes: string;
+  /** Who makes it, what it covers and the words its author filed it under. Missing in a list from before these were kept. */
+  maker?: string;
+  products?: string[];
+  keywords?: string[];
   commit: string;
   package: { url: string; sha256: string; bytes: number };
 }
@@ -83,6 +89,9 @@ async function published(site: string): Promise<Map<string, Kept>> {
           version: String(m.version ?? "0.0.0"),
           license: String(m.license ?? ""),
           makes: String(m.makes ?? ""),
+          ...(typeof m.maker === "string" && Array.isArray(m.products) && Array.isArray(m.keywords)
+            ? { maker: m.maker, products: m.products.map(String), keywords: m.keywords.map(String) }
+            : {}),
           commit: m.source.commit,
           package: { url: m.package.url, sha256: m.package.sha256, bytes: m.package.bytes },
         });
@@ -153,6 +162,9 @@ if (Deno.args.includes("--plan")) {
         version: pkg.about.version,
         license: pkg.about.license,
         makes: pkg.about.makes,
+        maker: pkg.about.maker ?? "",
+        products: pkg.about.products ?? [],
+        keywords: pkg.about.keywords ?? [],
         commit: entry.source.commit,
         package: {
           url: where.url,
@@ -175,10 +187,29 @@ if (Deno.args.includes("--plan")) {
     }
   }
 
+  const kinds = await kindsTable();
   const modules = [];
   for (const { entry } of entries) {
     const k = plan.kept[entry.id] ?? fresh[entry.id] ?? plan.carried[entry.id];
     if (!k) continue; // not built yet, or its build failed: it is not listed until it is
+    // A package kept from before the list said who makes what: read it once, the way a hub would, to learn
+    // it. From then on the list carries it and the package is not fetched again.
+    if (k.maker === undefined) {
+      try {
+        const res = await fetch(k.package.url, { signal: AbortSignal.timeout(60000) });
+        if (!res.ok) throw new Error(`answered ${res.status}`);
+        const bytes = new Uint8Array(await res.arrayBuffer());
+        if (createHash("sha256").update(bytes).digest("hex") !== k.package.sha256) {
+          throw new Error("it is not the package the list names");
+        }
+        const about = (await platform.readPackage(bytes)).about;
+        k.maker = about.maker ?? "";
+        k.products = about.products ?? [];
+        k.keywords = about.keywords ?? [];
+      } catch (err) {
+        console.error(`${entry.id}: who makes it could not be read this time: ${(err as Error).message}`);
+      }
+    }
     modules.push({
       id: entry.id,
       name: entry.name,
@@ -186,6 +217,16 @@ if (Deno.args.includes("--plan")) {
       version: k.version,
       license: k.license,
       makes: k.makes,
+      // For a hub's catalog: found by maker and by kind. A module's own words, cut to length by the hub.
+      ...(k.maker !== undefined
+        ? {
+          maker: k.maker,
+          products: k.products ?? [],
+          keywords: k.keywords ?? [],
+          kinds: kindsFor(k.keywords ?? [], k.makes, kinds),
+        }
+        : {}),
+      section: "companion",
       // The source of the package that is listed, which is the entry's unless a newer one is still waiting.
       source: { repo: entry.source.repo, commit: k.commit },
       recipe: RECIPE,

@@ -141,6 +141,162 @@ export function licenseProblem(pkg: any): string | null {
   return null;
 }
 
+/**
+ * What kinds of thing an entry is, from the words its author filed it under. kinds.json says which words
+ * mean which kind. A module's own keywords decide; only when it has none is what it says it makes looked
+ * at. Two kinds at most, in the order kinds.json lists them. None is an answer too: it is then found by
+ * its maker and by typing.
+ */
+export function kindsFor(keywords: string[], makes: string, table: Record<string, string[]>): string[] {
+  const filed = keywords.map((k) => k.toLowerCase().trim()).filter(Boolean);
+  const from = filed.length ? filed : [makes.toLowerCase()];
+  const has = (word: string) =>
+    from.some((k) =>
+      k === word || new RegExp(`(^|[^a-z0-9])${word.replace(/[^a-z0-9 ]/g, "")}([^a-z0-9]|$)`).test(k)
+    );
+  return Object.entries(table).filter(([, words]) => words.some(has)).map(([kind]) => kind).slice(0, 2);
+}
+
+/** Which words mean which kind of thing, from kinds.json. */
+export async function kindsTable(): Promise<Record<string, string[]>> {
+  const raw = JSON.parse(await Deno.readTextFile(`${ROOT}/kinds.json`));
+  const table: Record<string, string[]> = {};
+  for (const [kind, words] of Object.entries(raw.kinds ?? {})) {
+    if (!/^[A-Za-z][A-Za-z ]{1,29}$/.test(kind) || !Array.isArray(words)) {
+      throw new Error(`kinds.json: "${kind.slice(0, 40)}" is not a kind and a list of words`);
+    }
+    table[kind] = words.map((w) => String(w).toLowerCase().trim()).filter((w) =>
+      /^[a-z0-9][a-z0-9 -]{1,29}$/.test(w)
+    );
+  }
+  return table;
+}
+
+/**
+ * What went wrong, out of everything a failed step printed: the lines that say so, not the tail of a stack
+ * trace. This is what gets written down as the reason, so it has to be the part worth reading.
+ */
+export function gist(out: string, max = 600): string {
+  const lines = out.split("\n")
+    // deno-lint-ignore no-control-regex
+    .map((l) => l.replace(/\x1b\[[0-9;]*m/g, "").trim())
+    .filter((l) => l && !/^at\s/.test(l) && !/^Node\.js v/.test(l) && !/^[{}\[\]]+,?$/.test(l));
+  const telling = lines.filter((l) =>
+    /\berror\b|not found|cannot|can't|failed|unsupported|not supported|ERR!|invalid|missing/i.test(l)
+  );
+  const text = (telling.length ? telling : lines.slice(-12)).join(" ").replace(/\s+/g, " ");
+  return text.slice(0, max);
+}
+
+/**
+ * Which license a library's own license file is, when its package.json does not say. Only the few whose
+ * text is unmistakable, by words that are in every copy of them. Anything else is "not known", which the
+ * store treats as no license.
+ */
+export function licenseFromText(text: string): string {
+  const t = text.replace(/\s+/g, " ").toLowerCase();
+  const grants = "permission is hereby granted, free of charge, to any person";
+  if (
+    t.includes("boost software license") ||
+    t.includes(
+      `${grants} or organization obtaining a copy of the software and accompanying documentation covered by this license`,
+    )
+  ) {
+    return "BSL-1.0";
+  }
+  if (
+    t.includes(`${grants} obtaining a copy`) &&
+    t.includes('the software is provided "as is", without warranty of any kind')
+  ) {
+    return "MIT";
+  }
+  if (
+    t.includes(
+      "permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted",
+    )
+  ) {
+    return "ISC";
+  }
+  if (t.includes("apache license") && t.includes("version 2.0")) return "Apache-2.0";
+  if (
+    t.includes(
+      "redistribution and use in source and binary forms, with or without modification, are permitted",
+    )
+  ) {
+    return t.includes("neither the name") ? "BSD-3-Clause" : "BSD-2-Clause";
+  }
+  return "";
+}
+
+/** The license a library's own files say it is under, from a LICENSE or COPYING file beside its code. */
+export async function licenseInFiles(dir: string): Promise<string> {
+  try {
+    for await (const f of Deno.readDir(dir)) {
+      if (!f.isFile || !/^(licen[cs]e|copying)(\.[a-z]+)?$/i.test(f.name)) continue;
+      const found = licenseFromText((await Deno.readTextFile(`${dir}/${f.name}`)).slice(0, 40000));
+      if (found) return found;
+    }
+  } catch { /* no such folder, or nothing in it that can be read */ }
+  return "";
+}
+
+/** Take the shortcuts to command-line tools out of an unpacked package. True if there were any. */
+export async function dropToolShortcuts(dir: string): Promise<boolean> {
+  let dropped = false;
+  const walk = async (at: string, depth: number): Promise<void> => {
+    if (depth > 12) return;
+    for await (const f of Deno.readDir(at)) {
+      const path = `${at}/${f.name}`;
+      if (f.name === ".bin" && at.endsWith("/node_modules")) {
+        await Deno.remove(path, { recursive: true });
+        dropped = true;
+      } else if (f.isDirectory && !f.isSymlink) await walk(path, depth + 1);
+    }
+  };
+  await walk(dir, 0).catch(() => {});
+  return dropped;
+}
+
+/**
+ * A stand-in for the one thing a module's build asks Yarn for: "run this tool". It finds the tool in the
+ * nearest node_modules and runs it. Anything else it is asked is passed to the real Yarn untouched.
+ */
+export async function yarnStandIn(work: string): Promise<string> {
+  const dir = `${work}/yarn-stand-in`;
+  await Deno.mkdir(dir, { recursive: true });
+  await Deno.writeTextFile(
+    `${dir}/yarn`,
+    `#!/usr/bin/env node
+const { spawnSync } = require("node:child_process");
+const fs = require("node:fs");
+const path = require("node:path");
+const args = process.argv.slice(2);
+const rest = args[0] === "run" ? args.slice(1) : args.slice();
+while (["-B", "--binary", "-T", "--top-level"].includes(rest[0])) rest.shift();
+const name = rest[0];
+let tool = null;
+if (name && /^[A-Za-z0-9._-]+$/.test(name)) {
+  for (let dir = process.cwd();;) {
+    const here = path.join(dir, "node_modules", ".bin", name);
+    if (fs.existsSync(here)) { tool = here; break; }
+    const up = path.dirname(dir);
+    if (up === dir) break;
+    dir = up;
+  }
+}
+const mine = path.dirname(fs.realpathSync(__filename));
+const without = (process.env.PATH || "").split(path.delimiter)
+  .filter((p) => p && path.resolve(p) !== mine).join(path.delimiter);
+const done = tool
+  ? spawnSync(tool, rest.slice(1), { stdio: "inherit" })
+  : spawnSync("yarn", args, { stdio: "inherit", env: { ...process.env, PATH: without } });
+process.exit(done.status === null ? 1 : done.status);
+`,
+  );
+  await Deno.chmod(`${dir}/yarn`, 0o755);
+  return dir;
+}
+
 export async function run(
   cmd: string,
   args: string[],
@@ -294,9 +450,15 @@ const exists = async (path: string) => !!(await Deno.stat(path).catch(() => null
 export async function buildModule(entry: Entry, work: string): Promise<Built> {
   const src = `${work}/src`;
   await Deno.mkdir(src, { recursive: true });
-  const step = async (what: string, cmd: string, args: string[], cwd = src) => {
-    const r = await run(cmd, args, cwd);
-    if (!r.ok) throw new Error(`${what} failed: ${r.out.slice(-600)}`);
+  const step = async (
+    what: string,
+    cmd: string,
+    args: string[],
+    cwd = src,
+    env: Record<string, string> = {},
+  ) => {
+    const r = await run(cmd, args, cwd, env);
+    if (!r.ok) throw new Error(`${what} failed: ${gist(r.out)}`);
     return r.out;
   };
   await step("starting a checkout", "git", ["init", "-q"]);
@@ -332,7 +494,7 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     else installedHow = how;
     return r.ok;
   };
-  let installed = false;
+  let installed = false, usedModernYarn = false;
   if (await exists(`${src}/yarn.lock`)) {
     const modern = /^yarn@([2-9]|[1-9][0-9])\./.test(String(theirPackage.packageManager ?? "")) ||
       await exists(`${src}/.yarnrc.yml`);
@@ -343,6 +505,7 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
         ? ["install", "--immutable", "--mode=skip-build"]
         : ["install", "--frozen-lockfile", "--ignore-scripts", "--non-interactive"],
     );
+    usedModernYarn = installed && modern;
   }
   if (!installed && await exists(`${src}/package-lock.json`)) {
     installed = await install("with npm, from its lockfile", "npm", [
@@ -373,8 +536,21 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     : "";
   if (settings) await step("compiling its TypeScript", "npx", ["--no-install", "tsc", "-p", settings]);
 
+  // A module's build tool asks Yarn to run webpack for it, in a way only newer Yarn understands. A module
+  // whose lockfile is from older Yarn, or from npm, is installed the way its lockfile asks, and then that
+  // one request is answered here: the tool it names is run from the module's own node_modules.
+  const asked: Record<string, string> = usedModernYarn
+    ? {}
+    : { PATH: `${await yarnStandIn(work)}:${Deno.env.get("PATH") ?? ""}` };
+
   // First a build that keeps the name of every file it pulls in, to learn what is really inside.
-  await step("listing what gets bundled", "npx", ["--no-install", "companion-module-build", "--dev"]);
+  await step(
+    "listing what gets bundled",
+    "npx",
+    ["--no-install", "companion-module-build", "--dev"],
+    src,
+    asked,
+  );
   const named = await Deno.readTextFile(`${src}/pkg/main.js`);
   const dirs = new Set<string>();
   for (const m of named.matchAll(/node_modules\/[A-Za-z0-9_@.\/-]+/g)) {
@@ -386,7 +562,7 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
   }
 
   // Then the build that is handed out.
-  await step("building the package", "npx", ["--no-install", "companion-module-build"]);
+  await step("building the package", "npx", ["--no-install", "companion-module-build"], src, asked);
   let tgz = "";
   for await (const f of Deno.readDir(src)) if (f.isFile && f.name.endsWith(".tgz")) tgz = `${src}/${f.name}`;
   if (!tgz) throw new Error("the build made no package");
@@ -397,6 +573,10 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
   await step("opening the package", "tar", ["-xzf", tgz, "-C", out], work);
   let top = "pkg";
   for await (const f of Deno.readDir(out)) if (f.isDirectory) top = f.name;
+  // A build can leave shortcuts to command-line tools in the package (node_modules/.bin). A hub takes only
+  // plain files, and a module never runs those tools, so the shortcuts are left out. Any other link stays,
+  // and the hub will refuse the package for it: that one would need a person to look.
+  const shortcuts = await dropToolShortcuts(`${out}/${top}`);
   const theirs = await Deno.readTextFile(`${out}/${top}/LICENSE`).catch(() => "");
   const credited = new Set<string>();
   for (const line of theirs.matchAll(/^Packages: (.+)$/gm)) {
@@ -412,7 +592,8 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     if (!(await exists(`${src}/${dir}/package.json`))) continue;
     const pj = JSON.parse(await Deno.readTextFile(`${src}/${dir}/package.json`));
     const name = String(pj.name ?? dir), version = String(pj.version ?? "");
-    const license = declaredLicense(pj);
+    // Some libraries say what their license is only in a file beside their code, not in package.json.
+    const license = declaredLicense(pj) || await licenseInFiles(`${src}/${dir}`);
     if (bundled.some((b) => b.name === name && b.version === version)) continue;
     if (!licenseAllowed(license)) {
       problems.push(
@@ -492,7 +673,7 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
         `this package from ${entry.source.repo} at ${entry.source.commit}.\n\n` + additions.join("\n"),
     );
   }
-  if (additions.length || ownLicense) {
+  if (additions.length || ownLicense || shortcuts) {
     await Deno.remove(tgz);
     await step("closing the package", "tar", ["-czf", tgz, "-C", out, top], work);
   }
