@@ -1,0 +1,9 @@
+{
+  "id": "aja-kipro",
+  "repo": "https://github.com/bitfocus/companion-module-aja-kipro",
+  "commit": "03794b548e920b10c1a26576b23bb49998a5574f",
+  "why": "build",
+  "detail": "its package does not carry its license text, which the license requires of every copy",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

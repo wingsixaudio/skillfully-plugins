@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "adder-avm",
+  "name": "Adder AVM",
+  "description": "Companion Module to Control an Adder AVM Receiver",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-adder-avm",
+    "commit": "5e28ea9d060336c86556a974ccd721b13eada45f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

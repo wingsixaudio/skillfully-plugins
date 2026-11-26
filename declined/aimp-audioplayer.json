@@ -1,0 +1,9 @@
+{
+  "id": "aimp-audioplayer",
+  "repo": "https://github.com/bitfocus/companion-module-aimp-audioplayer",
+  "commit": "26ece0ca6c08960f138aa3b10955e8ca1b657175",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}

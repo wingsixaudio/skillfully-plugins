@@ -1,0 +1,9 @@
+{
+  "id": "aja-fs",
+  "repo": "https://github.com/bitfocus/companion-module-aja-fs",
+  "commit": "f2a39a910c6e1aecca98c67d377d3c5f0657fc11",
+  "why": "build",
+  "detail": "installing what the module needs failed:",
+  "checked": "2026-11-26",
+  "ground": "6c87d2585f84fa9c"
+}
