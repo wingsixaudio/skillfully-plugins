@@ -3,6 +3,7 @@
 //
 // The platform is not a dependency of this repository. The tools are handed a checkout of it (see
 // platform.json) and use its own code to judge a package, so the store and a hub can never disagree.
+// They import one file from it, mod.ts, which is what the platform offers to tools outside it.
 
 export const arg = (name: string, fallback?: string): string => {
   const hit = Deno.args.find((a) => a.startsWith(`--${name}=`));
@@ -26,18 +27,12 @@ export interface Entry {
 }
 
 // deno-lint-ignore no-explicit-any
-export type Platform = { contract: any; install: any; hub: any; report: any; asks: any };
+export type Platform = any;
 
-/** The platform's own code, from a checkout of it. */
+/** What the platform offers to outside tools, from a checkout of it. */
 export async function loadPlatform(dir: string): Promise<Platform> {
   const base = new URL(`${dir.replace(/\/$/, "")}/`, `file://${Deno.cwd()}/`).href;
-  return {
-    contract: await import(`${base}contract/mod.ts`),
-    install: await import(`${base}core/install.ts`),
-    hub: await import(`${base}core/hub.ts`),
-    report: await import(`${base}tools/plugin_report.ts`),
-    asks: await import(`${base}core/asks.ts`),
-  };
+  return await import(`${base}mod.ts`);
 }
 
 /** Every entry in modules/, with what is wrong with each. An entry with problems is never built. */
@@ -45,7 +40,7 @@ export async function readEntries(
   platform: Platform,
 ): Promise<{ file: string; entry: Entry; problems: string[] }[]> {
   const schema = JSON.parse(await Deno.readTextFile(`${ROOT}/schema/module.schema.json`));
-  const valid = platform.contract.ajv.compile(schema);
+  const valid = platform.ajv.compile(schema);
   const out: { file: string; entry: Entry; problems: string[] }[] = [];
   const names: string[] = [];
   for await (const f of Deno.readDir(`${ROOT}/modules`)) {
@@ -61,7 +56,7 @@ export async function readEntries(
     } catch {
       problems.push("it is not valid JSON");
     }
-    if (!problems.length && !valid(entry)) problems.push(platform.contract.explain(valid.errors));
+    if (!problems.length && !valid(entry)) problems.push(platform.explain(valid.errors));
     if (!problems.length && `${entry.id}.json` !== name) {
       problems.push(`its id is ${entry.id}, so the file must be named ${entry.id}.json`);
     }
@@ -85,12 +80,12 @@ export const LICENSES = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "I
  */
 // deno-lint-ignore no-explicit-any
 export function licenseProblem(pkg: any): string | null {
-  if (!LICENSES.includes(pkg.module.license)) {
+  if (!LICENSES.includes(pkg.about.license)) {
     return `its package names the license "${
-      String(pkg.module.license).slice(0, 40) || "none"
+      String(pkg.about.license).slice(0, 40) || "none"
     }", and the store only hands out ${LICENSES.join(", ")}`;
   }
-  if (!pkg.files.some((f: { path: string }) => /^licen[cs]e(\.[a-z]+)?$/i.test(f.path))) {
+  if (!pkg.files.some((f: { path: string }) => /^module\/licen[cs]e(\.[a-z]+)?$/i.test(f.path))) {
     return "its package does not carry its license text, which the license requires of every copy";
   }
   return null;
