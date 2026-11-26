@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:skillfully:store:module",
+  "title": "A Companion module in the Skillfully plugin store",
+  "description": "An entry points at a Bitfocus Companion module's own source at one exact commit, and says what the module should be allowed to do on a hub. The module's code is never copied into this repository.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "id", "name", "description", "source", "network", "tested"],
+  "properties": {
+    "kind": { "const": "companion-module" },
+    "id": {
+      "description": "The module's own id, as its manifest gives it. The file is named <id>.json.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,50}$"
+    },
+    "name": {
+      "description": "What a person would call the device.",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "description": {
+      "description": "One or two plain sentences on what it does.",
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 300
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo", "commit"],
+      "properties": {
+        "repo": { "type": "string", "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+        "commit": {
+          "description": "The full commit, never a branch or a tag: those can move.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "network": {
+      "description": "What the module may reach, as narrow as it can be made. A part in braces is filled from the module's own settings, for example {host}:9999. lan and listen are the two wide grants and need a reason in notes.",
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(lan|listen|(\\{[A-Za-z][A-Za-z0-9]*\\}|[A-Za-z0-9.-]+):(\\{[A-Za-z][A-Za-z0-9]*\\}|[0-9]{1,5}))$"
+      }
+    },
+    "settings": {
+      "description": "Settings to start the module with, where its own defaults ask for more than the network grant allows.",
+      "type": "object",
+      "maxProperties": 20,
+      "additionalProperties": { "type": ["string", "number", "boolean"] }
+    },
+    "tested": {
+      "description": "How far this has been proven. starts: it runs in the sandbox and describes itself. pretend-device: it drove a stand-in that speaks the device's protocol. real-device: someone used it with the real thing.",
+      "enum": ["starts", "pretend-device", "real-device"]
+    },
+    "notes": {
+      "description": "Why it needs what it asks for, and anything a team should know.",
+      "type": "string",
+      "maxLength": 600
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# Changes to how the store checks and publishes are looked at by a maintainer, whoever proposes them.
+/.github/        @wingsixaudio
+/tools/          @wingsixaudio
+/schema/         @wingsixaudio
+/platform.json   @wingsixaudio

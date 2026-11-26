@@ -1,0 +1,112 @@
+# After a pull request is merged, build what the store lists and put it where hubs can fetch it.
+#
+# Building a module runs that module's own build, which is someone else's code. So each module is built on
+# its own machine with a token that can only read, and the only thing that leaves that machine is the one
+# package it made. The machine that publishes runs none of it.
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  list:
+    name: List what to build
+    runs-on: ubuntu-latest
+    outputs:
+      ids: ${{ steps.ids.outputs.ids }}
+      ref: ${{ steps.platform.outputs.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: ids
+        run: echo "ids=$(jq -c -n '[inputs.id]' modules/*.json)" >> "$GITHUB_OUTPUT"
+      - id: platform
+        run: |
+          ref=$(jq -r .ref platform.json)
+          [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo "platform.json must pin one full commit"; exit 1; }
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build ${{ matrix.id }}
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        id: ${{ fromJson(needs.list.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wingsixaudio/skillfully
+          ref: ${{ needs.list.outputs.ref }}
+          path: .platform
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the package from its pinned source
+        env:
+          ID: ${{ matrix.id }}
+        run: |
+          deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-env \
+            tools/build.ts --platform=.platform --id="$ID" --out=built
+      - uses: actions/upload-artifact@v4
+        with:
+          name: module-${{ matrix.id }}
+          path: built/${{ matrix.id }}.tgz
+          if-no-files-found: error
+
+  assemble:
+    name: List the packages with their checksums
+    needs: [list, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wingsixaudio/skillfully
+          ref: ${{ needs.list.outputs.ref }}
+          path: .platform
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: module-*
+          path: built
+          merge-multiple: true
+      - name: Read each package the way a hub would, and write the list
+        run: |
+          deno run --config .platform/deno.json --allow-read --allow-write --allow-env \
+            tools/index.ts --platform=.platform --built=built --out=site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Publish
+    needs: assemble
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
