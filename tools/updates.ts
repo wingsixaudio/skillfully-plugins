@@ -17,7 +17,9 @@ const COMMIT = /^[0-9a-f]{40}$/;
 const REPO = /^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
 const ID = /^[a-z0-9][a-z0-9-]{1,50}$/;
 
-interface Release {
+export interface Release {
+  /** The tag as its author wrote it. */
+  tag: string;
   version: string;
   parts: number[];
   commit: string;
@@ -32,7 +34,7 @@ export function releases(listing: string): Release[] {
     if (!m || !v) continue;
     const parts = v.slice(1).map(Number);
     const version = parts.join(".");
-    if (!found.has(version) || m[3]) found.set(version, { version, parts, commit: m[1] });
+    if (!found.has(version) || m[3]) found.set(version, { tag: m[2], version, parts, commit: m[1] });
   }
   // Oldest first, so the newest is last.
   return [...found.values()].sort((a, b) => later(a.parts, b.parts) ? -1 : 1);

@@ -1,0 +1,155 @@
+# Fill the store from the catalogs in sources.json, a batch at a time. Started by hand.
+#
+# It only proposes. Each run looks for modules the store does not list yet, tries each one, and opens one
+# pull request with those that passed and a note of why the others were left out. A person decides whether
+# to merge it, and the ordinary checks prove every entry in it again first.
+#
+#   find     read a few files of each module's source at its newest release: its manifest, what it is built
+#            on, its license. Runs none of it. Can only read.
+#   try      one machine per module: build it and start it in the hub's sandbox. Can only read.
+#   propose  put what passed in modules/ and what did not in declined/, and open the pull request. The only
+#            job that can write, and it handles what the others found as data: an entry is held to the rules
+#            again before it is written, and a finding is read for whether it passed and one line of why not.
+name: Fill the store
+
+on:
+  workflow_dispatch:
+    inputs:
+      max:
+        description: How many modules to try in this run (200 at most)
+        default: "100"
+      only:
+        description: Try only these repositories, separated by commas. Leave empty to work through the catalog.
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fill
+  cancel-in-progress: false
+
+env:
+  CHECK: deno run --config .platform/deno.json --allow-read --allow-write --allow-run --allow-net=127.0.0.1 --allow-env tools/check.ts --platform=.platform
+
+jobs:
+  find:
+    name: Look through the catalogs
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      ids: ${{ steps.find.outputs.ids }}
+      count: ${{ steps.find.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - id: find
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAX: ${{ inputs.max }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          [[ "$MAX" =~ ^[0-9]{1,3}$ ]] || MAX=100
+          only=""
+          if [[ "$ONLY" =~ ^[A-Za-z0-9_.,-]{1,2000}$ ]]; then only="--only=$ONLY"; fi
+          ids=$(deno run --config .platform/deno.json --allow-read --allow-write --allow-run=git --allow-env --allow-net=api.github.com \
+            tools/fill.ts --find --platform=.platform --max="$MAX" --out=fill $only)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+          echo "count=$(jq length <<<"$ids")" >> "$GITHUB_OUTPUT"
+          echo "$(jq length <<<"$ids") modules to try. $(ls fill/declined | wc -l) left out without building." >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fill
+          path: fill
+          if-no-files-found: error
+
+  try:
+    name: ${{ matrix.id }}
+    needs: find
+    if: needs.find.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        id: ${{ fromJson(needs.find.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node: "true"
+      - uses: actions/download-artifact@v4
+        with:
+          name: fill
+          path: fill
+      - name: Fetch what the hub needs before it starts
+        run: deno cache --config .platform/deno.json .platform/core/main.ts
+      - name: Build it from its newest release and start it in the sandbox
+        env:
+          ID: ${{ matrix.id }}
+        run: |
+          cp "fill/entries/$ID.json" "modules/$ID.json"
+          $CHECK --all --id="$ID" --out=findings
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finding-${{ matrix.id }}
+          path: findings/${{ matrix.id }}.json
+          if-no-files-found: ignore
+
+  propose:
+    name: Open a pull request with what passed
+    needs: [find, try]
+    if: ${{ !cancelled() && needs.find.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
+        with:
+          name: fill
+          path: fill
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: finding-*
+          path: findings
+          merge-multiple: true
+      - name: Settle what is added and what is left out
+        id: settle
+        run: |
+          mkdir -p findings
+          out=$(deno run --config .platform/deno.json --allow-read --allow-write --allow-env \
+            tools/fill.ts --settle --platform=.platform --fill=fill --findings=findings)
+          echo "added=$(jq -r .added <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "declined=$(jq -r .declined <<<"$out")" >> "$GITHUB_OUTPUT"
+          cat fill/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Propose it
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ADDED: ${{ steps.settle.outputs.added }}
+          DECLINED: ${{ steps.settle.outputs.declined }}
+        run: |
+          if [ -z "$(git status --porcelain modules declined)" ]; then
+            echo "Nothing new to add and nothing new to write down."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch="fill/$(date -u +%Y%m%d)-$GITHUB_RUN_NUMBER"
+          git checkout -q -b "$branch"
+          deno fmt -q modules declined
+          git add modules declined
+          git commit -q -m "Add $ADDED modules from the catalog; $DECLINED left out"
+          git push -q origin "$branch"
+          if ! gh pr create --base main --head "$branch" --title "Add $ADDED modules from the catalog" --body-file fill/summary.md; then
+            echo "::error::The pull request could not be opened. In this repository's Settings, under Actions, General, allow GitHub Actions to create pull requests. The branch $branch is pushed and can be proposed by hand."
+            exit 1
+          fi
+          # A pull request opened by a workflow does not start checks by itself, so they are started here.
+          gh workflow run checks.yml --ref "$branch"
