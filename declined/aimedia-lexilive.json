@@ -1,9 +1,0 @@
-{
-  "id": "aimedia-lexilive",
-  "repo": "https://github.com/bitfocus/companion-module-aimedia-lexilive",
-  "commit": "e39422c2ce08656b2cc76625e2538cf706e1a5a4",
-  "why": "build",
-  "detail": "the bundled library agent-base 6.0.2 carries no license text, and nobody has recorded checking that under notices/",
-  "checked": "2026-11-26",
-  "ground": "6c87d2585f84fa9c"
-}

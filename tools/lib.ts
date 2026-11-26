@@ -171,9 +171,12 @@ export function licenseAllowed(expression: string): boolean {
   );
 }
 
-/** The license a library's package.json declares, in any of the ways that has been written over the years. */
+/** A library's package.json: whatever its author wrote there. Read as data, never trusted for its shape. */
 // deno-lint-ignore no-explicit-any
-export function declaredLicense(pj: any): string {
+type PackageJson = any;
+
+/** The license a library's package.json declares, in any of the ways that has been written over the years. */
+export function declaredLicense(pj: PackageJson): string {
   const one = (l: unknown): string =>
     typeof l === "string"
       ? l
@@ -186,6 +189,50 @@ export function declaredLicense(pj: any): string {
   if (pj?.license && typeof pj.license === "object") return one(pj.license);
   if (Array.isArray(pj?.licenses)) return pj.licenses.map(one).filter(Boolean).join(" OR ");
   return "";
+}
+
+/**
+ * The credit for a library that declares a license and ships no text of it: what it is, the license it
+ * declares, and who wrote it and where it lives as its own package.json says. Also which standard license
+ * texts should go with it. Everything here is the library's own words about itself, kept as plain text.
+ */
+export function noticeFor(
+  pj: PackageJson,
+  name: string,
+  version: string,
+  license: string,
+): { text: string; standard: string[] } {
+  const plain = (v: unknown, max: number) =>
+    [...String(v ?? "")].map((c) => (c.charCodeAt(0) < 32 ? " " : c)).join("").trim().slice(0, max);
+  const person = (a: unknown): string =>
+    typeof a === "string" ? a : a && typeof a === "object"
+      ? [
+        (a as { name?: unknown }).name,
+        (a as { email?: unknown }).email ? `<${(a as { email?: unknown }).email}>` : "",
+      ]
+        .filter(Boolean).join(" ")
+      : "";
+  const author = plain(
+    person(pj?.author) || (Array.isArray(pj?.contributors) ? pj.contributors.map(person).join(", ") : ""),
+    200,
+  );
+  const source = plain(
+    typeof pj?.repository === "string" ? pj.repository : pj?.repository?.url ?? pj?.homepage ?? "",
+    200,
+  ) || `https://www.npmjs.com/package/${name}/v/${version}`;
+  // Of the licenses it may be used under, the ones the store hands out and has the standard text of.
+  const standard = license.replace(/[()]/g, " ").split(/\s+(?:OR|AND)\s+/i).map((l) => l.trim()).filter((l) =>
+    BUNDLED_OK.includes(l)
+  );
+  return {
+    standard,
+    text: `${name}@${version} — ${license}\n${"-".repeat(80)}\n` +
+      `This library declares the ${license} license in its package.json and ships no license text or copyright\n` +
+      `notice of its own, so there is none of its own to pass on.\n` +
+      (author ? `Written by, as its package.json says: ${author}\n` : "") +
+      `Source: ${source}\n` +
+      (standard.length ? `The standard text of ${standard.join(" and ")} is at the end of this file.\n` : ""),
+  };
 }
 
 /**
@@ -355,12 +402,8 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
   for (const line of theirs.matchAll(/^Packages: (.+)$/gm)) {
     for (const part of line[1].split(", ")) credited.add(part.split(" ")[0]);
   }
-  const withoutText = JSON.parse(await Deno.readTextFile(`${ROOT}/notices/without-text.json`)) as {
-    name: string;
-    license: string;
-    source: string;
-    checked: string;
-  }[];
+  // The standard text of each license that had to be added for a library that ships none of its own.
+  const standard = new Set<string>();
 
   const bundled: Bundled[] = [];
   const problems: string[] = [];
@@ -397,22 +440,34 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
         }
       }
     }
-    const known = withoutText.find((k) => k.name === name);
+    // A text someone supplied by hand for a library whose package ships none (notices/texts).
+    if (!texts.length) {
+      const supplied = await Deno.readTextFile(`${ROOT}/notices/texts/${name.replaceAll("/", "__")}.txt`)
+        .catch(
+          () => "",
+        );
+      if (supplied.trim()) texts.push(supplied.trim());
+    }
     if (texts.length) {
       additions.push(`${name}@${version} — ${license}\n${"-".repeat(80)}\n${texts.join("\n\n")}\n`);
       bundled.push({ name, version, license, notice: "added by the store" });
-    } else if (known && known.license === license) {
-      additions.push(
-        `${name}@${version} — ${license}\n${
-          "-".repeat(80)
-        }\nThis library declares the ${license} license and publishes no license text or copyright notice.\nSource: ${known.source}\n`,
-      );
+    } else if (licenseAllowed(license)) {
+      // It declares a license and ships no text of it, so there is no notice of its own to pass on. It is
+      // credited by name, with what its package.json says of who wrote it and where it lives, and the
+      // standard text of the license it declares goes in once, below.
+      const said = noticeFor(pj, name, version, license);
+      for (const id of said.standard) standard.add(id);
+      additions.push(said.text);
       bundled.push({ name, version, license, notice: "none is published" });
-    } else {
-      problems.push(
-        `the bundled library ${name} ${version} carries no license text, and nobody has recorded checking that under notices/`,
-      );
     }
+    // A library with no license, or one the store does not hand out, was refused above.
+  }
+  for (const id of [...standard].sort()) {
+    additions.push(
+      `The standard text of the ${id} license\n${"=".repeat(80)}\n${
+        (await Deno.readTextFile(`${ROOT}/notices/standard/${id}.txt`)).trim()
+      }\n`,
+    );
   }
 
   // An older build tool leaves the module's own license out of the package. The license asks for it to go

@@ -30,8 +30,8 @@ interface Declined {
   detail: string;
   checked: string;
   /**
-   * What this side was when it was left out: the hub the store checks against, how the store builds a
-   * module, and the libraries it has recorded as publishing no license text. When any of those change, a module
+   * What this side was when it was left out: the hub the store checks against and how the store builds a
+   * module. When any of those change, a module
    * left out for a reason on this side is looked at again.
    */
   ground: string;
@@ -44,7 +44,6 @@ const slug = (repo: string) =>
   repo.toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 51);
 const ground = createHash("sha256").update(
   JSON.parse(await Deno.readTextFile(`${ROOT}/platform.json`)).ref + `|${RECIPE}|` +
-    await Deno.readTextFile(`${ROOT}/notices/without-text.json`) +
     // How a module is built. A fix there is a reason to try again what would not build before.
     await Deno.readTextFile(`${ROOT}/tools/lib.ts`),
 ).digest("hex").slice(0, 16);
@@ -319,6 +318,12 @@ if (Deno.args.includes("--find")) {
     if (problems && problems.length === 0) {
       await Deno.writeTextFile(`${ROOT}/modules/${name}`, JSON.stringify(entry, null, 2) + "\n");
       added.push(id);
+      // It was left out before and has now passed. What was written down about it no longer holds.
+      for await (const f of Deno.readDir(`${ROOT}/declined`)) {
+        if (!f.isFile || !f.name.endsWith(".json")) continue;
+        const was = JSON.parse(await Deno.readTextFile(`${ROOT}/declined/${f.name}`).catch(() => "{}"));
+        if (was.repo === entry.source.repo) await Deno.remove(`${ROOT}/declined/${f.name}`);
+      }
     } else {
       const detail = problems?.[0] ?? "the machine that was trying it stopped before it finished";
       // Built, and then would not start or describe itself, or never built at all.
@@ -326,7 +331,12 @@ if (Deno.args.includes("--find")) {
         /sandbox|start|ready|describe/i.test(detail) && !/build|npm|webpack|license|bundled/i.test(detail)
           ? "start"
           : "build";
-      reasons.push(stamp({ id, repo: entry.source.repo, commit: entry.source.commit, why, detail }));
+      // A finding is written for a report, with its marks made harmless. Here it is kept as plain words.
+      const plainly = detail.replace(/\\(.)/g, "$1").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(
+        /&amp;/g,
+        "&",
+      );
+      reasons.push(stamp({ id, repo: entry.source.repo, commit: entry.source.commit, why, detail: plainly }));
     }
   }
   for (const d of reasons) {
@@ -368,15 +378,18 @@ if (Deno.args.includes("--find")) {
       "",
     );
   }
-  // A library that publishes no license text holds back every module that bundles it, until someone reads
-  // what it publishes and records that under notices/. Said here by how many modules each one holds back.
+  // A library with no license, or one the store does not hand out, holds back every module that bundles it.
+  // Said here by how many modules each one holds back.
   const held = new Map<string, number>();
   for (const r of reasons) {
     const lib = /the bundled library (\S+) /.exec(r.detail)?.[1];
     if (lib) held.set(lib, (held.get(lib) ?? 0) + 1);
   }
   if (held.size) {
-    lines.push("**Libraries holding modules back** (see `notices/README.md`):", "");
+    lines.push(
+      "**Bundled libraries holding modules back**, by having no license or one the store does not hand out (see `notices/README.md`):",
+      "",
+    );
     for (const [lib, n] of [...held].sort((a, b) => b[1] - a[1]).slice(0, 20)) {
       lines.push(`- \`${safe(lib, 60)}\`: ${n} ${n === 1 ? "module" : "modules"}`);
     }

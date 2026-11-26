@@ -1,9 +1,0 @@
-{
-  "id": "adder-xdip",
-  "repo": "https://github.com/bitfocus/companion-module-adder-xdip",
-  "commit": "ea9aca0ed219d5025bde61fa65cfa8dee05aab10",
-  "why": "build",
-  "detail": "installing what the module needs failed:",
-  "checked": "2026-11-26",
-  "ground": "6c87d2585f84fa9c"
-}

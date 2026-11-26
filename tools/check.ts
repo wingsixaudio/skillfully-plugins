@@ -83,9 +83,13 @@ async function prove(entry: Entry): Promise<Finding> {
           }`
           : "") +
         (none.length
-          ? `. ${none.map((b) => code(b.name)).join(", ")} ${
-            none.length === 1 ? "declares" : "declare"
-          } a license and ${none.length === 1 ? "publishes" : "publish"} no text to pass on`
+          ? `. ${none.length} of them ${none.length === 1 ? "declares" : "declare"} a license and ${
+            none.length === 1 ? "ships" : "ship"
+          } no text of it, and ${
+            none.length === 1 ? "is" : "are"
+          } credited by name with the standard text of that license: ${
+            none.slice(0, 20).map((b) => code(b.name)).join(", ")
+          }${none.length > 20 ? ", and more" : ""}`
           : ""),
     );
     facts.push(`Source: ${safe(entry.source.repo)} at ${code(entry.source.commit.slice(0, 12))}`);
