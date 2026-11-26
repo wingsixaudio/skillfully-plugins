@@ -37,8 +37,8 @@ this port". Anything not written down, the hub still asks about.
 
 An entry can also give **advice** for the questions it leaves to a team: "we expect this" or "we advise
 against this", with the reason. The hub shows it beside the question. `advice.json` holds the same kind of
-advice for everything in the store, such as advising against anything that reaches the internet. Advice
-allows nothing. The team's superuser still decides.
+advice for everything in the store, such as advising against anything that reaches the internet. Advice allows
+nothing. The team's superuser still decides.
 
 ### The list is signed
 
@@ -48,8 +48,8 @@ public half of the key is in `keys.json`, and in every hub. The private half is 
 job on `main` can use; that job starts from a clean copy of this repository and never has a module's code or
 package on it.
 
-A hub that cannot check the signature still lets a team add from the list, and then allows nothing in
-advance and passes on no recommendation to allow anything.
+A hub that cannot check the signature still lets a team add from the list, and then allows nothing in advance
+and passes on no recommendation to allow anything.
 
 `tools/new_key.ts` makes a key. Its own first lines say how, and where each half goes. To replace a key, put
 both private halves in the secret (one per line) and both public halves in `keys.json` until every hub has the
