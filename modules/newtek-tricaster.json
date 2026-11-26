@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "newtek-tricaster",
+  "name": "Newtek Tricaster",
+  "description": "Newtek Tricaster module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-newtek-tricaster",
+    "commit": "5c49dc6078df13f913adb26d04ae2f52dfd30b74"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "logos-proclaim",
+  "name": "Logos Proclaim",
+  "description": "Module for Logos Proclaim",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-logos-proclaim",
+    "commit": "eab0336ec971f5db95de0cb78fb335afd90562fc"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

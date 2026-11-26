@@ -1,0 +1,9 @@
+{
+  "id": "philips-sicp",
+  "repo": "https://github.com/bitfocus/companion-module-philips-sicp",
+  "commit": "84dfae18db7d91d7f02045a3d0d43abdbc198947",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

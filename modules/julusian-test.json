@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "julusian-test",
+  "name": "Julusian Test",
+  "description": "Julusian's test module",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-julusian-test",
+    "commit": "ee0e7407c78836f0b5f4eab874182ac0633a8fdd"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "panasonic-ptz",
+  "name": "Panasonic AW-HE2, AW-HE35",
+  "description": "Companion module for Panasonic PTZ Cameras",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-panasonic-ptz",
+    "commit": "8a0ff87f2bad3b7e927067eedae9f133bf975da9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

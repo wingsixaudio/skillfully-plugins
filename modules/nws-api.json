@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "nws-api",
+  "name": "National Weather Service Weather Alerts",
+  "description": "Show alerts from the National Weather Service",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-nws-api",
+    "commit": "a75aed174e46da9588f04415c28cd2f41f7d7b3b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

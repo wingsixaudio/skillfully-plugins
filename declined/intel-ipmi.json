@@ -1,0 +1,9 @@
+{
+  "id": "intel-ipmi",
+  "repo": "https://github.com/bitfocus/companion-module-intel-ipmi",
+  "commit": "c5ad50779519952fe78da7e9461c50b82fb390e0",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

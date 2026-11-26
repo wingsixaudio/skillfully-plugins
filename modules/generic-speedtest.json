@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-speedtest",
+  "name": "Generic Speedtest",
+  "description": "Perform internet speed tests using Ookla's speedtest.net.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-speedtest",
+    "commit": "938d1c3d0a837ed4650678fc190b2939ad456d39"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "josephadams-scriptlauncher",
+  "name": "Joseph Adams Script Launcher",
+  "description": "Run scripts remotely on other computers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-josephadams-scriptlauncher",
+    "commit": "ff3ffcb9e48da427b3cd78344b2744cfd0717e98"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

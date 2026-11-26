@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "irisdown-countdowntimer",
+  "name": "Irisdown Countdown Timer",
+  "description": "Module to control Irisdown Countdown timer 2.0",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-irisdown-countdowntimer",
+    "commit": "b595acafba75595266717dda75c23d6dd6e62295"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "mt-viki-matrix",
+  "name": "MT VIKI MT-HD0808 8x8 HDMI Matrix",
+  "description": "Companion module for MT Viki HDMI matrix switches",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-mt-viki-matrix",
+    "commit": "4c9bda89aaf331ebefd8f770470808b36deca6ab"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

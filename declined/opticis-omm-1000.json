@@ -1,0 +1,9 @@
+{
+  "id": "opticis-omm-1000",
+  "repo": "https://github.com/bitfocus/companion-module-opticis-omm-1000",
+  "commit": "cab3b468ee76e86cdc9e803c4a746c20a5f37bcb",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "middleman-scte104proxy",
+  "name": "Middleman Software SCTE 104 Proxy",
+  "description": "Controls Middleman Software's SCTE 104 Proxy.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-middleman-scte104proxy",
+    "commit": "a8f15f4b328aba4cb940c10265d4e5721ec9c9af"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

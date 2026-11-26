@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "oncue-oncue",
+  "name": "OnCue OnCue",
+  "description": "Control OnCue's Timer, Teleprompter, Audio Player and Presenter over the network",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-oncue-oncue",
+    "commit": "c12071ceb9a8a0f96e8df0f343d717c48f97a78f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

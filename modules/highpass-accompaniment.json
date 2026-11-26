@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "highpass-accompaniment",
+  "name": "HighPass AcCompaniment",
+  "description": "Connects to the AcCompaniment app via a websocket server",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-highpass-accompaniment",
+    "commit": "63b6a04bc47fc5239a9cee5198d94ae409798c4f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

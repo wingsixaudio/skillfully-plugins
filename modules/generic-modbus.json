@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-modbus",
+  "name": "Generic Modbus TCP Relay, Modbus TCP I/O",
+  "description": "Companion module for generic Modbus TCP coil, digital input, and register devices including Waveshare relay boards",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-modbus",
+    "commit": "a36efaab1f5ca250a6d54153ae97581f5aba95ac"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

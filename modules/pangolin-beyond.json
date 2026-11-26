@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pangolin-beyond",
+  "name": "Pangolin Beyond",
+  "description": "Control Pangolin Beyond over OSC",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pangolin-beyond",
+    "commit": "c4d98ac49b72f5fb9da3a65652a4f66bccab139e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

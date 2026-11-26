@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-dataentry",
+  "name": "Generic Data Entry",
+  "description": "Enter and present userdata",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-dataentry",
+    "commit": "36f5e321c8be85abc85a31963723371e3569f5c9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

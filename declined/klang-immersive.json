@@ -1,0 +1,9 @@
+{
+  "id": "klang-immersive",
+  "repo": "https://github.com/bitfocus/companion-module-klang-immersive",
+  "commit": "0eb5d58e0ec19b1cf2d06d0cf35895754768152c",
+  "why": "build",
+  "detail": "listing what gets bundled failed: d.\\n', _stderr: 'error companion-module-klang-immersive@1.0.2: The engine \"node\" is incompatible with this module. Expected version \"^18.12\". Got \"22.23.5\"\\n' + 'error Commands cannot run with an incompatible environment.\\n', _combined: 'yarn run v1.22.22\\n' + 'erro",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

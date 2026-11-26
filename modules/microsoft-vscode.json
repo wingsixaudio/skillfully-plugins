@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "microsoft-vscode",
+  "name": "Microsoft VSCode",
+  "description": "Allows bitfocus companion to talk to VSCode",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-microsoft-vscode",
+    "commit": "9fa64fa5c0d5eb9b515b5de2766a416370b5609a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

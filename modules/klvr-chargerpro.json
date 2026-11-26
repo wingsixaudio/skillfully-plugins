@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "klvr-chargerpro",
+  "name": "KLVR Charger Pro",
+  "description": "Controls the KLVR Charger Pro and gets status information",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-klvr-chargerpro",
+    "commit": "57b0e0ab43fd1e9593cf3342471781d48195324b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

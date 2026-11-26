@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "grassvalley-kaleido-solo",
+  "name": "Grass Valley Kaleido Solo, Kaleido Quad",
+  "description": "Kaleido Solo module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-grassvalley-kaleido-solo",
+    "commit": "7656646cca9f66efc28bd1164f4d2ca65b724139"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

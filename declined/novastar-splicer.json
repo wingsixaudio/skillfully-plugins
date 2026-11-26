@@ -1,0 +1,9 @@
+{
+  "id": "novastar-splicer",
+  "repo": "https://github.com/bitfocus/companion-module-novastar-splicer",
+  "commit": "21a6b3c44b07b6377758409c8383d57b5a0ce74f",
+  "why": "build",
+  "detail": "listing what gets bundled failed: r more information, check out https://yarnpkg.com/corepack.\\n', _combined: `error This project's package.json defines \"packageManager\": \"yarn@4.5.3\". However the current global version of Yarn is 1.22.22.\\n` + '\\n' + 'Presence of the \"packageManager\" field indicates",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

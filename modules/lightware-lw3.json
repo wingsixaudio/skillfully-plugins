@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "lightware-lw3",
+  "name": "Lightware LW3",
+  "description": "Control Lightware LW3 Equipment",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-lightware-lw3",
+    "commit": "b3a5069c384144d53a5176bf75af8ea7b90ec1f7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

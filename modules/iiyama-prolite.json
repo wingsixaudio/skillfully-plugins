@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "iiyama-prolite",
+  "name": "Iiyama Prolite",
+  "description": "Iiyama Prolite module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-iiyama-prolite",
+    "commit": "504db30f0f0b0ae6e275a32fc223727c1bf05e8d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

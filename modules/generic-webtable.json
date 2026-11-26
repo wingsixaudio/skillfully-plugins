@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-webtable",
+  "name": "Generic Web-Table",
+  "description": "Generic Web-Table",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-webtable",
+    "commit": "617c4c582e9ee6a4855be14b2600ddafc27693fc"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

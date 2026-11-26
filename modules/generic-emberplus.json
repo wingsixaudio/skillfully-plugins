@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-emberplus",
+  "name": "Generic Ember+",
+  "description": "Ember+ module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-emberplus",
+    "commit": "c26fc42a5e33b1f6c601897ebf8fce467b12bda9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

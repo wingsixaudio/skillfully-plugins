@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kissbox-gpio",
+  "name": "KISSBOX IO3CC, IO8CC",
+  "description": "Control KISSBOX IO3CC and IO8CC GPIO devices",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kissbox-gpio",
+    "commit": "b0f6eb4cbd5d59a4e0c34aeba0d4fbb276b18e26"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "panasonic-av-hsw10",
+  "repo": "https://github.com/bitfocus/companion-module-panasonic-av-hsw10",
+  "commit": "12d2cc27c8f51b2d17adab7c1084633e039a3c58",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

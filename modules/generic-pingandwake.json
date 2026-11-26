@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-pingandwake",
+  "name": "Generic Ping and Wake",
+  "description": "Pings a remote host, and if it is not alive, sends a Wake On LAN packet to wake it up. Can also attempt to ARP the MAC address of the host.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-pingandwake",
+    "commit": "ab3e5a2925fa86cbfeb053f4060922b89cfb2568"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

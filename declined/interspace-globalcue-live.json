@@ -1,0 +1,9 @@
+{
+  "id": "interspace-globalcue-live",
+  "repo": "https://github.com/bitfocus/companion-module-interspace-globalcue-live",
+  "commit": "05d68775675b848dbd004189db281caf7e8a1c91",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

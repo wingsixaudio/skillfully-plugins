@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "outline-newton",
+  "name": "Outline Newton",
+  "description": "Control the Outline Newton audio signal matrix and hub via TCP 6668 with real-time meter polling over UDP 6667",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-outline-newton",
+    "commit": "81aa93049c7b9e96af5187369bff141e263f3f25"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "meld-studio",
+  "repo": "https://github.com/bitfocus/companion-module-meld-studio",
+  "commit": "81467ed2b80184a722284759f3fa556705fbd132",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

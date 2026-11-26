@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "mackie-dlzcreator",
+  "name": "Mackie DLZ Creator, DLZ Creator XS",
+  "description": "Control Mackie DLZ Creator and DLZ Creator XS digital mixers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-mackie-dlzcreator",
+    "commit": "920efe742ea1d0988d5622f40d62a93b052e9c3c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

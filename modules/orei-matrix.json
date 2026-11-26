@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "orei-matrix",
+  "name": "Orei HDMI MATRIX EXTENDER",
+  "description": "OREI HDMI MATRIX EXTENDER 4x4 or 8x8",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-orei-matrix",
+    "commit": "cb23ea4d3055827936919db805e01df1fd3a1d9e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

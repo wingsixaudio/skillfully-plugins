@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "livelogix-cadence",
+  "name": "LiveLogix Cadence",
+  "description": "Control LiveLogix Cadence, the countdown clock and show timer for Mac: timers, run-of-show schedules, cue stacks, audience polls, messages, scenes and cue lights, with live time, status and tally feedback. Cadence drives displays, the web, NDI, SDI, vMix and wall clocks from one synced engine. Free ",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-livelogix-cadence",
+    "commit": "406873c4182f47b38daed24d409898553dcb0621"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

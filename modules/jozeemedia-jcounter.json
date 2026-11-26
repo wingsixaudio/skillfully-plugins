@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "jozeemedia-jcounter",
+  "name": "JoZee Media Solutions J-COUNTER 3.0",
+  "description": "Show timer control and live feedback for J-COUNTER 3.0 over OSC.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-jozeemedia-jcounter",
+    "commit": "c83148454fe929a22877f812447c62fee80d9117"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

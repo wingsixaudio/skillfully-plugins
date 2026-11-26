@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "monteiro-pptvideo",
+  "name": "Monteiro PPT-VIDEO",
+  "description": "This module controls the PPTVIDEO software by Monteiro.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-monteiro-pptvideo",
+    "commit": "36d26343f328283097e2b94c6e13e7c08ece5ede"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

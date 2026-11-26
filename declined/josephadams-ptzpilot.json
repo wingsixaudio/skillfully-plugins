@@ -1,0 +1,9 @@
+{
+  "id": "josephadams-ptzpilot",
+  "repo": "https://github.com/bitfocus/companion-module-josephadams-ptzpilot",
+  "commit": "f69a0e2135b5e0fcfdf08cd3254811ab787ca3aa",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

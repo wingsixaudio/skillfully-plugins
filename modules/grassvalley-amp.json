@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "grassvalley-amp",
+  "name": "Grass Valley AMP",
+  "description": "Companion module for Grass Valley AMP protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-grassvalley-amp",
+    "commit": "0d8ac3df15973c1d06a6d201b1510dbc77096741"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

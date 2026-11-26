@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "panasonic-avhs",
+  "name": "Panasonic AV-HS50 / AV-HS410 / AV-UHS500",
+  "description": "Companion module for Panasonic AV-HS50, AV-HS410 and AV-UHS500",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-panasonic-avhs",
+    "commit": "06cb207336ccd91bd14566d0de5d85b24169f136"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

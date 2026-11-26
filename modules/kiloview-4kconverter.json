@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kiloview-4kconverter",
+  "name": "Kiloview N50, N60",
+  "description": "Module to control Kiloview 4K NDI Converter N50/N60/FN-50/FN-60 devices with full API integration",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kiloview-4kconverter",
+    "commit": "703145ad8c7399c99210ff792ae78c57014cfcca"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "philips-wiz-bulbs",
+  "name": "Philips Wiz Bulbs",
+  "description": "A companion module for controlling Philips Wiz Bulbs.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-philips-wiz-bulbs",
+    "commit": "d70b765de6801a1f55859ffa5885cb2af8681a9e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

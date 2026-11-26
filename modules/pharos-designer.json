@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pharos-designer",
+  "name": "Pharos Designer Controller",
+  "description": "Module implements the HTTP API for Pharos Designer Controllers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pharos-designer",
+    "commit": "244ad0e27b6544f9f3a70c60b42b6630198b33d0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

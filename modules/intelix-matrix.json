@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "intelix-matrix",
+  "name": "Intelix INT-44HDX, INT-66HDX",
+  "description": "Control Intelix matrix INT-44HDX, INT-66HDX, or INT-88HDX.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-intelix-matrix",
+    "commit": "73ff715f64e7816156135528b33f5b12c122e733"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

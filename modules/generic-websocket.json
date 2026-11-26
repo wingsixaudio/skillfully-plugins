@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-websocket",
+  "name": "Generic WebSocket",
+  "description": "Control any device using WebSocket protocol. Supports text, JSON and binary hex commands.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-websocket",
+    "commit": "477b8b4029c1a28440eecc17654a82e2bce82903"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

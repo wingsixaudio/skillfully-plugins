@@ -1,0 +1,9 @@
+{
+  "id": "neutrik-dpro",
+  "repo": "https://github.com/bitfocus/companion-module-neutrik-dpro",
+  "commit": "09d13bb18ccb6f72cc4ff12f1df2a5a1cff5da4a",
+  "why": "build",
+  "detail": "the package holds a file with an unsafe name: DPRO Parameters-1.txt",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

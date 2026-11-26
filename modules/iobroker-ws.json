@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "iobroker-ws",
+  "name": "ioBroker WebSockets",
+  "description": "Control ioBroker states through websockets",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-iobroker-ws",
+    "commit": "6c3feb4664345294cce74d0809d6103c2508cc98"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

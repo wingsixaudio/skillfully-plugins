@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "foobar2000-foobar2000",
+  "name": "foobar2000 foobar2000",
+  "description": "Connect companion to the foobar2000 audio player",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-foobar2000-foobar2000",
+    "commit": "a08a9ba2f73ea5560319f65169376c8882601297"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

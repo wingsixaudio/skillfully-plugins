@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "gnuralnet-livetoair",
+  "name": "Gnural Net Live To Air",
+  "description": "Controls Live To Air",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-gnuralnet-livetoair",
+    "commit": "b6f9dbc2fa627842e91efb4176654f92e1b5060b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

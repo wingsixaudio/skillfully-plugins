@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "kxwell-ptz",
+  "name": "KXWell PTZ Camera",
+  "description": "Controls KXWell PTZ cameras over IP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-kxwell-ptz",
+    "commit": "620da1f0bc2cb1e7c0e50c6052dacdcc93b83a66"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

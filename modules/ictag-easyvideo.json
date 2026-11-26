@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ictag-easyvideo",
+  "name": "ICT AG easyVideo",
+  "description": "Lightwight Videoplayer based on FFMPEG and DirectX11 with external Control via OSC",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ictag-easyvideo",
+    "commit": "60b88d01770c742478a76b696f7d5452c1ecffdc"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

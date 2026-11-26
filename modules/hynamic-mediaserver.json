@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "hynamic-mediaserver",
+  "name": "Hynamic MD3 Pro",
+  "description": "Companion module for the Hynamic Media-Server Products",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-hynamic-mediaserver",
+    "commit": "8a21dea25d58262de40f676aaa2944a410638e8b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

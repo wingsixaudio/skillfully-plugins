@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "hollyland-solidcom",
+  "name": "Hollyland Solidcom",
+  "description": "Hollyland Solidcom",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-hollyland-solidcom",
+    "commit": "13f449122a31b59605639ec73e2cd2aa2f5acad6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

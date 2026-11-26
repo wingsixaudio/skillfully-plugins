@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "noctavoxfilms-tallycomm",
+  "name": "Noctavox TallyComm",
+  "description": "Send PGM/PVW tally to smartphone cameras via TallyComm broadcast intercom — no hardware needed",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-noctavoxfilms-tallycomm",
+    "commit": "bbe3abef71e3272a0c6fd3951e2027d1ed94cbcb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

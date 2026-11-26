@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "manhattanbeachstudios-streamgraphicspro",
+  "name": "Manhattan Beach Studios StreamGraphics Pro",
+  "description": "Live broadcast graphics — lower thirds, scoreboards, timers, slides and a teleprompter. Runs on the show computer; drive it from Companion.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-manhattanbeachstudios-streamgraphicspro",
+    "commit": "450e520e65bec9dcf2b2280fab07c24037347f23"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

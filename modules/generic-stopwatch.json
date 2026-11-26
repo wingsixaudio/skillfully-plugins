@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-stopwatch",
+  "name": "Generic Stopwatch",
+  "description": "Controls a timer like a stopwatch.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-stopwatch",
+    "commit": "661034f102d37dd2719e0fc32b4a81b514947641"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

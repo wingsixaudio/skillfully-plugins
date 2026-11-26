@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "phabrix-qx",
+  "name": "Phabrix QX12G",
+  "description": "Remote Control Phabrix QX Rasterizers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-phabrix-qx",
+    "commit": "b1f6f6ad582f34e9186b3ea90535e87a32229155"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

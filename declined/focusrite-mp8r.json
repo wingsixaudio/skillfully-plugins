@@ -1,0 +1,9 @@
+{
+  "id": "focusrite-mp8r",
+  "repo": "https://github.com/bitfocus/companion-module-focusrite-mp8r",
+  "commit": "a729417e4804807f5a9d4e3957bd1b735caf19d2",
+  "why": "build",
+  "detail": "the package holds a file with an unsafe name: MP8R Parameters-1.txt",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

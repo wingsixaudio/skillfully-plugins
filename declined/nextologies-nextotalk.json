@@ -1,0 +1,9 @@
+{
+  "id": "nextologies-nextotalk",
+  "repo": "https://github.com/bitfocus/companion-module-nextologies-nextotalk",
+  "commit": "39b7160dad53efebd04ca4a0f86a3175f8c2ec70",
+  "why": "build",
+  "detail": "compiling its TypeScript failed: [96msrc/key-art.ts [0m: [93m2 [0m: [93m58 [0m - [91merror [0m [90m TS2307: [0mCannot find module './generated/render-assets.js' or its corresponding type declarations. [7m2 [0m import { RESVG_WASM_BASE64, ROOM_NAME_FONT_BASE64 } from './generated/render-assets.js' [7",
+  "checked": "2026-11-26",
+  "ground": "d18e2c2258dee9e8"
+}

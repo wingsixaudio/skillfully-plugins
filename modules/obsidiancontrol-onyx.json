@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "obsidiancontrol-onyx",
+  "name": "Obsidian ONYX",
+  "description": "A Companion module to control Onyx lighting systems",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-obsidiancontrol-onyx",
+    "commit": "0c162e9bfbedabde1b04b80f3ad5411dde8300c8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

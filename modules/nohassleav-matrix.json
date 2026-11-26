@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "nohassleav-matrix",
+  "name": "NoHassleAV Matrix",
+  "description": "NoHassleAV HDMI Matrix",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-nohassleav-matrix",
+    "commit": "4b46d3adc8d71dc71a998b634ed6e996cefbca4d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

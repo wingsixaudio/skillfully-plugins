@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "novastar-controller",
+  "name": "Novastar MCTRL4K, VX4S",
+  "description": "Companion module for Novastar controllers",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-novastar-controller",
+    "commit": "9c82631847836b9939a45464891fd53ae10aff3d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
