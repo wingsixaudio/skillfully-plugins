@@ -2,12 +2,15 @@
   "kind": "companion-module",
   "id": "android-tv",
   "name": "Google androidtv",
-  "description": "Android TV plugin for Companion",
+  "description": "Controls an Android TV or Google TV: power, volume, keys, and opening apps. It pairs with a code the television shows.",
   "source": {
     "repo": "https://github.com/bitfocus/companion-module-android-tv",
     "commit": "f1898e3550441db81e7d3c629cf2222c3f1bef23"
   },
-  "network": [],
-  "tested": "starts",
-  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+  "network": [
+    "{host}:6466",
+    "{host}:6467"
+  ],
+  "tested": "pretend-device",
+  "notes": "It reaches the television on two ports: one to pair and one to send keys. Both are allowed in advance for the address typed into its settings, so pairing is not interrupted by a question halfway through. To pair: fill in the television's address and its network card address (MAC), press Pair Device, then press Enter Pin with the code the television shows. Fill in the MAC yourself: the module looks it up by running programs on the computer, which a hub does not allow, and it does not save the pairing when that lookup fails. Needs a hub that keeps what a module saves, or it is unpaired by every restart. Proven against a stand-in that speaks a television's pairing and remote messages, not yet a real television."
 }
