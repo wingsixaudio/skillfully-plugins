@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sony-cled",
+  "name": "Sony ZRCT-300",
+  "description": "Sony LED Display Controller ZRCT Series",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sony-cled",
+    "commit": "3b895815566f67e7e28ca3d516a1545f59d5cd7b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

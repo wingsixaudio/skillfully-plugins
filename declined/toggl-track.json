@@ -1,0 +1,9 @@
+{
+  "id": "toggl-track",
+  "repo": "https://github.com/bitfocus/companion-module-toggl-track",
+  "commit": "6f8cb11c8efe8974378ec776d51dea086bb9f0e6",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

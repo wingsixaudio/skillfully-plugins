@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "teradek-prism",
+  "name": "Teradek Prism, Prism Flex",
+  "description": "Companion module for Teradek Prism and Prism Flex",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-teradek-prism",
+    "commit": "c302ac671de03b69fbd7756c17d65f49013371b6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

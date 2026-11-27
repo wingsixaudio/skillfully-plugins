@@ -1,0 +1,9 @@
+{
+  "id": "rationalacoustics-smaart4",
+  "repo": "https://github.com/bitfocus/companion-module-rationalacoustics-smaart4",
+  "commit": "c26a9dd49525b47b5e9d1ef9adc7a14479d96cc0",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

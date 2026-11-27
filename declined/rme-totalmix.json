@@ -1,0 +1,9 @@
+{
+  "id": "rme-totalmix",
+  "repo": "https://github.com/bitfocus/companion-module-rme-totalmix",
+  "commit": "92acf0b6f76555f7505bbdd383e33601d665a17d",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

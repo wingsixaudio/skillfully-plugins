@@ -1,0 +1,9 @@
+{
+  "id": "teracom-tcw181b",
+  "repo": "https://github.com/bitfocus/companion-module-teracom-tcw181b",
+  "commit": "601e08a71a9f4410c9babc2fef6e50f1dd683d20",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

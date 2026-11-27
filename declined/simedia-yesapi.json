@@ -1,0 +1,9 @@
+{
+  "id": "simedia-yesapi",
+  "repo": "https://github.com/bitfocus/companion-module-simedia-yesapi",
+  "commit": "5e13c3c82831841fcf33b4405842b7aeb96f523e",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

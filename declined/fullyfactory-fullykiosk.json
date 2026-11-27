@@ -4,6 +4,6 @@
   "commit": "168c36be8ce41780dba77c5d785a5d609c29d6ba",
   "why": "api",
   "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

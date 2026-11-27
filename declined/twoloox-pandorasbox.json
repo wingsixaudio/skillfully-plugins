@@ -1,0 +1,9 @@
+{
+  "id": "twoloox-pandorasbox",
+  "repo": "https://github.com/bitfocus/companion-module-twoloox-pandorasbox",
+  "commit": "c6cfb6a1fc32345a6cc5c9fa4632adb485efd979",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

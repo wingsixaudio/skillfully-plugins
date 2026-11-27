@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tow-mixeffect",
+  "name": "Adam Tow MixEffect",
+  "description": "Companion Module for MixEffect",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tow-mixeffect",
+    "commit": "dfedda32923f1ab1ac21d12b53a8ec587a725669"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

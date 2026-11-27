@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "trms-cablecast",
+  "name": "Tightrope Media Systems Cablecast",
+  "description": "Allows creating actions to control macros",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-trms-cablecast",
+    "commit": "cf0a286917750a2397268da6acd0948ae601a864"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

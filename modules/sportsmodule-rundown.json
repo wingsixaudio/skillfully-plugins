@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sportsmodule-rundown",
+  "name": "Sports Module Rundown",
+  "description": "Drive a Sports Module Rundown from Companion (transport + Cue 1–16 variables/feedbacks).",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sportsmodule-rundown",
+    "commit": "367538b135e8c5964a15a5f7ffa7b3611216269a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

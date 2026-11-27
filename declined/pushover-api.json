@@ -1,0 +1,9 @@
+{
+  "id": "pushover-api",
+  "repo": "https://github.com/bitfocus/companion-module-pushover-api",
+  "commit": "a6fbd3ba16d4f2d50b8f740f928a8b834488cc18",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

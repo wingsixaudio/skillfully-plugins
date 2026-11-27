@@ -1,0 +1,9 @@
+{
+  "id": "vdwall-lvp615",
+  "repo": "https://github.com/bitfocus/companion-module-vdwall-lvp615",
+  "commit": "067bd3c68d9d68510b3b72c646a3d4c6ba31cae0",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

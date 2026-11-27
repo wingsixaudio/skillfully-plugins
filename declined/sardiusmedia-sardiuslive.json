@@ -1,0 +1,9 @@
+{
+  "id": "sardiusmedia-sardiuslive",
+  "repo": "https://github.com/bitfocus/companion-module-sardiusmedia-sardiuslive",
+  "commit": "80e04221361f843821b403e1338c86ec766d151d",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

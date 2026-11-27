@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "softouch-easyworship",
+  "name": "Softouch Development Inc EasyWorship",
+  "description": "softouch-easyworship",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-softouch-easyworship",
+    "commit": "06cfa8ed99eb47a9f7664945d7402f0bd87a4130"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

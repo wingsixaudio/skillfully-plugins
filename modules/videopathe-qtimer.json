@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "videopathe-qtimer",
+  "name": "Videopathe QTimer",
+  "description": "Control QTimer through its local HTTP API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-videopathe-qtimer",
+    "commit": "4a110adde1b2cdfa0f03beceb8697297ad4168d9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

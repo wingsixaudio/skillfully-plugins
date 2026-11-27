@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roland-v80hd",
+  "name": "Roland V-80HD",
+  "description": "Control the Roland V-80HD Direct Streaming Video Switcher",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roland-v80hd",
+    "commit": "48f97d30ea893650fe7c296b50b8e5771dc39024"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

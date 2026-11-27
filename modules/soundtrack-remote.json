@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "soundtrack-remote",
+  "name": "Soundtrack Your Brand Remote",
+  "description": "Control Soundtrack Your Brand",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-soundtrack-remote",
+    "commit": "fb9f968df0c31a350b25965644c453ce6b857b75"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

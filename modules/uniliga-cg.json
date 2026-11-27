@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "uniliga-cg",
+  "name": "Uniliga Uniliga CG",
+  "description": "Control Uniliga CG with Companion!",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-uniliga-cg",
+    "commit": "cbd16f2d16f7915027d015c69776cc653ac6b0f7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

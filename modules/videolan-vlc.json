@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "videolan-vlc",
+  "name": "VideoLAN VLC",
+  "description": "videolan-vlc",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-videolan-vlc",
+    "commit": "9d8efff215905c6c3055f0f2b781c4ace7a3ca43"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

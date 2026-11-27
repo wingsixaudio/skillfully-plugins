@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vicreo-display",
+  "name": "VICREO Display",
+  "description": "Module to get feedback from de vicreo-display",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vicreo-display",
+    "commit": "d555512cd637da3197137cd9d23aec403fa01d2d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

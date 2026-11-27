@@ -1,0 +1,9 @@
+{
+  "id": "stageaudioworks-obs-multisite",
+  "repo": "https://github.com/bitfocus/companion-module-stageaudioworks-obs-multisite",
+  "commit": "b0fff6ed2a7cba1e35778eb90d451776efc082b3",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-mxa910",
+  "name": "Shure MXA910, MXA920",
+  "description": "Digital Microphone for Conferencing",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-mxa910",
+    "commit": "af4818a543a23089a14bd5563ab1080c24b0384e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

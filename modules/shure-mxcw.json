@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-mxcw",
+  "name": "Shure Microflex Complete Wireless (MXCW)",
+  "description": "Controls Shure Microflex Complete Wireless (MXCW) through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-mxcw",
+    "commit": "ffeefc442f2783cc1b4a57b9faea910c4086aec5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

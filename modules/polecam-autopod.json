@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "polecam-autopod",
+  "name": "Polecam Autopod+, Panapod",
+  "description": "Companion module for Polecam Autopod+/Panapod elevation unit",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-polecam-autopod",
+    "commit": "c80cd4f4db6c572c2578c04107eee9e6349e073c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

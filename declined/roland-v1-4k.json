@@ -1,0 +1,9 @@
+{
+  "id": "roland-v1-4k",
+  "repo": "https://github.com/bitfocus/companion-module-roland-v1-4k",
+  "commit": "b7a6ba963e4d0069865ca9e9a9c19580f9cdf677",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

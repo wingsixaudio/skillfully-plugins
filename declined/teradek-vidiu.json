@@ -1,0 +1,9 @@
+{
+  "id": "teradek-vidiu",
+  "repo": "https://github.com/bitfocus/companion-module-teradek-vidiu",
+  "commit": "1f187d11c1a1304102bda6d9aaec9dd8c9f4707c",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

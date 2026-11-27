@@ -1,0 +1,9 @@
+{
+  "id": "showrevue-showrevue",
+  "repo": "https://github.com/bitfocus/companion-module-showrevue-showrevue",
+  "commit": "3f69b78cab79317d6b330fe18509480d2a063574",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

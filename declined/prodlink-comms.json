@@ -1,0 +1,9 @@
+{
+  "id": "prodlink-comms",
+  "repo": "https://github.com/bitfocus/companion-module-prodlink-comms",
+  "commit": "5e02925999533836b32bb983734a19d8a154691d",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

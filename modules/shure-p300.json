@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-p300",
+  "name": "Shure P300",
+  "description": "Digital Audio Processor for Conferencing",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-p300",
+    "commit": "234c7ccec6aebbc53fc064022f8b0027be31c64e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

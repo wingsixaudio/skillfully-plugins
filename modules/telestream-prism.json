@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "telestream-prism",
+  "name": "Telestream Prism, MPI2",
+  "description": "Bitfocus Companion module for Telestream Prism",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-telestream-prism",
+    "commit": "8eedbfd4d4f86d8b6c88cfcc0c76b7ec56e6c4ca"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

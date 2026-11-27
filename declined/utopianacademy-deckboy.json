@@ -1,0 +1,9 @@
+{
+  "id": "utopianacademy-deckboy",
+  "repo": "https://github.com/bitfocus/companion-module-utopianacademy-deckboy",
+  "commit": "9fed6b54c0f729251a160737e72e8440a33f912b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

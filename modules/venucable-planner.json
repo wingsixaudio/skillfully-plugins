@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "venucable-planner",
+  "name": "VenuCable Planner",
+  "description": "VenuCable plans livestream and AV shows. Add kit to the plan and run the show's live running order from a Stream Deck.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-venucable-planner",
+    "commit": "35e1787715c618d49597125debf83225a50d6a03"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

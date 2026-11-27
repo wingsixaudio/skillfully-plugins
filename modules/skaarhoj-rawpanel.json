@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "skaarhoj-rawpanel",
+  "name": "SKAARHOJ Raw Panel",
+  "description": "SKAARHOJ Raw Panel",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-skaarhoj-rawpanel",
+    "commit": "e1e8d944bedd6bb047173fe2bb0fb1506b53f8da"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

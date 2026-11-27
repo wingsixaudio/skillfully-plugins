@@ -1,0 +1,9 @@
+{
+  "id": "sienna-ndimonitor",
+  "repo": "https://github.com/bitfocus/companion-module-sienna-ndimonitor",
+  "commit": "92eb2adfbb6a020a0ae8b0ebbd32d0a1e7f9c840",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

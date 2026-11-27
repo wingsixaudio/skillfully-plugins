@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tcast-tcast",
+  "name": "TCast TCast",
+  "description": "Control TCast playout: trigger clips, transport, black, clear, and volume, with live button feedback.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tcast-tcast",
+    "commit": "6580515ad405e54145596b29ba813a4cc43af2b0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

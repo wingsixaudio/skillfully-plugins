@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roland-v160hd",
+  "name": "Roland V-160HD",
+  "description": "Controls Roland V-160HD through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roland-v160hd",
+    "commit": "9d40074cb235bbd9ecf2d555bb285136865ae206"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

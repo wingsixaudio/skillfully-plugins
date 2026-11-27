@@ -1,0 +1,9 @@
+{
+  "id": "riedel-rrcs",
+  "repo": "https://github.com/bitfocus/companion-module-riedel-rrcs",
+  "commit": "c7f0e47644fd2352e149fa84f9034492bc08d38a",
+  "why": "start",
+  "detail": "companion-riedel-rrcs was not ready in 30000 ms: it stopped with exit code 1: [debug] Initializing Failed to startup module: NotCapable: Requires sys access to \"networkInterfaces\", run again with the --allow-sys flag at Object.networkInterfaces (ext:deno_os/30_os.js:1:742) at Object.networkInterface",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

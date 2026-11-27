@@ -1,0 +1,9 @@
+{
+  "id": "tlof-neoluma-midi-control",
+  "repo": "https://github.com/bitfocus/companion-module-tlof-neoluma-midi-control",
+  "commit": "b8f791f064763ff1bb9e1ea24bc7629525cd1205",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

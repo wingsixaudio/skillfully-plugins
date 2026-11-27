@@ -1,9 +1,0 @@
-{
-  "id": "generic-tcp-serial",
-  "repo": "https://github.com/bitfocus/companion-module-generic-tcp-serial",
-  "commit": "a242ea28167eaa3b4a164ee6f5050c6d585b277e",
-  "why": "build",
-  "detail": "this is not a Companion module package: the package holds something that is not a plain file (pkg/node_modules/.bin/node-which)",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
-}

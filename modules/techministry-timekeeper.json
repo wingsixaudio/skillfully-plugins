@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "techministry-timekeeper",
+  "name": "Tech Ministry TimeKeeper",
+  "description": "Controls Tech Ministry TimeKeeper through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-techministry-timekeeper",
+    "commit": "b10b7efb6874a15c6ec1591cff08456cb11b7e3b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

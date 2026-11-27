@@ -1,0 +1,9 @@
+{
+  "id": "requests",
+  "repo": "https://github.com/bitfocus/companion-module-requests",
+  "commit": "",
+  "why": "release",
+  "detail": "its author has not released a version",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

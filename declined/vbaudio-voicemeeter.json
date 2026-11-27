@@ -1,0 +1,9 @@
+{
+  "id": "vbaudio-voicemeeter",
+  "repo": "https://github.com/bitfocus/companion-module-vbaudio-voicemeeter",
+  "commit": "760ac3993e5134b37ca0ab8dd1d8936e18123e4c",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

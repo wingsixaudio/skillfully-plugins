@@ -1,0 +1,9 @@
+{
+  "id": "stagetec-rcp",
+  "repo": "https://github.com/bitfocus/companion-module-stagetec-rcp",
+  "commit": "9b8946cbb88b51c5a23ee5daadf3ef6779ec8784",
+  "why": "build",
+  "detail": "the package holds a file with an unsafe name: XDIP Parameters-1.txt",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

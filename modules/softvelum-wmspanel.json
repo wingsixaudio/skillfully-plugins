@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "softvelum-wmspanel",
+  "name": "Softvelum WMSPanel",
+  "description": "Controls Softvelums WMSPanel",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-softvelum-wmspanel",
+    "commit": "9fb68babbe4c9bcce84f173012b2e0e922d25e3c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

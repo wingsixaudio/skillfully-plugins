@@ -1,0 +1,9 @@
+{
+  "id": "spacecommz-intercom",
+  "repo": "https://github.com/bitfocus/companion-module-spacecommz-intercom",
+  "commit": "0234e9275e3bcabfaf9ae2a3692368e6c2024d76",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

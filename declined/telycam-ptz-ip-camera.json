@@ -1,0 +1,9 @@
+{
+  "id": "telycam-ptz-ip-camera",
+  "repo": "https://github.com/bitfocus/companion-module-telycam-ptz-ip-camera",
+  "commit": "f1f679515a390f08a2b49f2b3c323c515619eec9",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

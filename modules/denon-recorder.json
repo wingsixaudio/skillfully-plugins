@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "denon-recorder",
+  "name": "Denon DN-900R, DN-700R",
+  "description": "Denon Digital Recorder",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-denon-recorder",
+    "commit": "f730ec8d05471bcce40d60d000edddd53e5956ec"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "riedel-mediornet",
+  "name": "Riedel Mediornet",
+  "description": "Mediornet module for companion based on EmBER+",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-riedel-mediornet",
+    "commit": "f957f9ce656b44643cbb2c901d067bf11bc2f739"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

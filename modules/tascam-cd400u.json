@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tascam-cd400u",
+  "name": "Tascam CD-400U, CD-400U DAB",
+  "description": "Bitfocus Companion module for the Tascam CD-400U Media Player",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tascam-cd400u",
+    "commit": "c74162a4eafaae1e10aa05a71a8686661e5436f3"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "rtw-touchmonitor",
+  "repo": "https://github.com/bitfocus/companion-module-rtw-touchmonitor",
+  "commit": "db7bdf632e8949984f197efe0a70acd0d5d5e9a4",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "roland-vr50hd-mk2",
+  "repo": "https://github.com/bitfocus/companion-module-roland-vr50hd-mk2",
+  "commit": "098f771739a591a01fae67781cc67a2ddc6b260b",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

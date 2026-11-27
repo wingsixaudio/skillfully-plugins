@@ -1,0 +1,9 @@
+{
+  "id": "roland-v1200hd",
+  "repo": "https://github.com/bitfocus/companion-module-roland-v1200hd",
+  "commit": "fe08f010a549f09480dfa0a673e30030c00e08bf",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

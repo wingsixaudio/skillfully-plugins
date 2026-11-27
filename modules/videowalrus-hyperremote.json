@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "videowalrus-hyperremote",
+  "name": "Video Walrus HyperRemote",
+  "description": "Control HyperRemote 4 multi-deck HyperDeck controller",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-videowalrus-hyperremote",
+    "commit": "a4efc25899466abde07cceb777881c253cd68c6d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

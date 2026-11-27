@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-tcp-serial",
+  "name": "Generic TCP Serial Port",
+  "description": "Generic IP to serial interface module",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-tcp-serial",
+    "commit": "a242ea28167eaa3b4a164ee6f5050c6d585b277e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

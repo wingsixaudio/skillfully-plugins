@@ -1,0 +1,9 @@
+{
+  "id": "planningcenter-serviceslive",
+  "repo": "https://github.com/bitfocus/companion-module-planningcenter-serviceslive",
+  "commit": "a04cf9a8419babde99ed8212c2900ec4ad493e30",
+  "why": "build",
+  "detail": "the bundled library exif-parser 0.1.12 carries a license text of its own that the store does not recognize, so a person has to read it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tinkerlist-cuez-automator",
+  "name": "TinkerList Cuez - Automator",
+  "description": "Controls TinkerList Cuez - Automator through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tinkerlist-cuez-automator",
+    "commit": "e93c0b353afcb45a35e4a77f3f075d79b61ceb84"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

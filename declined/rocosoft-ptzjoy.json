@@ -1,0 +1,9 @@
+{
+  "id": "rocosoft-ptzjoy",
+  "repo": "https://github.com/bitfocus/companion-module-rocosoft-ptzjoy",
+  "commit": "6569e22cecb38fd694a719c78d4ee8bd91e89a96",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

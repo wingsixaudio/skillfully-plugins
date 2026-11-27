@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "twitch-api",
+  "name": "Twitch Twitch Chat & API",
+  "description": "Module for integration with the Twitch API, Chat, and EventSub",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-twitch-api",
+    "commit": "0eb88139b7c913f618271c8e3af89b555b1318f2"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

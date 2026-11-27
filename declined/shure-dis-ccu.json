@@ -1,0 +1,9 @@
+{
+  "id": "shure-dis-ccu",
+  "repo": "https://github.com/bitfocus/companion-module-shure-dis-ccu",
+  "commit": "b3c7f6b11cbce98b0452f702dc46f2cab768cfff",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

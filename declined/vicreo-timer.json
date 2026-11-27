@@ -1,0 +1,9 @@
+{
+  "id": "vicreo-timer",
+  "repo": "https://github.com/bitfocus/companion-module-vicreo-timer",
+  "commit": "48b3ce5a17e3c6a5f10b90db28e21c313b324b7d",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "projetech-studio",
+  "name": "Projetech Projetech Studio",
+  "description": "Control Projetech Studio, the event video switcher and player by Projetech Eventos: cut/fade, preview, playback, overlays, audio, recording, streaming, outputs and timer, with per-input tally, and the Modo ProLume clip grid (clips, columns and layers, with per-layer countdowns).",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-projetech-studio",
+    "commit": "53f01af42d06ac56ca92d1fd1daba59ce203bf3a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

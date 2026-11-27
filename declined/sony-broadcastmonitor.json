@@ -1,0 +1,9 @@
+{
+  "id": "sony-broadcastmonitor",
+  "repo": "https://github.com/bitfocus/companion-module-sony-broadcastmonitor",
+  "commit": "29a4f119b2ba137b2a09db431eb6931dbad15e4c",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

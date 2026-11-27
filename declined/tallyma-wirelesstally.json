@@ -1,0 +1,9 @@
+{
+  "id": "tallyma-wirelesstally",
+  "repo": "https://github.com/bitfocus/companion-module-tallyma-wirelesstally",
+  "commit": "f15004ec74aee42d27620c4924e61a64f649b23a",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

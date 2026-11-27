@@ -1,0 +1,9 @@
+{
+  "id": "videotaxi-speech-events",
+  "repo": "https://github.com/bitfocus/companion-module-videotaxi-speech-events",
+  "commit": "b70e09a94df6cff27b500b834eef4eca5c134dbf",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

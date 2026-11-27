@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "influxdb-apiv2",
+  "name": "InfluxDB InfluxDB v2",
+  "description": "Sends data to InfluxDB",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-influxdb-apiv2",
+    "commit": "e5a07d91020e519deb29b24d1862d749e54a6e18"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

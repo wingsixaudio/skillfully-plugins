@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "softron-ontheairvideo",
+  "name": "Softron OnTheAir Video",
+  "description": "Module to control OnTheAir Video",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-softron-ontheairvideo",
+    "commit": "5544a2433338309a06ccd31c7648439589bc0e13"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

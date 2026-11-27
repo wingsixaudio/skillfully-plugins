@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "secondwave-robolift",
+  "name": "Second Wave Robo Lift – MoPed Controller, Motorized Pedestal Model 30",
+  "description": "Second Wave Robo Lift – MoPed Controller: motorised pedestal via VISCA over IP Data Box",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-secondwave-robolift",
+    "commit": "d7061520109e21537e290d855411d34044e85597"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

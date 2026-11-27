@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "dreamchip-visca",
+  "name": "Dream Chip Technologies Atom Two, Atom Two HDR",
+  "description": "Control Dream Chip cameras over VISCA",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-dreamchip-visca",
+    "commit": "ca0e5223fe4bfc1b2c6d4fe44c31e43e537aaa11"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

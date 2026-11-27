@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tslproducts-usp3",
+  "name": "TSL Products Universal Switch Panel",
+  "description": "Allows TSL Products USP3 or DNF Controls USP button panels to be used with Companion.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tslproducts-usp3",
+    "commit": "6a4e495758ae2f9e2cb2a004fbb901016ee3261e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

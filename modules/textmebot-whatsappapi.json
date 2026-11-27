@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "textmebot-whatsappapi",
+  "name": "TextMeBot WhatsAppApi",
+  "description": "Send WhatsApp Messages through Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-textmebot-whatsappapi",
+    "commit": "c9d5f14531665fc9a01b7dc08c714989106760ca"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

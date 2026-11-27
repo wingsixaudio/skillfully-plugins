@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sennheiser-digital6000",
+  "name": "Sennheiser EM 6000, EM 6000 Dante",
+  "description": "Control the Digital 6000 Radio Microphone System",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sennheiser-digital6000",
+    "commit": "3224aef8795dfc4ca7ad378fec5223aa006b08f7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

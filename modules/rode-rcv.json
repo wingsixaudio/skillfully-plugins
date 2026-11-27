@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "rode-rcv",
+  "name": "RØDE RØDECaster Video (RCV)",
+  "description": "This plugin enables Companion to control RØDECaster Video (RCV) devices.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-rode-rcv",
+    "commit": "a875b9ca2d6a70f2f89719299b58424ff0a316bd"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

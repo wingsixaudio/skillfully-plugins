@@ -1,0 +1,9 @@
+{
+  "id": "streamlabs-desktop",
+  "repo": "https://github.com/bitfocus/companion-module-streamlabs-desktop",
+  "commit": "4f6d3b1d1d80e605a502e2b2db78a4a5d6c666b8",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-aws-medialive",
   "commit": "4a514e5fdf4397d3269e4a6bbeab529f62847e6c",
   "why": "start",
-  "detail": "companion-aws-medialive was not ready in 30000 ms: it stopped with exit code 1: dialive/module/main.js:1:24907) at file:///tmp/store-145c3d38d2639a12/data/plugins/companion-aws-medialive/module/main.js:1:227819 at new Er (file:///tmp/store-145c3d38d2639a12/data/plugins/companion-aws-medialive/module",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "detail": "companion-aws-medialive was not ready in 30000 ms: it stopped with exit code 1: dialive/module/main.js:1:24907) at file:///tmp/store-c5984ea6a6e6dfb3/data/plugins/companion-aws-medialive/module/main.js:1:227819 at new Er (file:///tmp/store-c5984ea6a6e6dfb3/data/plugins/companion-aws-medialive/module",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

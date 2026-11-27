@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "cockos-reaper",
+  "name": "Cockos REAPER",
+  "description": "Cockos REAPER module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-cockos-reaper",
+    "commit": "ae8614982d14b914df53c5e516b4d5283e333135"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

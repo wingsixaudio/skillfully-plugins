@@ -1,0 +1,9 @@
+{
+  "id": "tagvs-mcs",
+  "repo": "https://github.com/bitfocus/companion-module-tagvs-mcs",
+  "commit": "6a8316a848e20daef3422203cded2492c40e9f8b",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

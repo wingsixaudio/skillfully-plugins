@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-filereader",
+  "name": "Generic File Reader",
+  "description": "Opens a local file and pulls the contents into a variable for processing.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-filereader",
+    "commit": "ccd7672337ab8ddc37a5229557f876d86de70b1a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

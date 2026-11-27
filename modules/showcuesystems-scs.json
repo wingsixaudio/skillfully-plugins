@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "showcuesystems-scs",
+  "name": "Show Cue Systems SCS",
+  "description": "Module to control Show Cue Systems",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-showcuesystems-scs",
+    "commit": "7d4ab944bf7cfef1d304ff51fb0d392c1f8a6b0b"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

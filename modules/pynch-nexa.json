@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pynch-nexa",
+  "name": "Pynch Nexa, EVS",
+  "description": "Module to control AV servers (EVS XT's). Requires a Nexa service (Windows only). See help for more info.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pynch-nexa",
+    "commit": "7f229dce575aef95b8243bc84ea00054e325d3bb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

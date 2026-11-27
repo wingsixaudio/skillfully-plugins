@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "techministry-tallyarbiter",
+  "name": "Tech Ministry Tally Arbiter",
+  "description": "Controls Tech Ministry Tally Arbiter through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-techministry-tallyarbiter",
+    "commit": "4d9efbc50421f52a0dabe1a64b4701e7f4a002c6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

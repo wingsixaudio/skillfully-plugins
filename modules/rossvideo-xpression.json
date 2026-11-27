@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "rossvideo-xpression",
+  "name": "Ross Video Xpression",
+  "description": "Ross Video Xpression plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-rossvideo-xpression",
+    "commit": "ad4dd3e09d0e36a4662a5f8199ebf4a2baee5378"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

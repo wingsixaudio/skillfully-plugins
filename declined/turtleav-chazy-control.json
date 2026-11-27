@@ -1,0 +1,9 @@
+{
+  "id": "turtleav-chazy-control",
+  "repo": "https://github.com/bitfocus/companion-module-turtleav-chazy-control",
+  "commit": "6dd2fae7acad3373f2c6e63e4f9616cc32596cd9",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

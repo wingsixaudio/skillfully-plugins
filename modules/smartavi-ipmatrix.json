@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "smartavi-ipmatrix",
+  "name": "Smart-AVI MU-88, MXU-88",
+  "description": "Control matrix by Smart-AVI",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-smartavi-ipmatrix",
+    "commit": "b4951a75913c6e4038ce9afef98e572c5f8c19ef"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "screencloud-controller",
+  "name": "Screencloud Controller",
+  "description": "Change channels and screens, get feedback and names",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-screencloud-controller",
+    "commit": "bd99db83a1e0e6944aa5130aedc3a93d570a7aa8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

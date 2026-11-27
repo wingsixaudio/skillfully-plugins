@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "rossvideo-nkrouter",
+  "name": "Ross Video NK Router",
+  "description": "Companion Module for controlling Ross NK series video routers connected via NK-NET adapters",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-rossvideo-nkrouter",
+    "commit": "8a73a08b5f79770a82e18799a4fe39c6b62ea4b5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

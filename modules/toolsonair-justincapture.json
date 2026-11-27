@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "toolsonair-justincapture",
+  "name": "ToolsOnAir just:in Capture Solutions",
+  "description": "This module will allow you to control the ToolsOnAir just:in Capture Solutions. For additional information, visit https://www.toolsonair.com/",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-toolsonair-justincapture",
+    "commit": "32426a8b6233238e880515505281a3a2f1fbbb3d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

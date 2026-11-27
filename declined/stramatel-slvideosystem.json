@@ -1,0 +1,9 @@
+{
+  "id": "stramatel-slvideosystem",
+  "repo": "https://github.com/bitfocus/companion-module-stramatel-slvideosystem",
+  "commit": "f72327016f99830f20269c19c0a8ea1cf98750da",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

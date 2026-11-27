@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "socialstream-ninja",
+  "name": "Social Stream Ninja",
+  "description": "Control and monitor Social Stream Ninja.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-socialstream-ninja",
+    "commit": "ed63dd75321de5f5a69dba0878e67e237d786904"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

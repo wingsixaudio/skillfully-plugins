@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "powersoft-amplifiers",
+  "name": "Powersoft Amplifier",
+  "description": "Control and monitor Powersoft amplifiers via network",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-powersoft-amplifiers",
+    "commit": "a077aecc47fc7594e28d01aca24a227a509125cb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

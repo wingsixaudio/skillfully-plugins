@@ -1,0 +1,9 @@
+{
+  "id": "roland-vp42h",
+  "repo": "https://github.com/bitfocus/companion-module-roland-vp42h",
+  "commit": "9638e394b3a6f391a01660b1aeb6860bfd18511d",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

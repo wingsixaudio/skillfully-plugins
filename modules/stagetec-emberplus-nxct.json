@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "stagetec-emberplus-nxct",
+  "name": "STAGETEC Official Ember+ NEXUS compact",
+  "description": "STAGETEC Official Ember+ module specific to NEXUS compact for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-stagetec-emberplus-nxct",
+    "commit": "5c010760a95ac81536dfccfba1ba7745885c3fec"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

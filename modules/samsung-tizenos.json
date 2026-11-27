@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "samsung-tizenos",
+  "name": "Samsung TizenOS",
+  "description": "Control Samsung Smart TVs running TizenOS via Webservices API.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-samsung-tizenos",
+    "commit": "1694f126d8cdcc1226c26edfa8e0e4f42e5d270c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

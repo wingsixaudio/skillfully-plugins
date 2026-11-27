@@ -1,0 +1,9 @@
+{
+  "id": "tplink-taposmartplug",
+  "repo": "https://github.com/bitfocus/companion-module-tplink-taposmartplug",
+  "commit": "0283aaf51eca7d063322bba78ee3e4d698e53790",
+  "why": "build",
+  "detail": "the bundled library macaddr 0.1.1 is under \"MPL-2.0\", which the store does not hand out",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

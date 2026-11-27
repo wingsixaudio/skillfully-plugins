@@ -1,0 +1,9 @@
+{
+  "id": "snellwilcox-kahuna",
+  "repo": "https://github.com/bitfocus/companion-module-snellwilcox-kahuna",
+  "commit": "096e7b3a691e78637c883e78c4d91bb7ad11b7d8",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

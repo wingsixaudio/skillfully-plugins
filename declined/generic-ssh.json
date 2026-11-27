@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-generic-ssh",
   "commit": "7875fa1baf5d06a57d180f707b9309dd20801fcc",
   "why": "build",
-  "detail": "listing what gets bundled failed: modules/cpu-features/build/Release/cpufeatures.node doesn't exist\\x1B[39m\\x1B[22m\\n\" + ' @ ./node_modules/ssh2/lib/protocol/constants.js 7:12-35\\n' + ' @ ./node_modules/ssh2/lib/server.js 26:4-38\\n' + ' @ ./node_modules/ssh2/lib/index.js 33:10-32\\n' + ' @ ./main.js ",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "detail": "listing what gets bundled failed: 'webpack 5.94.0 compiled with \\x1B[1m\\x1B[31m1 error\\x1B[39m\\x1B[22m and \\x1B[1m\\x1B[33m1 warning\\x1B[39m\\x1B[22m in 917 ms\\n'",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }
