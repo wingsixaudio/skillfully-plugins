@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vitec-avediaplayer9300-series",
+  "name": "Vitec AvediaPlayer r9300, AvediaPlayer r9310",
+  "description": "Vitec/Exterity AvediaPlayer 9300 series IPTV Endpoint",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vitec-avediaplayer9300-series",
+    "commit": "c04f15357673747dea243a463cd27e18e705eb3f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

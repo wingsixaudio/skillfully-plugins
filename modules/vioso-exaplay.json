@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vioso-exaplay",
+  "name": "vioso exaplay",
+  "description": "Tcp control of vioso-exaplay",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vioso-exaplay",
+    "commit": "1b17fcba4870ace15138efc51305e8b6c913a6a0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

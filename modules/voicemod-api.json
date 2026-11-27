@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "voicemod-api",
+  "name": "Voicemod Voicemod",
+  "description": "Voicemod control at your fingertips",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-voicemod-api",
+    "commit": "97eb98da141f8c7ef58bd033e4bd1dcc92b5178f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

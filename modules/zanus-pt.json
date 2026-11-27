@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "zanus-pt",
+  "name": "Zanus Pauli, Pauli B",
+  "description": "Companion module for Zanus Production Robotics pan-tilt heads using the XC Protocol",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-zanus-pt",
+    "commit": "39ab70415e5ffc79d1535b5c23da5f68b5d50682"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

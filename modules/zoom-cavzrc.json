@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "zoom-cavzrc",
+  "name": "Zoom Custom AV for Zoom Rooms Controller",
+  "description": "Control Zoom Rooms via Custom AV Zoom Room Controller",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-zoom-cavzrc",
+    "commit": "b67598f3c764fde4172c99bdadc6cad120c33917"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

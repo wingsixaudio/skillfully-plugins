@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "webcomms-panel",
+  "name": "Web Comms Web Comms Panel",
+  "description": "Web Comms plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-webcomms-panel",
+    "commit": "60f2c36dee63b0e99767126801eb9b190a7040d0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

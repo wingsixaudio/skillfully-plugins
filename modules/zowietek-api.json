@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "zowietek-api",
+  "name": "Zowietek ZowieBox, ZowiePTZ",
+  "description": "This plugin enables Companion to control Zowie devices.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-zowietek-api",
+    "commit": "74f8e01b0981b69c4343afcc27158d2e7553bd92"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

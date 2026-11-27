@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vizrt-mosart",
+  "name": "Vizrt Mosart",
+  "description": "A companion module for Vizrt Mosart",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vizrt-mosart",
+    "commit": "6f939678fdfba9785e846532ae8cc03ce6f74c01"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "xiamen-sprolink-vd-series",
+  "repo": "https://github.com/bitfocus/companion-module-xiamen-sprolink-vd-series",
+  "commit": "165183eb0c56cdbfc17f24a1920cbb384c192efc",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}
