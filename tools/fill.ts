@@ -355,7 +355,8 @@ if (Deno.args.includes("--find")) {
       ? "ours"
       : r.why === "release" || r.why === "entry" || r.why === "license"
       ? "theirs"
-      : /which the store does not hand out|is not supported\. Required version/i.test(r.detail)
+      : /which the store does not hand out|is not supported\. Required version/i.test(r.detail) &&
+          !/a person has to read it/i.test(r.detail)
       ? "theirs"
       : "look";
 

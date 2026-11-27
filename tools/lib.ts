@@ -196,11 +196,12 @@ export function gist(out: string, max = 600): string {
 export function licenseFromText(text: string): string {
   const t = text.replace(/\s+/g, " ").toLowerCase();
   const grants = "permission is hereby granted, free of charge, to any person";
+  // The Boost license by its name, or by its one condition. Its opening words alone are not enough: some
+  // libraries use them with the condition taken out, and that is a different text, not this license.
   if (
     t.includes("boost software license") ||
-    t.includes(
-      `${grants} or organization obtaining a copy of the software and accompanying documentation covered by this license`,
-    )
+    (t.includes(`${grants} or organization obtaining a copy`) &&
+      t.includes("must be included in all copies of the software, in whole or in part"))
   ) {
     return "BSL-1.0";
   }
@@ -238,6 +239,16 @@ export async function licenseInFiles(dir: string): Promise<string> {
     }
   } catch { /* no such folder, or nothing in it that can be read */ }
   return "";
+}
+
+/** Whether a library has a license file beside its code at all, whatever it says. */
+export async function hasLicenseFile(dir: string): Promise<boolean> {
+  try {
+    for await (const f of Deno.readDir(dir)) {
+      if (f.isFile && /^(licen[cs]e|copying)(\.[a-z]+)?$/i.test(f.name)) return true;
+    }
+  } catch { /* no such folder */ }
+  return false;
 }
 
 /** Take the shortcuts to command-line tools out of an unpacked package. True if there were any. */
@@ -316,7 +327,7 @@ export async function run(
 }
 
 /** Licenses a bundled library may carry. Each allows copies to be passed on if its notice goes with them. */
-const BUNDLED_OK = [...LICENSES, "0BSD", "Unlicense", "CC0-1.0", "BlueOak-1.0.0"];
+const BUNDLED_OK = [...LICENSES, "0BSD", "Unlicense", "CC0-1.0", "BlueOak-1.0.0", "BSL-1.0"];
 
 /** Is this license expression one the store may hand out? "A OR B" needs one of them, "A AND B" both. */
 export function licenseAllowed(expression: string): boolean {
@@ -596,10 +607,15 @@ export async function buildModule(entry: Entry, work: string): Promise<Built> {
     const license = declaredLicense(pj) || await licenseInFiles(`${src}/${dir}`);
     if (bundled.some((b) => b.name === name && b.version === version)) continue;
     if (!licenseAllowed(license)) {
+      // A library that says nothing of a license is one thing. One that carries a license text the store
+      // does not recognize is another: that text may well allow it, and a person has to read it to say.
+      const ownText = !license && await hasLicenseFile(`${src}/${dir}`);
       problems.push(
-        `the bundled library ${name} ${version} is under "${
-          license.slice(0, 40) || "no license"
-        }", which the store does not hand out`,
+        ownText
+          ? `the bundled library ${name} ${version} carries a license text of its own that the store does not recognize, so a person has to read it`
+          : `the bundled library ${name} ${version} is under "${
+            license.slice(0, 40) || "no license"
+          }", which the store does not hand out`,
       );
     }
     if (credited.has(`${name}@${version}`)) {
