@@ -128,13 +128,22 @@ Deno.test("a library's license is read from its own license file when package.js
   const mit =
     `(The MIT License)\n\nCopyright (c) 2014 Someone\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction...\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED`;
   eq(licenseFromText(mit), "MIT", "the words every copy of it has");
+  const boost = await Deno.readTextFile(new URL("../notices/standard/BSL-1.0.txt", import.meta.url));
+  eq(licenseFromText(boost), "BSL-1.0", "the Boost license, by its name");
+  eq(
+    licenseFromText(boost.split("\n").slice(1).join("\n")),
+    "BSL-1.0",
+    "and without its name, by its one condition",
+  );
+  // Its opening words with the condition taken out are not the Boost license, however alike they read.
   eq(
     licenseFromText(
-      'Permission is hereby granted, free of charge, to any person or organization\nobtaining a copy of the software and accompanying documentation covered by\nthis license (the "Software") to use, reproduce',
+      'Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the software and accompanying documentation covered by this license (the "Software") to use, reproduce, display, distribute, execute, and transmit the Software, and to permit third-parties to whom the Software is furnished to do so.\n\nTHE SOFTWARE IS PROVIDED "AS IS"',
     ),
-    "BSL-1.0",
-    "the Boost license, which some files give without its name",
+    "",
+    "a text that only starts like it is not it",
   );
+  eq(licenseAllowed("BSL-1.0"), true, "Boost is one the store hands out when it is bundled");
   eq(
     licenseFromText(
       "Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that",
