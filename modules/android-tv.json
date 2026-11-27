@@ -12,5 +12,5 @@
     "{host}:6467"
   ],
   "tested": "pretend-device",
-  "notes": "It reaches the television on two ports: one to pair and one to send keys. Both are allowed in advance for the address typed into its settings, so pairing is not interrupted by a question halfway through. To pair: fill in the television's address and its network card address (MAC), press Pair Device, then press Enter Pin with the code the television shows. Fill in the MAC yourself: the module looks it up by running programs on the computer, which a hub does not allow, and it does not save the pairing when that lookup fails. Needs a hub that keeps what a module saves, or it is unpaired by every restart. Proven against a stand-in that speaks a television's pairing and remote messages, not yet a real television."
+  "notes": "It reaches the television on two ports, one to pair and one to send keys. Both are allowed in advance for the address typed into its settings. To pair: fill in the television's address and its network card address (MAC), press Pair Device, then Enter Pin with the code the television shows. Type the MAC yourself: the module looks it up by running programs, which a hub does not allow, and it does not save the pairing if that fails. Needs a hub that keeps what a module saves. Proven against a stand-in for a television, not yet a real one."
 }

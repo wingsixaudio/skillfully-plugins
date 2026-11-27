@@ -235,6 +235,13 @@ async function planned(): Promise<{ ids: string[]; why: string }> {
   if (Deno.args.includes("--all")) return { ids: sound.map((e) => e.entry.id), why: "every entry" };
   const diff = await run("git", ["diff", "--name-only", `${arg("base")}...HEAD`], ROOT);
   const changed = diff.out.split("\n").map((l) => l.trim()).filter(Boolean);
+  // An entry this change touches that breaks the rules is the change being wrong, and is said so here.
+  // Left out quietly, as an entry nobody touched is, it passed every check and then stopped the store
+  // from being published once it was merged.
+  const broken = entries.filter((e) => changed.includes(e.file) && e.problems.length);
+  if (broken.length) {
+    throw new Error(broken.map((e) => `${e.file}: ${e.problems.join("; ")}`).join("\n"));
+  }
   const mine = sound.filter((e) => changed.includes(e.file)).map((e) => e.entry.id);
   // A change to the tools, the rules or the platform version could change the answer for any entry. Building
   // every entry again would not scale, so a spread of them is built, along with whatever this change touches.
