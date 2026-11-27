@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "rundown-studio",
+  "name": "Rundown Studio Rundown Studio",
+  "description": "The rundown tool for collaborative show planning, cueing, and directing.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-rundown-studio",
+    "commit": "f6622272745b7f1542ed73041b07cd55abc36c70"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

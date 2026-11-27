@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-wireless",
+  "name": "Shure ULX-D, QLX-D",
+  "description": "Controls Shure ULX-D, QLX-D through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-wireless",
+    "commit": "cc8025a2d069f32086b261e8a44e21a90fc4afc6"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "analogway-awj",
+  "name": "Analog Way AWJ Protocol Device, LivePremier",
+  "description": "Module for controlling the Analog Way AWJ protocol devices (LivePremier, Alta 4K, Midra 4K)",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-analogway-awj",
+    "commit": "ce266b0ca2b8c6d5c483b6b7cda4411c3232234f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

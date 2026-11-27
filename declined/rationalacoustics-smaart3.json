@@ -1,0 +1,9 @@
+{
+  "id": "rationalacoustics-smaart3",
+  "repo": "https://github.com/bitfocus/companion-module-rationalacoustics-smaart3",
+  "commit": "aeab0222e24a6a42679f76a5cb7d2b82b4ed40a3",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

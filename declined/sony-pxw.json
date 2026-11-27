@@ -1,0 +1,9 @@
+{
+  "id": "sony-pxw",
+  "repo": "https://github.com/bitfocus/companion-module-sony-pxw",
+  "commit": "5c94780d4c12de65d0a9922f2947712578073b17",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

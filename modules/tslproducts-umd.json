@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tslproducts-umd",
+  "name": "TSL Products UMD protocol",
+  "description": "TSL protocol plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tslproducts-umd",
+    "commit": "cdf2a1a25cec6dd36cb9395884dcb14448c71497"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

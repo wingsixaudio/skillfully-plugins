@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sounddevices-pixnet",
+  "name": "Sound Devices PIXNET",
+  "description": "Module to control Video Devices PIX250i/260i/270i and Sound Devices 970 via Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sounddevices-pixnet",
+    "commit": "accb03c2a718a78fdd7048ae915b20411bfa35f0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

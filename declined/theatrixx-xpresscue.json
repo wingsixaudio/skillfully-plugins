@@ -1,0 +1,9 @@
+{
+  "id": "theatrixx-xpresscue",
+  "repo": "https://github.com/bitfocus/companion-module-theatrixx-xpresscue",
+  "commit": "27d1af906b5117eb1f659beab69ae7e46cae8abb",
+  "why": "build",
+  "detail": "the bundled library component-bind 1.0.0 is under \"no license\", which the store does not hand out",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

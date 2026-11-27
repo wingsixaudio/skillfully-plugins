@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-chargers",
+  "name": "Shure SBRC, SBC220",
+  "description": "Controls Shure SBRC, SBC220 through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-chargers",
+    "commit": "be46b070be193b812b15470f601d9a420823cbe3"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

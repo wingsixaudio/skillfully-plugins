@@ -1,0 +1,9 @@
+{
+  "id": "samsung-smarttv",
+  "repo": "https://github.com/bitfocus/companion-module-samsung-smarttv",
+  "commit": "c3fb61b3cfd3152e137310365edcb1983166b85e",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

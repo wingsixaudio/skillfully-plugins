@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "red-rcp2",
+  "name": "RED RCP2 Camera Control",
+  "description": "RCP2 Red Camera Control via websocket",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-red-rcp2",
+    "commit": "58882a86a58a055422c6e2c3ebd89a2ef738abec"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

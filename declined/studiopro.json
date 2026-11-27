@@ -1,0 +1,9 @@
+{
+  "id": "studiopro",
+  "repo": "https://github.com/bitfocus/companion-module-quicklink-studiopro",
+  "commit": "41b47ab56d7d30ea1c79b2a7cfcb9213f57bc5c4",
+  "why": "build",
+  "detail": "listing what gets bundled failed: ' .wasm\\n' + \"\\x1B[1m\\x1B[31m /tmp/store-ee1ae50085049249/src/node_modules/i2c-bus.wasm doesn't exist\\x1B[39m\\x1B[22m\\n\" + ' .html\\n' + \"\\x1B[1m\\x1B[31m /tmp/store-ee1ae50085049249/src/node_modules/i2c-bus.html doesn't exist\\x1B[39m\\x1B[22m\\n\" + ' .css\\n' + \"\\x1B[1m",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

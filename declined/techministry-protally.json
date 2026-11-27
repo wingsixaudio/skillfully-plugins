@@ -1,0 +1,9 @@
+{
+  "id": "techministry-protally",
+  "repo": "https://github.com/bitfocus/companion-module-techministry-protally",
+  "commit": "28b8bb7f96e95acb5e08015fbeaab1c38f502a81",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sony-visca",
+  "name": "Sony VISCA, BRC-H780",
+  "description": "Module to control PTZ cameras with Sony VISCA protocol over IP",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sony-visca",
+    "commit": "12157fc252b41c705e175c507d63045a3f35cfd7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

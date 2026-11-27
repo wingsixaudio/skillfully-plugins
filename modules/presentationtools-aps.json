@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "presentationtools-aps",
+  "name": "PresentationTools Auto Presentation Switcher",
+  "description": "Module to control Auto Presentation Switcher",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-presentationtools-aps",
+    "commit": "1f25764523d28b11d845485de0ff9c8f2ce86b95"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

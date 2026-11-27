@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "spotify-remote",
+  "name": "Spotify Web API and Controller",
+  "description": "Control Spotify playback and devices using the Spotify Web API and Controller.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-spotify-remote",
+    "commit": "b7a726058967d57095d505de8b104d0dd499d862"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

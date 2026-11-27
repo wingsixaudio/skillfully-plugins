@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-cisco-roomos",
   "commit": "76af4ef899d3e209898a457de4b50ce13e427d48",
   "why": "build",
-  "detail": "listing what gets bundled failed: ompiled with [1m [31m1 error [39m [22m and [1m [33m3 warnings [39m [22m in 1019 ms at EventEmitter.end (/tmp/store-89b097b664ef0848/src/node_modules/zx/build/core.cjs:587:26) at EventEmitter.emit (node:events:531:35) at ChildProcess.<anonymous> (/tmp/store-89b097b66",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "detail": "listing what gets bundled failed: Module not found: Error: Can't resolve 'utf-8-validate' in '/tmp/store-7879ac05bfae2c81/src/node_modules/jsxapi/node_modules/ws/lib' Module not found: Error: Can't resolve './crypto/build/Release/sshcrypto.node' in '/tmp/store-7879ac05bfae2c81/src/node_modules/ssh2/",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

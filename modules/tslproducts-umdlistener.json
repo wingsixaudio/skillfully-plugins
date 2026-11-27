@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tslproducts-umdlistener",
+  "name": "TSL Products UMD Listener",
+  "description": "Listens to incoming TSL UMD data.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tslproducts-umdlistener",
+    "commit": "25a3248deb723425a208dca58b4e8c959dfd7f9c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

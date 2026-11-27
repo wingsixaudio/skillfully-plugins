@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tascam-bdmp1",
+  "name": "Tascam BD-MP1",
+  "description": "TASCAM BD-MP1 Blu-Ray Player",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tascam-bdmp1",
+    "commit": "fbb08a26c0dab461d70d82a605fc4a114b6e0452"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

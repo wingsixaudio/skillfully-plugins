@@ -1,0 +1,9 @@
+{
+  "id": "videocom-zoom-bridge",
+  "repo": "https://github.com/bitfocus/companion-module-videocom-zoom-bridge",
+  "commit": "eda0a10740b71bdcd8cb8b85a512dbc341312a38",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

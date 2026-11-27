@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "softron-mreplay",
+  "name": "Softron M|Replay",
+  "description": "Module to control M|Replay",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-softron-mreplay",
+    "commit": "be2fa4bc833cdc2cc6ee41b35ff6d8b1ccf8b61d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

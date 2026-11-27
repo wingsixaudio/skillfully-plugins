@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vicreo-broadcast-titles",
+  "name": "VICREO Broadcast Titles",
+  "description": "Control VICREO Broadcast Titles graphics software via WebSocket API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vicreo-broadcast-titles",
+    "commit": "41719d66a0b69d8b9f9b997e90252b04f04429ce"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

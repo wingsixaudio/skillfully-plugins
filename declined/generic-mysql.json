@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-generic-mysql",
   "commit": "05d383f94ed5d3319a6a485f2ee023cef7e66e0f",
   "why": "build",
-  "detail": "the bundled library seq-queue 0.0.5 is under \"no license\", which the store does not hand out",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "detail": "the bundled library seq-queue 0.0.5 carries a license text of its own that the store does not recognize, so a person has to read it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

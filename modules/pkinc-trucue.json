@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "pkinc-trucue",
+  "name": "PK Inc TRUCUE",
+  "description": "Control the TRUCUE video playout app for macOS over OSC",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-pkinc-trucue",
+    "commit": "5c4936ce2b84894d93f0d3a3a818553046045bdd"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

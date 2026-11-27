@@ -1,0 +1,9 @@
+{
+  "id": "shelly-ws",
+  "repo": "https://github.com/bitfocus/companion-module-shelly-ws",
+  "commit": "afab77c57fefd95a33a9537ab86591f277072ce4",
+  "why": "license",
+  "detail": "it carries no license text to pass on with it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

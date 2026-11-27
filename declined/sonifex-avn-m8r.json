@@ -1,0 +1,9 @@
+{
+  "id": "sonifex-avn-m8r",
+  "repo": "https://github.com/bitfocus/companion-module-sonifex-avn-m8r",
+  "commit": "3becfac99f56c226e3b1c63ea53a617ff2c3a0c2",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

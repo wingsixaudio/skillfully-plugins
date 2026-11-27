@@ -1,0 +1,9 @@
+{
+  "id": "seervision-suite",
+  "repo": "https://github.com/bitfocus/companion-module-seervision-suite",
+  "commit": "86d435a22b5af22331e45ce8a9bac8c7858caca8",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

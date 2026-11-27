@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "techministry-beacon",
+  "name": "Tech Ministry Beacon",
+  "description": "Controls Tech Ministry Beacon through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-techministry-beacon",
+    "commit": "9de39dd16eba395f0cb130156e28930dc3b8c467"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

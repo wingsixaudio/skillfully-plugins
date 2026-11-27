@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "vhd-vx61xl",
+  "name": "VHD VX61XL, V60",
+  "description": "Control the VHD VX61XL / V60 family PTZ cameras over VISCA/IP (TCP, port 5678 by default).",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-vhd-vx61xl",
+    "commit": "777eecb2976b4ddd66cbeaeed9fed2dfbc6baced"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

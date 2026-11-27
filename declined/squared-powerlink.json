@@ -1,0 +1,9 @@
+{
+  "id": "squared-powerlink",
+  "repo": "https://github.com/bitfocus/companion-module-squared-powerlink",
+  "commit": "bc95420a9f0b0e9298bd0528e3753daf65f4421f",
+  "why": "build",
+  "detail": "listing what gets bundled failed: LICENSE ERROR: Dependency expand-template@1.1.1 has license declaration WTFPL which is not compatible with the MIT license policy. License validation failed with 1 error.",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

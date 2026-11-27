@@ -1,0 +1,9 @@
+{
+  "id": "smartpi-eye",
+  "repo": "https://github.com/bitfocus/companion-module-smartpi-eye",
+  "commit": "711cb8ce3cd99a2237cdfb3fb0a6d96bdcd39ec9",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-mxn5",
+  "name": "Shure MXN-5",
+  "description": "Digital PoE Loudspeaker with Dante",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-mxn5",
+    "commit": "e13eb10acab1d6d9c8b5e67af431f3c1fd7b3ccb"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

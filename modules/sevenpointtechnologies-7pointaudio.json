@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sevenpointtechnologies-7pointaudio",
+  "name": "Seven Point Technologies, LLC 7 Point Audio",
+  "description": "7 Point Audio plugin for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sevenpointtechnologies-7pointaudio",
+    "commit": "e67e9712b471d8c158cb2d47a82f159f11b67150"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

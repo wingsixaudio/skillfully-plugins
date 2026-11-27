@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "resi-studio",
+  "name": "Resi Studio",
+  "description": "Control Resi Studio and start a resilient stream.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-resi-studio",
+    "commit": "22159fdc7ab57728ec98eab85da021390a3c5a92"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

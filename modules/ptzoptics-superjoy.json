@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ptzoptics-superjoy",
+  "name": "PTZ Optics SuperJoy",
+  "description": "PTZ Optics SuperJoy Controller",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ptzoptics-superjoy",
+    "commit": "88ecd78fe542d4622bb61f5ebd9bc0813f95576a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

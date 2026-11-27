@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "smokotnin-opensoundmeter",
+  "name": "Pavel Smokotnin Open Sound Meter",
+  "description": "Import Open Sound Meter level data into Companion using the Open Sound Meter API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-smokotnin-opensoundmeter",
+    "commit": "18ccd1c3a6f344b62b6e0c4cac8e9820f55617db"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

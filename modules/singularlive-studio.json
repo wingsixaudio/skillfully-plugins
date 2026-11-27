@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "singularlive-studio",
+  "name": "Singular.Live Studio",
+  "description": "Control Singular.Live Studio",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-singularlive-studio",
+    "commit": "a8541ecae6b42f5dc19f977d24567347911bbd51"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

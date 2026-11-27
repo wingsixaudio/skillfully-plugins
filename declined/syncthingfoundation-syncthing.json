@@ -1,0 +1,9 @@
+{
+  "id": "syncthingfoundation-syncthing",
+  "repo": "https://github.com/bitfocus/companion-module-syncthingfoundation-syncthing",
+  "commit": "ae19f13171bbaeaae1d42e4e93b6b5e2b48c2c2e",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

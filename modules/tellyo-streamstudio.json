@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tellyo-streamstudio",
+  "name": "Tellyo Stream Studio",
+  "description": "Module to control Tellyo Stream Studio instances through Studio Controller",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tellyo-streamstudio",
+    "commit": "ae8bc3b47d7bbab4530e5b8477475a244c39b570"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pnh-soundr",
+  "repo": "https://github.com/bitfocus/companion-module-pnh-soundr",
+  "commit": "7b51416ae7478b9b2ddabf055f7f932b86620b87",
+  "why": "license",
+  "detail": "it names the license \"LGPL-3.0\", which is not one that lets copies be passed on",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

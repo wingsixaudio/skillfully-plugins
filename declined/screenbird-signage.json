@@ -1,0 +1,9 @@
+{
+  "id": "screenbird-signage",
+  "repo": "https://github.com/bitfocus/companion-module-screenbird-signage",
+  "commit": "cce4dca75dc410280a32394d840c231cfe96b9e3",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

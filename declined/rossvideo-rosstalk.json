@@ -1,0 +1,9 @@
+{
+  "id": "rossvideo-rosstalk",
+  "repo": "https://github.com/bitfocus/companion-module-rossvideo-rosstalk",
+  "commit": "160094e6df827f5c8113f79a24ab2b64a6aca6e2",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

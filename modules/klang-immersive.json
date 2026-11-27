@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "klang-immersive",
+  "name": "Klang Immersive, Konductor",
+  "description": "Klang Immersive module for remote control",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-klang-immersive",
+    "commit": "0eb5d58e0ec19b1cf2d06d0cf35895754768152c"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

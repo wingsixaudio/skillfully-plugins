@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "uts-remotevolume",
+  "name": "UTS Remote Volume",
+  "description": "Remote control the volume of Macs, Windows and Linux PCs",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-uts-remotevolume",
+    "commit": "0de4c24d3a5eb853c45bbaecb78bbf16c853a260"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

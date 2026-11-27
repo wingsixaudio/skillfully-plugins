@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "videopathe-qplayer",
+  "name": "Videopathe QPlayer",
+  "description": "Control both QPlayer Players through its HTTP and WebSocket API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-videopathe-qplayer",
+    "commit": "c3d9da971a891434ddf2374fb2eea0ba2271b6e8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

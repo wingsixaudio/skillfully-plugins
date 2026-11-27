@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tplink-kasasmartbulb",
+  "name": "TP-Link Kasa Smart Bulb",
+  "description": "Companion module for TP-Link Kasa Smart Bulbs",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tplink-kasasmartbulb",
+    "commit": "fd85abaf905236e32a1abed40e3f1b77dcbeec52"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

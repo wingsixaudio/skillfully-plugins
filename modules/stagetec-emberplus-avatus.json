@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "stagetec-emberplus-avatus",
+  "name": "STAGETEC Official Ember+ Avatus",
+  "description": "StageTec Official Ember+ module specific to Avatus for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-stagetec-emberplus-avatus",
+    "commit": "9e5ac17528298ad70c33907696dc8e2a7c8515b5"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

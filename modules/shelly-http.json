@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shelly-http",
+  "name": "Shelly Shelly 1, Shelly 2.5",
+  "description": "Controls Shelly Shelly 1, Shelly 2.5 through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shelly-http",
+    "commit": "012b4157094c3dfb87015a0cc946322ed06972d4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

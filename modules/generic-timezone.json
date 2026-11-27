@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "generic-timezone",
+  "name": "Generic Timezone",
+  "description": "Displays the current time in a timezone of your choice.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-generic-timezone",
+    "commit": "546f0da6d18423f43014715edae2297ee1352fbc"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

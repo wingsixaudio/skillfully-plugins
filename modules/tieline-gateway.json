@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tieline-gateway",
+  "name": "Tieline Gateway, Via",
+  "description": "This module controls the tieline 8 and 16ch codec. It has been developed during the Paris 2024 Olympics, so I have only implemented controlling the headphone output because I didn't dare doing anything with the outputs, because we where broadcasting on the codec constantly",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tieline-gateway",
+    "commit": "484020c8d177607b2a98584147cc31ef682488b4"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

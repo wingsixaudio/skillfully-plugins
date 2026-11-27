@@ -1,0 +1,9 @@
+{
+  "id": "thingm-blink1",
+  "repo": "https://github.com/bitfocus/companion-module-thingm-blink1",
+  "commit": "472d3f9b25259399ecedd02e30c3ca3fddbe06aa",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

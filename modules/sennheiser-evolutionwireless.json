@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "sennheiser-evolutionwireless",
+  "name": "Sennheiser Evolution Wireless, SR 2000 IEM",
+  "description": "Control Sennheiser Evolution Wireless Units",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-sennheiser-evolutionwireless",
+    "commit": "4ab05292d9a8596054b5273588babcc687668a57"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

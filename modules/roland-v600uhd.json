@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roland-v600uhd",
+  "name": "Roland V-600UHD",
+  "description": "Controls Roland V-600UHD through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roland-v600uhd",
+    "commit": "8a7ed348197f32cec68160297b4c3ac44bbdcb5a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -4,6 +4,6 @@
   "commit": "1b2b7dd6e89307db1fb1592e7be9ba460e812cb4",
   "why": "build",
   "detail": "the bundled library lutron-leap 3.4.2 is under \"GPL-3.0\", which the store does not hand out",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

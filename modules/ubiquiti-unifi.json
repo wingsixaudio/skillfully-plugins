@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "ubiquiti-unifi",
+  "name": "Ubiquiti Unifi, USW",
+  "description": "Module to control UniFi network equipment",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-ubiquiti-unifi",
+    "commit": "de665d0b8958358d594f4e32e900578ed6f4347a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

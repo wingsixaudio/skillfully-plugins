@@ -1,0 +1,9 @@
+{
+  "id": "roland-m5000",
+  "repo": "https://github.com/bitfocus/companion-module-roland-m5000",
+  "commit": "022c28487a71a6517eedaf095f097bf38dd3136a",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

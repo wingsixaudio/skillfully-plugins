@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "syncer-live",
+  "name": "Zusor Syncer.live",
+  "description": "Remotely control syncer.live",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-syncer-live",
+    "commit": "835bb0b11d3d0d4b30e6676c450780b24e8b6303"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

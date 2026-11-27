@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "smartptz-remotecontrol",
+  "name": "smartPTZ Remote Control",
+  "description": "Our bitfocus module",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-smartptz-remotecontrol",
+    "commit": "07cf545f6d648a76b2ab8f446f0ebc4e4ea5363a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

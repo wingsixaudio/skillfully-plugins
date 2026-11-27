@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tasmota-http",
+  "name": "Tasmota HTTP",
+  "description": "Control Tasmota devices using HTTP requests",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tasmota-http",
+    "commit": "5274610a22d792bf2612a9bcc5fdef58f129f287"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

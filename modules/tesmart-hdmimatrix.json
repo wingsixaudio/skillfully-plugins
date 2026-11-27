@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tesmart-hdmimatrix",
+  "name": "TESMART HDMI Matrix (multiple variants)",
+  "description": "Controls the TESMART HDMI matrix switcher",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tesmart-hdmimatrix",
+    "commit": "da4b6a01f2ee758dee4b0329a98b7ffe77a192b7"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,9 +1,0 @@
-{
-  "id": "kommander-t3",
-  "repo": "https://github.com/bitfocus/companion-module-kommander-t3",
-  "commit": "9bd0dabfb0b067f403c3c9f73fd8d6c0aafa82fc",
-  "why": "build",
-  "detail": "listing what gets bundled failed: at maybeClose (node:internal/child_process:1101:16) at ChildProcess._handle.onexit (node:internal/child_process:304:5) at Process.callbackTrampoline (node:internal/async_hooks:130:17) { _code: 1, _signal: null, _stdout: 'yarn run v1.22.22\\n' + 'info Visit https://ya",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
-}

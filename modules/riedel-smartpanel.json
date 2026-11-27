@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "riedel-smartpanel",
+  "name": "Riedel Communications Smart Panel",
+  "description": "Control Riedel Smart Panel via WebSocket",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-riedel-smartpanel",
+    "commit": "ec7f68eb72c62c18c78b5ed207c329e64aca8ac0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "tascam-cd",
+  "name": "Tascam SS-CDR250N, SS-R250N",
+  "description": "Bitfocus Companion module for the Tascam SS-CDR250N and SS-R250N",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-tascam-cd",
+    "commit": "31c33e071ed1053dad6439269a8ec4c6750b5ede"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

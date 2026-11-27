@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roku-tv",
+  "name": "Roku TV",
+  "description": "Controls Roku TV through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roku-tv",
+    "commit": "771949df97e0e1d753dff0619c149daeaad13f9f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

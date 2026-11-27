@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "samsung-display",
+  "name": "Samsung MD Display",
+  "description": "Samsung Display",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-samsung-display",
+    "commit": "d386714875c4765e0da0580082fe0019ef128d47"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

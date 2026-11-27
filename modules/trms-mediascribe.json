@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "trms-mediascribe",
+  "name": "Tightrope Media Systems MediaScribe",
+  "description": "Allows control of TRMS MediaScribe appliances.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-trms-mediascribe",
+    "commit": "f5557f0da4ca3fc6a2bd7733ef0d61bde44c3b89"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

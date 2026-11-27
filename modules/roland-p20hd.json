@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roland-p20hd",
+  "name": "Roland P-20HD",
+  "description": "Controls Roland P-20HD through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roland-p20hd",
+    "commit": "b028447a27f15a499f33dd15d7e2c28645e33b7a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

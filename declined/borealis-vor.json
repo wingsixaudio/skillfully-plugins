@@ -3,7 +3,7 @@
   "repo": "https://github.com/bitfocus/companion-module-borealis-vor",
   "commit": "f57f5267a25906ae733f46717f92e30fd930373f",
   "why": "build",
-  "detail": "the bundled library binpack 0.1.0 is under \"no license\", which the store does not hand out",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
+  "detail": "the bundled library binpack 0.1.0 carries a license text of its own that the store does not recognize, so a person has to read it",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
 }

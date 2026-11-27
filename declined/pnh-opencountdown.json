@@ -1,0 +1,9 @@
+{
+  "id": "pnh-opencountdown",
+  "repo": "https://github.com/bitfocus/companion-module-pnh-opencountdown",
+  "commit": "8e509d2aa394bd3da740ad6c30b646f9407da4a1",
+  "why": "license",
+  "detail": "it names the license \"LGPL-3.0\", which is not one that lets copies be passed on",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

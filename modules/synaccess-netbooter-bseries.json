@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "synaccess-netbooter-bseries",
+  "name": "Synaccess Networks NP-02B, NP-02BH",
+  "description": "Control Synaccess netBooter B Series PDUs (NP-02B/NP-05B) via HTTP GET cmd.cgi (Basic Auth)",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-synaccess-netbooter-bseries",
+    "commit": "beeaa36ae73076568b964009872d9a9d15f81ff9"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

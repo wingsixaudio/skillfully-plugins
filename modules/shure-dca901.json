@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "shure-dca901",
+  "name": "Shure DCA901",
+  "description": "Controls Shure DCA901 through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-shure-dca901",
+    "commit": "7b52d06618906f8b7f8a021c40fbc05778ce1f64"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "smodetech-smodelive",
+  "name": "Smode Smode Live",
+  "description": "Smode Live module for companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-smodetech-smodelive",
+    "commit": "9b376eb948148001e63942eba631a60ef254e881"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

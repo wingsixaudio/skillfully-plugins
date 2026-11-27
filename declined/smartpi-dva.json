@@ -1,0 +1,9 @@
+{
+  "id": "smartpi-dva",
+  "repo": "https://github.com/bitfocus/companion-module-smartpi-dva",
+  "commit": "18073b4d4ab9d7d449b02d46b00afebc0b8e60e8",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

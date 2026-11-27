@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "rgblink-vsp628pro",
+  "name": "RGBlink VSP 628pro",
+  "description": "Controls RGBlink VSP 628pro through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-rgblink-vsp628pro",
+    "commit": "cb9d0b5b0536cbda2f4fad130cf56b1bf48993bc"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

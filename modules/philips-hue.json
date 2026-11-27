@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "philips-hue",
+  "name": "Philips Philips Hue",
+  "description": "Philips Hue module for Companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-philips-hue",
+    "commit": "c9e3aa17c761629fbc433495e97b22ba66e30fe8"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

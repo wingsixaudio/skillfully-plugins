@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "restream-api",
+  "name": "Restream API",
+  "description": "Update Channel Configuration via the Restream API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-restream-api",
+    "commit": "0c92e4f832a6ae7a45c2ad8f1a1e08f554ccb69e"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

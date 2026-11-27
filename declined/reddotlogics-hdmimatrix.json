@@ -1,0 +1,9 @@
+{
+  "id": "reddotlogics-hdmimatrix",
+  "repo": "https://github.com/bitfocus/companion-module-reddotlogics-hdmimatrix",
+  "commit": "36080f724501b679215dbf769d2769c5c06c7b95",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

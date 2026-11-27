@@ -1,0 +1,9 @@
+{
+  "id": "sony-bravia-simpleip",
+  "repo": "https://github.com/bitfocus/companion-module-sony-bravia-simpleip",
+  "commit": "33dad1226bcb934dc13fba0c72edd703e0f8b9e8",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

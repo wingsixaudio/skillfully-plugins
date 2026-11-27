@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "simonhyde-piclock",
+  "name": "Simon Hyde PiClock",
+  "description": "Module for controlling Simon Hyde's PiClock",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-simonhyde-piclock",
+    "commit": "84f12a7540570cc7bcdd08a917a31a0587b0f610"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

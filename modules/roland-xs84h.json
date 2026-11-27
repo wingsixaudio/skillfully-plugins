@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "roland-xs84h",
+  "name": "Roland XS-82H, XS-83H",
+  "description": "Controls Roland XS-82H, XS-83H through its Bitfocus Companion module.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-roland-xs84h",
+    "commit": "0c11dab1c84b52e00001d0f3ebb2ae9b69650f17"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

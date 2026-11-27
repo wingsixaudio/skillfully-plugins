@@ -1,9 +1,0 @@
-{
-  "id": "dreamchip-visca",
-  "repo": "https://github.com/bitfocus/companion-module-dreamchip-visca",
-  "commit": "ca0e5223fe4bfc1b2c6d4fe44c31e43e537aaa11",
-  "why": "build",
-  "detail": "this is not a Companion module package: the package holds something that is not a plain file (pkg/node_modules/.bin/node-which)",
-  "checked": "2026-11-26",
-  "ground": "d18e2c2258dee9e8"
-}
