@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "wearefalcon-falconplay",
+  "name": "We Are Falcon Falcon Play",
+  "description": "Control Falcon Play Server via its REST API",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-wearefalcon-falconplay",
+    "commit": "eaa32b94394d06a69073baad60ee0a6170e00bfd"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

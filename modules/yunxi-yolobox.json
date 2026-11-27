@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "yunxi-yolobox",
+  "name": "YoloLiv YoloBox",
+  "description": "Control YoloBox streaming devices via WebSocket",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-yunxi-yolobox",
+    "commit": "98509b642b5515edeca7e863be470ab03fc29b36"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "warecotech-warecue",
+  "name": "WareCo.Tech WareCue",
+  "description": "Scene playout and multi-display show control for WareCue",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-warecotech-warecue",
+    "commit": "e78a10887e7b566290aa64798bbce511b2b43c4a"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

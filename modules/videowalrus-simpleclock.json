@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "videowalrus-simpleclock",
+  "name": "Video Walrus SimpleClock",
+  "description": "Control SimpleClock presentation countdown timer",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-videowalrus-simpleclock",
+    "commit": "977fce187de7fb9dfb8438b6b47ab63c8bae565d"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

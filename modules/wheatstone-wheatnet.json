@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "wheatstone-wheatnet",
+  "name": "Wheatstone WheatNet IP",
+  "description": "communicate with Wheatstone I/O Blades using TCP connection.",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-wheatstone-wheatnet",
+    "commit": "f4dec595c56add6d12fa37594d6a4ec5aeb5ed1f"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

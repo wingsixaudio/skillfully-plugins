@@ -1,0 +1,9 @@
+{
+  "id": "vizio-smartcast",
+  "repo": "https://github.com/bitfocus/companion-module-vizio-smartcast",
+  "commit": "43142b59ee9d997f45eede2f589693dff62876a6",
+  "why": "build",
+  "detail": "the bundled library json-schema 0.2.3 is under \"AFLv2.1 OR BSD\", which the store does not hand out",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

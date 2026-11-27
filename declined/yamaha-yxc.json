@@ -1,0 +1,9 @@
+{
+  "id": "yamaha-yxc",
+  "repo": "https://github.com/bitfocus/companion-module-yamaha-yxc",
+  "commit": "ea8120ba5cbc6a5a65f0846eb444ece4a3d9ee86",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

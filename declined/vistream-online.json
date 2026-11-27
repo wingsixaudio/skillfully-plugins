@@ -1,0 +1,9 @@
+{
+  "id": "vistream-online",
+  "repo": "https://github.com/bitfocus/companion-module-vistream-online",
+  "commit": "d7f45c8a21feba56fc7ed3186275e60f7b443c51",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

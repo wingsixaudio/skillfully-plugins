@@ -1,0 +1,9 @@
+{
+  "id": "youtube-live",
+  "repo": "https://github.com/bitfocus/companion-module-youtube-live",
+  "commit": "f1f4964a1061f41c56dfdbf295b21e1d4b3ec642",
+  "why": "build",
+  "detail": "the bundled library url-template 2.0.8 is under \"BSD\", which the store does not hand out",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

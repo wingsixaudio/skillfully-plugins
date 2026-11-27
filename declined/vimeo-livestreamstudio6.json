@@ -1,0 +1,9 @@
+{
+  "id": "vimeo-livestreamstudio6",
+  "repo": "https://github.com/bitfocus/companion-module-vimeo-livestreamstudio6",
+  "commit": "7e494ee4f43b1bb054d97a3dcaa375d129a7374f",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

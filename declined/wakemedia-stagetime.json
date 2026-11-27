@@ -1,0 +1,9 @@
+{
+  "id": "wakemedia-stagetime",
+  "repo": "https://github.com/bitfocus/companion-module-wakemedia-stagetime",
+  "commit": "8a34665dc38ba7c5b25497535d33c9d332b03bbd",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

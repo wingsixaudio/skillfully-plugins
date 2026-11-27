@@ -1,0 +1,9 @@
+{
+  "id": "vystem-api",
+  "repo": "https://github.com/bitfocus/companion-module-vystem-api",
+  "commit": "60ec6248ab055e0acfe697638f54a84cb7f58129",
+  "why": "entry",
+  "detail": "it has no manifest that can be read, so it is not a module of the kind the store lists",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

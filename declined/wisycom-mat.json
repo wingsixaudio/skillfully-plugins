@@ -1,0 +1,9 @@
+{
+  "id": "wisycom-mat",
+  "repo": "https://github.com/bitfocus/companion-module-wisycom-mat",
+  "commit": "70ebcb0a9ebe26d02d46c708edda8cbca6e9a5a1",
+  "why": "api",
+  "detail": "it is built on version 2 of Companion's module base, and the hub runs modules built on version 1",
+  "checked": "2026-11-27",
+  "ground": "b002d7f6e90cf863"
+}

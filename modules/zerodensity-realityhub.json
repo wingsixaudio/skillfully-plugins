@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "zerodensity-realityhub",
+  "name": "Zerodensity RealityHub 1.3",
+  "description": "zerodensity-realityhub",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-zerodensity-realityhub",
+    "commit": "697abb5a5fa15a62804d9c1fdf6d593b03372597"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}

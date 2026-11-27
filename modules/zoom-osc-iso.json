@@ -1,0 +1,13 @@
+{
+  "kind": "companion-module",
+  "id": "zoom-osc-iso",
+  "name": "Zoom OSC/ISO",
+  "description": "ZoomOSC and ZoomISO plugin for companion",
+  "source": {
+    "repo": "https://github.com/bitfocus/companion-module-zoom-osc-iso",
+    "commit": "f1a8fac03afb59d2c6a4b9be8f8d2f177f44d6b0"
+  },
+  "network": [],
+  "tested": "starts",
+  "notes": "Added from its author's catalog without anyone studying it. It allows nothing in advance, so a hub asks before it reaches anything."
+}
